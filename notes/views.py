@@ -13,7 +13,7 @@ from django.db import IntegrityError
 from notes.models import *
 from notes.forms import *
 from glossary.models import *
-#from revision.models import *
+from revision.models import *
 
 @login_required
 def dashboard(request):
@@ -22,11 +22,11 @@ def dashboard(request):
     latest_entries = Entry.objects.filter(subtopic__topic__course__student_id=student.id)
     
     today = timezone.now().date()
-#    objectives = Objective.objects.filter(end_date__gte=today, start_date__lte=today, complete=False)
+    objectives = Objective.objects.filter(end_date__gte=today, start_date__lte=today, complete=False)
     
     template_path = "notes/dashboard.html"
     context = {"student": student,
-      "latest_entries" : latest_entries,  "student": student, "courses" : courses}
+      "latest_entries" : latest_entries,  "student": student, "courses" : courses, "objectives": objectives}
     return render(request, template_path, context)
     
 
