@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "notes",
     "glossary",
     "revision",
+    'journal',
     # 3rd party
     "django_bootstrap5",
     "django.contrib.postgres",
