@@ -1,0 +1,41 @@
+<!-- base.html -->
+{% load django_bootstrap5 %}
+{% load static %}
+{% load notes_tags %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if "glossary" in request.path %}
+    <link rel="icon" type="image/x-icon" href="{% static 'glossary_favicon.ico' %}">
+    {% elif "revision" in request.path %}
+    <link rel="icon" type="image/x-icon" href="{% static 'revision_favicon.ico' %}">
+    {% else %}
+    <link rel="icon" type="image/x-icon" href="{% static 'notes_favicon.ico' %}">
+    {% endif %}
+
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <small>
+        You can read it on the site
+        <bold>
+            <a class="fw-bold" href="{{ entry_url }}">
+                here
+            </a>
+        </bold>
+    </small>
+    <hr>
+    <br>
+    
+    <h2>{{ entry.name }}</h2>
+    <p>{{ entry.content | markdown }}</p>
+</body>
+
+</html>

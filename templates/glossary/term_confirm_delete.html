@@ -1,0 +1,6 @@
+<p>
+    Are you sure you want to delete term "{{ term.name }}"?
+</p>
+<a class="btn btn-danger" href="{% url 'glossary:delete_term' term.id %}">
+    Delete
+</a>

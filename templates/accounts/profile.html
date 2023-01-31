@@ -1,0 +1,101 @@
+<!-- accounts/profile.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{% if request.user is student %}
+Profile
+{% else %}
+{{ student }}'s profile
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	<section class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+		<div class="card p-4">
+
+			{% if request.user is user %}
+			<a class="btn btn-sm btn-outline-dark float-end m-2" href="{% url 'edit_profile' %}" title="">
+				Edit Profile
+			</a>
+			{% endif %}
+
+			<div class=" image d-flex flex-column justify-content-center align-items-center">
+				{% if profile.photo %}
+				<img src="{{ profile.photo.url }}" alt="..." height="100" width="100" />
+				{% else %}
+				<img src="{% static 'accounts/no-photo-icon.png' %}" alt=".." height="100" width="100">
+				{% endif %}
+				<span class="name mt-3">{{ student.get_full_name }}</span>
+				<span class="idd">@{{ student.get_username }}</span>
+				<div class="d-flex flex-row justify-content-center align-items-center gap-2">
+					<span class="text-muted">
+						<small>{{ student.email }}</small>
+					</span>
+					<span>
+						<i class="fa fa-copy"></i>
+					</span>
+				</div>
+				<div class="d-flex flex-row justify-content-center align-items-center mt-3">
+					<span>
+						<small>{{ profile.course }}</small>
+					</span>
+				</div>
+				<div class=" px-2 rounded mt-4 date ">
+					<span class="join">Joined {{ user.date_joined.date }}</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container my-4 p-3 justify-content-center">
+		<div class="card p-2 align-items-center">
+			<p class="h4">Certifications</p>
+			{% for certification in certifications %}
+			<div class=" d-flex flex-column justify-content-center align-items-center">
+				<span class="">{{ certification }}</span>
+				<small class="text-muted">{{ certification.about }}</small>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="card p-2 align-items-center mt-3">
+			<p class="h4">Coursework</p>
+			{% for module in coursework %}
+			<div class=" d-flex flex-column justify-content-center align-items-center">
+				<span class="">
+				  <h5>{{ module.name }}</h5>
+				  </span>
+				<small class="text-muted">{{ module.about }}</small>
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+<div id="alert button">
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					yoh
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

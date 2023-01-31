@@ -1,0 +1,113 @@
+<!-- revision/search.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load notes_tags %}
+
+{% block title %}Search results{% endblock %}
+
+{% block header %}
+<h1>Search results</h1>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="form-inline my-2 my-lg-0" action="{% url 'notes:search' %}" method="get">
+                <div class="input-group mb-3">
+                    <input class="form-control mr-sm-1" type="search" aria-label="Search" type="text" name="q" placeholder="Search for a term" aria-describedby="search-button-addon2">
+                    <button class="btn btn-outline-success" id="search-button-addon2" type="submit">Search</button>
+                </div>
+            </form>
+
+            {% if objectives %}
+            <div class="my-2">
+                <h2>Objectives</h2>
+
+                    {% for objective in objectives %}
+                    <li class="list-group-item">
+                        <a class="h5" href="{{ objective.get_absolute_url }}">{{ objective.name }}</a>
+                        <p>{{ objective.description | truncatechars:50 | markdown }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if terms %}
+            <div class="my-2">
+                <h2>Terms</h2>
+                <ul class="list-group">
+                    {% for term in terms %}
+                    <li class="list-group-item">
+                        <a class="h5" href="{{ term.get_absolute_url }}">{{ term.name }}</a>
+                        <p>{{ term.definition }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% endif %}
+
+            {% if entries %}
+            <div class="my-2">
+                <h2>Entries</h2>
+                <ul class="list-group">
+                    {% for entry in entries %}
+                    <li class="list-group-item">
+                        <a class="h5" href="{{ entry.get_absolute_url }}">{{ entry.name }}</a>
+                        <p>{{ entry.content | truncatechars:50 | markdown }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+
+            {% if subtopics %}
+            <div class="my-2">
+                <h2>SubTopics</h2>
+                <ul class="list-group">
+                    {% for subtopic in subtopics %}
+                    <li class="list-group-item">
+                        <a class="h5" href="{{ subtopic.get_absolute_url }}">{{ subtopic.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if topics %}
+            <div class="my-2">
+                <h2>Topics</h2>
+                <ul class="list-group">
+                    {% for topic in topics %}
+                    <li class="list-group-item">
+                        <a class="h5" href="{{ topic.get_absolute_url }}">{{ topic.name }}</a>
+                        <p>{{ topic.overview | truncatechars:50 | markdown }}</p>
+                    </li>
+                    {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if courses %}
+            <div class="my-2">
+                <h2>Courses</h2>
+                <ul class="list-group">
+                    {% for course in courses %}
+                    <li class="list-group-item">
+                        <a class="h5" href="{{ course.get_absolute_url }}">{{ course.name }}</a>
+                        <p>{{ course.about | truncatechars:50 | markdown }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if not terms and not entries and not subtopics and not topics and not courses %}
+            <p>No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

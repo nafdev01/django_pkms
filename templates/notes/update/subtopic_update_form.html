@@ -1,0 +1,18 @@
+<!-- notes/subtopic_update_form.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Update Subtopic{% endblock %}
+
+{% block header %}
+<h1>Update subtopic "{{ subtopic }}"</h1>
+<p>Fill on the form fields as required</p>
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+	{% bootstrap_form form %}
+	{% csrf_token %}
+	<input class="btn btn-outline-success" type="submit" value="Save changes">
+</form>
+{% endblock %}

@@ -1,0 +1,6 @@
+<p>
+    Are you sure you want to delete course "{{ course.name }}"?
+</p>
+<a class="btn btn-danger" href="{% url 'notes:delete_course' course.id %}">
+    Delete
+</a>

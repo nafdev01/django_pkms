@@ -1,0 +1,89 @@
+<!-- notes/subtopic_detail.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load notes_tags %}
+
+
+{% block title %}{{ subtopic.name }}{% endblock %}
+
+{% block header %}
+<br>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ subtopic.topic.course.get_absolute_url }}">{{ subtopic.topic.course.course_code }}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ subtopic.topic.get_absolute_url }}">{{ subtopic.topic | truncatechars:25 }}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherSubTopic" role="button" aria-expanded="false" aria-controls="otherSubTopic">
+                {{ subtopic }}
+            </a>
+        </li>
+    </ol>
+</nav>
+
+
+<div class="collapse" id="otherSubTopic">
+    <div class="row g-2">
+        {% for other_subtopic in other_subtopics %}
+        <div class="col">
+            <a class="btn btn-sm btn-outline-dark" href="{{ other_subtopic.get_absolute_url }}">
+                {{ other_subtopic }}
+            </a>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+
+<div class="btn-group m-3">
+    <a class="btn btn-sm btn-outline-success float-right" href="{% url 'notes:create_subtopic' subtopic.topic.id %}">
+        New Subtopic
+    </a>
+    <a class="btn btn-sm btn-outline-warning float-right" href="{% url 'notes:update_subtopic' subtopic.id %}">
+        Update Subtopic
+    </a>
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_subtopic_modal">
+        Delete Subtopic
+    </button>
+</div>
+<div class="modal fade" id="delete_subtopic_modal" tabindex="-1" aria-labelledby="delete_{{ subtopic.slug }}_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include "notes/delete/subtopic_confirm_delete.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="h2 text-center">
+    {{ subtopic.name }}
+</p>
+{% endblock header %}
+
+{% block content %}
+<br>
+<a class="btn btn-sm btn-outline-success float-right m-2" href="{% url 'notes:create_entry' subtopic.id %}">
+    New Entry
+</a>
+<ul class="list-group">
+    {% for entry in entries %}
+    <li class="list-group-item p-2">
+        <p class="h5 text-decoration-underline text-center">
+            {{ entry.name }}
+        </p>
+        <p class="fw-light">
+            {{ entry.content | truncatewords:30 | markdown }}
+        </p>
+        <div class="d-flex align-items-end flex-column">
+            <a class="btn btn-sm btn-primary" href="{{ entry.get_absolute_url }}">
+                Read More
+            </a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

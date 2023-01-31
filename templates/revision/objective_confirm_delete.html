@@ -1,0 +1,6 @@
+<p>
+    Are you sure you want to delete objective "{{ objective.name }}"?
+</p>
+<a class="btn btn-danger" href="{% url 'revision:delete_objective' objective.id %}">
+    Delete
+</a>

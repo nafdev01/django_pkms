@@ -1,0 +1,18 @@
+<!-- notes/entry_create_form.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Create Entry{% endblock %}
+
+{% block header %}
+<h1>Create a new entry</h1>
+<p>Fill on the form fields as required</p>
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+	{% bootstrap_form form %}
+	{% csrf_token %}
+	<input class="btn btn-outline-success" type="submit" value="Save Entry">
+</form>
+{% endblock %}

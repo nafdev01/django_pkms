@@ -1,0 +1,24 @@
+{% if request.user.is_authenticated %}
+<section class="m-1">
+    <a class="btn btn-primary m-2 w-100" data-bs-toggle="collapse" href="#gotocourseshow" role="button" aria-expanded="false" aria-controls="gotocourseshow">
+        Go To Course
+    </a>
+
+    <div class="collapse" id="gotocourseshow">
+        {% for course in courses %}
+        <a class="btn btn-sm btn-outline-dark m-1" href="{{ course.get_absolute_url }}">
+            {{ course.name }}
+        </a>
+        {% empty %}
+        <div>
+            <p>
+                You haven't created any courses yet.
+                <a class="link-sucess" href="{% url 'notes:create_course' %}">
+                    Add Course Here
+                </a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

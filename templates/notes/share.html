@@ -1,0 +1,24 @@
+<!-- revision/search.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load notes_tags %}
+
+{% block title %}Share Entry{% endblock %}
+
+{% block header %}
+<h1>Sharing Entry</h1>
+{% endblock header %}
+
+{% block content %}
+<form method="post" action="share-by-email">
+  <label for="email-address">
+      Recipient's email address:
+      </label>
+  <input type="email" id="email-address" name="email-address">
+  <label for="entry-id">
+      Entry ID:
+      </label>
+  <input type="text" id="entry-id" name="entry-id">
+  <input type="submit" value="Share">
+</form>
+{% endblock content %}

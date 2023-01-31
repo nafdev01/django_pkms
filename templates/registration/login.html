@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}Log in{% endblock %}
+
+{% block header %}<h2 class="">Log In</h2>{% endblock header%}
+
+{% block content %}
+<form class="mb-3" method="post" >
+	{% bootstrap_form form layout='floating' %}
+	{% csrf_token %}
+	<button class="btn btn-lg btn-success" type="submit">Log In</button>
+</form>
+
+<a href="{% url 'password_reset' %}">Forgot your password?</a>
+<br>
+<a href="{% url 'signup' %}">Register</a>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+<!-- accounts/edit_profile -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Edit Your Profile{% endblock %}
+
+{% block content %}
+<h1>Edit Your Profile</h1>
+<p>You can edit your account using the following form:</p>
+<form method="post" enctype="multipart/form-data">
+	{% bootstrap_form student_update_form layout='floating' %}
+	{% bootstrap_form profile_edit_form layout='floating' %}
+	{% csrf_token %}
+	<input class="btn btn-outline-success" type="submit" value="Save changes">
+</form>
+{% endblock %}

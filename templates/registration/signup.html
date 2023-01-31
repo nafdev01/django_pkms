@@ -1,0 +1,22 @@
+<!-- registration/register.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block header %}
+<h1><center>Sign Up</center></h1>
+{% endblock header%}
+
+{% block content %}
+<center>
+	<p class="alert alert-warning">
+		Fill in the required fields as indicated
+	</p>
+</center>
+<form method="post" accept-charset="utf-8">
+	{% bootstrap_form form layout='floating' %}
+	{% csrf_token %}
+	{% bootstrap_button "Add" button_type="submit" button_class="btn-success" %}
+</form>
+{% endblock content%}

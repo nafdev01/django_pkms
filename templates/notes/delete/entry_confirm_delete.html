@@ -1,0 +1,6 @@
+<p>
+    Are you sure you want to delete entry "{{ entry.name }}"?
+</p>
+<a class="btn btn-danger" href="{% url 'notes:delete_entry' entry.id %}">
+    Delete
+</a>

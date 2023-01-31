@@ -1,0 +1,60 @@
+<!-- notes/course_detail.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}{{ course.course_code }}{% endblock %}
+
+{% block header %}
+<div class="btn-group m-3">
+    <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_course' %}">
+        New Course
+    </a>
+    <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_course' course.id %}">
+        Update Course
+    </a>
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_course_modal">
+        Delete Course
+    </button>
+</div>
+<div class="modal fade" id="delete_course_modal" tabindex="-1" aria-labelledby="delete_{{ course.course_code }}_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include "notes/delete/course_confirm_delete.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<p class="h2 text-center">
+    {{ course }}
+</p>
+<p class="text-center text-muted fw-lighter">
+    {{ course.about}}
+</p>
+
+
+{% endblock header %}
+
+{% block content %}
+<a class="btn btn-sm btn-outline-success float-right m-2" href="{% url 'notes:create_topic' course.id %}">
+    New Topic
+</a>
+
+
+<div class="row row-cols-2 g-2">
+    {% for topic in topics %}
+    <div class="col">
+        <div class="card p-2">
+            <p class="card-title">
+                <a href="{{ topic.get_absolute_url }}">
+                    {{ topic }}
+                </a>
+            </p>
+            <small class="card-text text-muted">{{ topic.overview }}</small>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+{% endblock %}

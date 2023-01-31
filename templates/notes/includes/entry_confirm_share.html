@@ -1,0 +1,22 @@
+<div class="container">
+    <p class="text-center">Enter recipients email address below</p>
+    <form id="myForm" method="get" action="{% url 'notes:entry_share' entry.id %}">
+        <div class="form-floating mb-2">
+            <input class="form-control" type="email" name="recipient" id="recipient" required placeholder="Recipient">
+            <label for="to">
+                Recipient
+            </label>
+        </div>
+    </form>
+    <button class="btn btn-success" type="button" id="myButtonCircle" onclick="myButtonCircle(this)">
+        Share
+    </button>
+</div>
+<script type="text/javascript">
+    function myButtonCircle(el) {
+
+        document.getElementById("myButtonCircle").disabled = true;
+        document.getElementById("myButtonCircle").innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>Sending...';
+        document.getElementById("myForm").submit();
+    }
+</script>

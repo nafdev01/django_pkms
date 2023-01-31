@@ -1,0 +1,6 @@
+<p>
+    Are you sure you want to delete topic "{{ topic.name }}"?
+</p>
+<a class="btn btn-danger" href="{% url 'notes:delete_topic' topic.id %}">
+    Delete
+</a>

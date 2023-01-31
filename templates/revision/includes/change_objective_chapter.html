@@ -1,0 +1,5 @@
+{% for course in courses %}
+<a class="btn btn-outline-dark m-1" href="{% url 'revision:update_objective' objective.id course.id %}">
+    {{ course.course_code }}
+</a>
+{% endfor %}

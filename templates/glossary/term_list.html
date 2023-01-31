@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}Glossary{% endblock %}
+
+{% block header %}
+<p class="h2">
+    Glossary
+</p>
+
+<div class="accordion my-1" id="courseAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#courseAccordioncollapse" aria-expanded="true" aria-controls="courseAccordioncollapse">
+                Show Terms in Course
+            </button>
+        </h2>
+        <div id="courseAccordioncollapse" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#courseAccordion">
+            <div class="accordion-body">
+                <a class="btn btn-primary btn-sm m-1" href="{% url 'glossary:term_list' %}">
+                    All
+                </a>
+                {% for course in courses %}
+                <a class="btn btn-primary btn-sm m-1" href="{% url 'glossary:terms_by_course' course_id=course.id slug=course.slug %}">
+                    {{ course.course_code }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock header %}
+
+{% block content %}
+<div>
+    <a href="{% url 'glossary:create_term' %}" class="btn btn-outline-success">
+        Create Term
+    </a>
+</div>
+<div class="container-fluid">
+    <div class="row row-cols-2">
+        {% for term in terms %}
+        <div class="col">
+            <div class="card m-1 p-2">
+                <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapse{{ term.slug }}" role="button" aria-expanded="false" aria-controls="collapse{{ term.slug }}">
+                    {{ term.name }}
+                </a>
+                <div class="collapse" id="collapse{{ term.slug }}">
+                    <div class="card-body">
+                        {{ term.definition }}
+                    </div>
+                </div>
+                
+<div class="btn-group m-3 float-end">
+    <a class="btn btn-sm btn-outline-warning" href="{% url 'glossary:update_term' term.id %}">
+        Update
+    </a>
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_term_modal">
+        Delete
+    </button>
+</div>
+<div class="modal fade" id="delete_term_modal" tabindex="-1" aria-labelledby="delete_{{ term.slug }}_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include "glossary/term_confirm_delete.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
