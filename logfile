@@ -1,0 +1,13 @@
+2023-01-31 23:11:50.574 EAT [18061] LOG:  starting PostgreSQL 15.1 on arm-unknown-linux-androideabi, compiled by Android (8490178, based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6), 32-bit
+2023-01-31 23:11:50.577 EAT [18061] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-01-31 23:11:50.582 EAT [18061] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2023-01-31 23:11:50.664 EAT [18066] LOG:  database system was interrupted; last known up at 2023-01-31 22:58:04 EAT
+2023-01-31 23:11:50.844 EAT [18066] LOG:  database system was not properly shut down; automatic recovery in progress
+2023-01-31 23:11:50.851 EAT [18066] LOG:  redo starts at 0/1EAED70
+2023-01-31 23:11:50.851 EAT [18066] LOG:  invalid record length at 0/1EAEE58: wanted 24, got 0
+2023-01-31 23:11:50.851 EAT [18066] LOG:  redo done at 0/1EAEE20 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2023-01-31 23:11:50.867 EAT [18064] LOG:  checkpoint starting: end-of-recovery immediate wait
+2023-01-31 23:11:50.887 EAT [18064] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.002 s, total=0.021 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2023-01-31 23:11:50.898 EAT [18061] LOG:  database system is ready to accept connections
+2023-01-31 23:16:50.988 EAT [18064] LOG:  checkpoint starting: time
+2023-01-31 23:16:52.273 EAT [18064] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.218 s, sync=0.009 s, total=1.285 s; sync files=9, longest=0.002 s, average=0.001 s; distance=1 kB, estimate=1 kB
