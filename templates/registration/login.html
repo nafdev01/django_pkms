@@ -7,7 +7,7 @@
 {% block header %}<h2 class="">Log In</h2>{% endblock header%}
 
 {% block content %}
-<form class="mb-3" method="post" >
+<form class="mb-3" method="post">
 	{% bootstrap_form form layout='floating' %}
 	{% csrf_token %}
 	<button class="btn btn-lg btn-success" type="submit">Log In</button>
