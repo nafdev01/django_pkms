@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load django_bootstrap5 %}
+{% load notes_tags %}
 
 {% block title %}Glossary{% endblock %}
 
@@ -49,7 +50,7 @@
                 </a>
                 <div class="collapse" id="collapse{{ term.slug }}">
                     <div class="card-body">
-                        {{ term.definition }}
+                        {{ term.definition | markdown }}
                     </div>
                 </div>
                 
