@@ -166,6 +166,6 @@ CSRF_TRUSTED_ORIGINS = [
 # Email server configuration
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "naftaldev@gmail.com"
-EMAIL_HOST_PASSWORD = "jwqnielavcsrebew"
+EMAIL_HOST_PASSWORD = "hciukhyuzeqbcgmg"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

@@ -9,10 +9,7 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ objective.topic.course.get_absolute_url }}">{{ objective.topic.course.course_code }}</a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="{{ objective.chapter.get_absolute_url }}">{{ objective.topic | truncatechars:25 }}</a>
+            <a href="{{ objective.course.get_absolute_url }}">{{ objective.course.course_code }}</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherObjectives" role="button" aria-expanded="false" aria-controls="otherObjectives">
