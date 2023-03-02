@@ -12,7 +12,7 @@ def student_directory_path(instance, filename):
 
 def generate_2fa(user):
     student = Student.objects.get(id=user.id)
-    two_factor = TwoFactorAuth.objects.create(student=student)
+    two_factor, created = TwoFactorAuth.objects.get_or_create(student=student)
     secret = two_factor.two_factor_secret
 
     # Print the QR code URL
@@ -40,6 +40,7 @@ def generate_2fa(user):
     img.save(file_path)
 
     # set the two_factor_status to enabled
+    two_factor.two_factor_status = "EN"
 
 
 def authenticate_2fa(user):
