@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
 from datetime import date
+import pyotp
 
 
 def student_directory_path(instance, filename):
@@ -111,13 +112,15 @@ class TwoFactorAuth(models.Model):
         editable=False,
     )
     two_factor_issuer = models.CharField(
-        max_length=250,
-        editable=False,
-        default='Django PKMS'
+        max_length=250, editable=False, default="Django PKMS"
     )
+    two_factor_secret = models.CharField(max_length=250, null=False)
 
     def save(self, *args, **kwargs):
         self.two_factor_name = self.student.username
+        if not self.two_factor_secret:
+            self.two_factor_secret = secret = pyotp.random_base32()
+
         super().save(*args, **kwargs)
 
     def __str__(self):
