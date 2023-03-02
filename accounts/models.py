@@ -18,6 +18,19 @@ class Student(AbstractUser):
     Description: Custom Student Model
     """
 
+    # choices for 2fa authentication status
+    class TwoFactorAuthStatus(models.TextChoices):
+        DISABLED = "DA", "Not Enabled"
+        ENABLED = "EN", "Enabled not Activated"
+        ACTIVE = "AC", "Enabled and Activated"
+
+    two_factor_auth = models.CharField(
+        max_length=2,
+        choices=TwoFactorAuthStatus.choices,
+        default=TwoFactorAuthStatus.DISABLED,
+        editable=False,
+    )
+
     def age(self):
         today = date.today()
         age = (
