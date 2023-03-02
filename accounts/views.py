@@ -1,18 +1,49 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as login_student
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from accounts.models import *
 from notes.models import *
-from .forms import *
+from accounts.forms import *
 
 
-class UserLoginView(LoginView):
-    redirect_authenticated_user = True
+def login(request):
+    if request.user.is_authenticated:
+        # redirect to home page if user is already logged in
+        messages.warning(request, "You are already logged in.")
+        return redirect("notes:dashboard")
+    else:
+        if request.method != "POST":
+            form = AuthenticationForm()
+        else:
+            form = AuthenticationForm(data=request.POST)
+            if form.is_valid():
+                username = form.cleaned_data.get("username")
+                password = form.cleaned_data.get("password")
+
+                student = authenticate(
+                    request,
+                    username=username,
+                    password=password,
+                )
+
+                if student is not None:
+                    login_student(request, student)
+                    # redirect to profile page on successful login
+                    messages.success(request, f"Welcome, {student.get_username()}")
+                    return redirect("profile")
+                else:
+                    # show error message if login fails
+                    messages.warning(
+                        request, "Incorrect login credentials... please try again."
+                    )
+
+    template_path = "registration/login.html"
+    context = {"form": form}
+    return render(request, template_path, context)
 
 
 def register(request):
@@ -37,9 +68,10 @@ def register(request):
     context = {"form": student_form}
     return render(request, template_path, context)
 
+
 @login_required
 def profile(request, user_id=None, username=None):
-    student=request.user
+    student = request.user
 
     Profile.objects.get_or_create(student=student)
 

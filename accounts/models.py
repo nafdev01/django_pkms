@@ -18,19 +18,6 @@ class Student(AbstractUser):
     Description: Custom Student Model
     """
 
-    # choices for 2fa authentication status
-    class TwoFactorAuthStatus(models.TextChoices):
-        DISABLED = "DA", "Not Enabled"
-        ENABLED = "EN", "Enabled not Activated"
-        ACTIVE = "AC", "Enabled and Activated"
-
-    two_factor_auth = models.CharField(
-        max_length=2,
-        choices=TwoFactorAuthStatus.choices,
-        default=TwoFactorAuthStatus.DISABLED,
-        editable=False,
-    )
-
     def age(self):
         today = date.today()
         age = (
@@ -93,6 +80,48 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.student}'s profile"
+
+    class Meta:
+        ordering = ["student"]
+
+
+#  student model
+class TwoFactorAuth(models.Model):
+    """
+    Description: Custom Student Model
+    """
+
+    # choices for 2fa authentication status
+    class TwoFactorAuthStatus(models.TextChoices):
+        DISABLED = "DA", "Not Enabled"
+        ENABLED = "EN", "Enabled not Activated"
+        ACTIVE = "AC", "Enabled and Activated"
+
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+
+    two_factor_status = models.CharField(
+        max_length=2,
+        choices=TwoFactorAuthStatus.choices,
+        default=TwoFactorAuthStatus.DISABLED,
+        editable=False,
+    )
+
+    two_factor_name = models.CharField(
+        max_length=250,
+        editable=False,
+    )
+    two_factor_issuer = models.CharField(
+        max_length=250,
+        editable=False,
+        default='Django PKMS'
+    )
+
+    def save(self, *args, **kwargs):
+        self.two_factor_name = self.student.username
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.student}'s 2fa"
 
     class Meta:
         ordering = ["student"]
