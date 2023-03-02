@@ -35,11 +35,6 @@ def login(request):
                     # redirect to profile page on successful login
                     messages.success(request, f"Welcome, {student.get_username()}")
                     return redirect("profile")
-                else:
-                    # show error message if login fails
-                    messages.warning(
-                        request, "Incorrect login credentials... please try again."
-                    )
 
     template_path = "registration/login.html"
     context = {"form": form}
