@@ -93,17 +93,17 @@ class TwoFactorAuth(models.Model):
     """
 
     # choices for 2fa authentication status
-    class TwoFactorAuthStatus(models.TextChoices):
+    class TwoFactorStatus(models.TextChoices):
         DISABLED = "DA", "Not Enabled"
         ENABLED = "EN", "Enabled not Activated"
         ACTIVE = "AC", "Enabled and Activated"
 
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
 
     two_factor_status = models.CharField(
         max_length=2,
-        choices=TwoFactorAuthStatus.choices,
-        default=TwoFactorAuthStatus.DISABLED,
+        choices=TwoFactorStatus.choices,
+        default=TwoFactorStatus.DISABLED,
         editable=False,
     )
 
@@ -114,7 +114,7 @@ class TwoFactorAuth(models.Model):
     two_factor_issuer = models.CharField(
         max_length=250, editable=False, default="Django PKMS"
     )
-    two_factor_secret = models.CharField(max_length=250, null=True)
+    two_factor_secret = models.CharField(max_length=250, null=True, editable=False)
 
     def save(self, *args, **kwargs):
         self.two_factor_name = self.student.username
