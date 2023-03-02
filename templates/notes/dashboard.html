@@ -46,7 +46,7 @@
             {% for entry in latest_entries %}
             <tr>
                 <td>
-                    <a href="{{ entry.get }}">
+                    <a href="{{ entry.get_absolute_url }}">
                         {{ entry.name}}
                     </a>
                 </td>

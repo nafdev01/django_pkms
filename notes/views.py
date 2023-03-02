@@ -22,7 +22,7 @@ def dashboard(request):
     courses = Course.objects.filter(student_id=student.id).order_by("updated")
     latest_entries = Entry.objects.filter(
         subtopic__topic__course__student_id=student.id
-    )
+    ).order_by("-updated")[:5]
 
     today = timezone.now().date()
     objectives = Objective.objects.filter(
@@ -293,6 +293,8 @@ def update_entry(request, entry_id):
 """
 delete views
 """
+
+
 # delete course view
 @login_required
 def delete_course(request, course_id):
@@ -359,6 +361,8 @@ def delete_entry(request, entry_id):
 """
 Additional views
 """
+
+
 # search for entries, subtopics, topics and courses
 def search(request):
     student = request.user

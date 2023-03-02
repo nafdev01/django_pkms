@@ -8,6 +8,7 @@ class CommonModel(models.Model):
     """
     Common abstract model for notes application course, topic,subtopic, and entry.
     """
+
     name = models.CharField(max_length=250)
     slug = models.SlugField(
         max_length=250,
@@ -16,7 +17,7 @@ class CommonModel(models.Model):
         editable=False,
     )
     updated = models.DateTimeField(default=timezone.now, editable=False)
-    
+
     def get_absolute_url(self):
         return reverse(
             f"notes:{self._meta.verbose_name}_detail",
@@ -25,7 +26,7 @@ class CommonModel(models.Model):
                 self.slug,
             ],
         )
-    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
@@ -41,6 +42,7 @@ class Course(CommonModel):
     """
     Model for courses
     """
+
     class CertificationManager(models.Manager):
         def get_queryset(self):
             return (
@@ -71,7 +73,7 @@ class Course(CommonModel):
         choices=CourseType.choices,
     )
     course_code = models.CharField(max_length=250, null=True, default="COSF")
-    
+
     about = models.TextField()
 
     objects = models.Manager()  # The default manager.
@@ -96,6 +98,7 @@ class Topic(CommonModel):
     """
     model for course topic
     """
+
     course = models.ForeignKey(
         "Course",
         on_delete=models.CASCADE,
@@ -103,11 +106,10 @@ class Topic(CommonModel):
     )
     number = models.PositiveIntegerField(null=True)
     overview = models.TextField(null=True, blank=True)
-       
+
     @property
     def student(self):
         return {self.course.student}
-    
 
     def __str__(self):
         return f"{self.number} {self.name} in {self.course.course_code}"
@@ -123,12 +125,12 @@ class SubTopic(CommonModel):
     """
     model for topic subtopic
     """
+
     topic = models.ForeignKey(
         "Topic",
         on_delete=models.CASCADE,
     )
     number = models.PositiveIntegerField(null=True)
-
 
     def __str__(self):
         return f"{self.topic.number}.{self.number} {self.name}"
@@ -144,6 +146,7 @@ class Entry(CommonModel):
     """
     model for subtopic entry
     """
+
     subtopic = models.ForeignKey(
         "subtopic",
         on_delete=models.CASCADE,
@@ -152,7 +155,7 @@ class Entry(CommonModel):
     )
     content = models.TextField()
     revised = models.BooleanField(default=False)
-        
+
     def __str__(self):
         return f"{self.name}"
 

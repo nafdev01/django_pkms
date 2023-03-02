@@ -6,8 +6,8 @@
 
     <div class="collapse" id="gotocourseshow">
         {% for course in courses %}
-        <a class="btn btn-sm btn-outline-dark m-1" href="{{ course.get_absolute_url }}">
-            {{ course.name }}
+        <a class="btn btn-sm btn-outline-dark m-1" href="{{ course.get_absolute_url }}" title="{{ course.name }}">
+            {{ course.course_code }}
         </a>
         {% empty %}
         <div>
