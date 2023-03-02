@@ -119,7 +119,7 @@ class TwoFactorAuth(models.Model):
     def save(self, *args, **kwargs):
         self.two_factor_name = self.student.username
         if not self.two_factor_secret:
-            self.two_factor_secret = secret = pyotp.random_base32()
+            self.two_factor_secret = pyotp.random_base32()
 
         super().save(*args, **kwargs)
 
