@@ -23,7 +23,6 @@ def generate_2fa(user):
     )
     img = qrcode.make(uri)
 
-
     # Define the directory path
     directory_path = os.path.join(
         settings.MEDIA_ROOT, f"user_{student.get_username()}/2fa"
@@ -40,6 +39,20 @@ def generate_2fa(user):
     # Save the QR code as an image
     img.save(file_path)
 
+    # set the two_factor_status to enabled
+
+
 def authenticate_2fa(user):
     student = Student.objects.get(id=user.id)
     two_factor = TwoFactorAuth.objects.get(student=student)
+
+    # Load the secret key from the students two factor profile
+    secret = two_factor.two_factor_secret
+
+    # Verify the OTP
+    totp = pyotp.TOTP(secret)
+    otp = input("Enter 6-digit code from Google Authenticator: ")
+    if totp.verify(otp):
+        print("OTP is valid")
+    else:
+        print("OTP is invalid")

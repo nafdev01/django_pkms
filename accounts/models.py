@@ -96,7 +96,7 @@ class TwoFactorAuth(models.Model):
     class TwoFactorStatus(models.TextChoices):
         DISABLED = "DA", "Not Enabled"
         ENABLED = "EN", "Enabled not Activated"
-        ACTIVE = "AC", "Enabled and Activated"
+        ACTIVATED = "AC", "Enabled and Activated"
 
     student = models.OneToOneField(Student, on_delete=models.CASCADE)
 
