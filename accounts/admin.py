@@ -6,3 +6,4 @@ from django.conf import settings
 
 admin.site.register(Profile)
 admin.site.register(Student)
+admin.site.register(TwoFactorAuth)

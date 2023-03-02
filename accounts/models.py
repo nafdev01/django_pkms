@@ -114,7 +114,7 @@ class TwoFactorAuth(models.Model):
     two_factor_issuer = models.CharField(
         max_length=250, editable=False, default="Django PKMS"
     )
-    two_factor_secret = models.CharField(max_length=250, null=False)
+    two_factor_secret = models.CharField(max_length=250, null=True)
 
     def save(self, *args, **kwargs):
         self.two_factor_name = self.student.username
