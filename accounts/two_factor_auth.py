@@ -1,4 +1,5 @@
 import os
+import shutil
 import pyotp
 import qrcode
 from django.conf import settings
@@ -40,20 +41,31 @@ def generate_2fa(user):
     img.save(file_path)
 
     # set the two_factor_status to enabled
-    two_factor.two_factor_status = "EN"
+    two_factor.two_factor_status = TwoFactorAuth.TwoFactorStatus.ENABLED
+    two_factor.save()
 
 
-def authenticate_2fa(user):
+def authenticate_2fa(user, otp):
     student = Student.objects.get(id=user.id)
     two_factor = TwoFactorAuth.objects.get(student=student)
 
-    # Load the secret key from the students two factor profile
+    # Load the secret key from the student's two-factor profile
     secret = two_factor.two_factor_secret
+
+    if two_factor.two_factor_status != TwoFactorAuth.TwoFactorStatus.ACTIVATED:
+        two_factor.two_factor_status = TwoFactorAuth.TwoFactorStatus.ACTIVATED
+        two_factor.save()
 
     # Verify the OTP
     totp = pyotp.TOTP(secret)
-    otp = input("Enter 6-digit code from Google Authenticator: ")
-    if totp.verify(otp):
-        print("OTP is valid")
+    if not totp.verify(otp):
+        return False
     else:
-        print("OTP is invalid")
+        # Authentication successful. Delete the 2FA folder if it exists
+        directory_path = os.path.join(
+            settings.MEDIA_ROOT, f"user_{student.get_username()}/2fa"
+        )
+        if os.path.exists(directory_path):
+            shutil.rmtree(directory_path)
+
+        return True

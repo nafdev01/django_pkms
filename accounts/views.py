@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+import os
+from django.http import HttpResponseNotFound
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from django.contrib.auth import authenticate
@@ -8,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import *
 from notes.models import *
 from accounts.forms import *
+from accounts.two_factor_auth import *
 
 
 def login(request):
@@ -15,30 +18,74 @@ def login(request):
         # redirect to home page if user is already logged in
         messages.warning(request, "You are already logged in.")
         return redirect("notes:dashboard")
+
+    if request.method != "POST":
+        form = AuthenticationForm()
     else:
-        if request.method != "POST":
-            form = AuthenticationForm()
-        else:
-            form = AuthenticationForm(data=request.POST)
-            if form.is_valid():
-                username = form.cleaned_data.get("username")
-                password = form.cleaned_data.get("password")
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
 
-                student = authenticate(
-                    request,
-                    username=username,
-                    password=password,
-                )
+            student = authenticate(
+                request,
+                username=username,
+                password=password,
+            )
 
-                if student is not None:
-                    login_student(request, student)
-                    # redirect to profile page on successful login
-                    messages.success(request, f"Welcome, {student.get_username()}")
-                    return redirect("profile")
+            if student is not None:
+                # check if 2FA is enabled for the student
+                try:
+                    two_factor = TwoFactorAuth.objects.get(student=student)
+                    generate_2fa(student)
+                except TwoFactorAuth.DoesNotExist:
+                    generate_2fa(student)
+
+                request.session["student_id"] = student.id
+                return redirect("display_qrcode")
 
     template_path = "registration/login.html"
     context = {"form": form}
     return render(request, template_path, context)
+
+
+def display_qrcode(request):
+    student_id = request.session["student_id"]
+    student = get_object_or_404(Student, id=student_id)
+
+    # Render the QR code image using a template
+    template_path = "accounts/2fa/display_qrcode.html"
+    context = {
+        "student": student,
+        "qrcode_url": os.path.join(
+            settings.MEDIA_URL, f"user_{student.get_username()}", "2fa", "qr_code.png"
+        ),
+    }
+    return render(request, template_path, context)
+
+
+def verify_2fa(request):
+    student_id = request.session["student_id"]
+    student = get_object_or_404(Student, id=student_id)
+
+    if request.method == "POST":
+        form = TwoFactorForm(request.POST)
+        if form.is_valid():
+            otp = form.cleaned_data.get("otp")
+
+            # Verify the OTP
+            if authenticate_2fa(student, otp):
+                # OTP is valid, login the user
+                login_student(request, student)
+                messages.success(request, "Welcome back!")
+                return redirect("profile")
+            else:
+                # OTP is invalid
+                messages.error(request, "Invalid OTP. Please try again.")
+    else:
+        form = TwoFactorForm()
+
+    return render(request, "accounts/2fa/verify_2fa.html", {"form": form})
 
 
 def register(request):

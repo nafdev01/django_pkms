@@ -36,3 +36,9 @@ class ProfileEditForm(forms.ModelForm):
         widgets = {
             "date_of_birth": DatePickerInput(),
         }
+
+
+class TwoFactorForm(forms.Form):
+    otp = forms.CharField(
+        max_length=6, label="Enter 6-digit code from Google Authenticator"
+    )
