@@ -1,38 +1,10 @@
 # accounts/models.py
-import os
-import pyotp
-import qrcode
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
 from datetime import date
-
-
-def generate_2fa(instance):
-    student = instance.student
-    two_factor, created = TwoFactorAuth.objects.get_or_create(student=student)
-    secret = two_factor.secret
-
-    # Print the QR code URL
-    totp = pyotp.TOTP(secret)
-    uri = totp.provisioning_uri(
-        name=student.twofactorauth.name,
-        issuer_name=student.twofactorauth.issuer,
-    )
-    img = qrcode.make(uri)
-
-    # Define the file path
-    file_path = f"user_{instance.student.get_username()}/2fa/qr_code.png"
-
-    # Save the QR code as an image
-    img.save(file_path)
-
-    # set the two_factor_status to enabled
-    two_factor.two_factor_status = TwoFactorAuth.TwoFactorStatus.ENABLED
-    two_factor.save()
-    return
 
 
 def student_profile_photo_path(instance, filename):
@@ -100,45 +72,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.student}'s profile"
-
-    class Meta:
-        ordering = ["student"]
-
-
-#  student model
-class TwoFactorAuth(models.Model):
-    """
-    Description: Custom Student Model
-    """
-
-    # choices for 2fa authentication status
-    class Status2FA(models.TextChoices):
-        DISABLED = "DA", "Not Enabled"
-        ENABLED = "EN", "Enabled not Activated"
-        ACTIVATED = "AC", "Enabled and Activated"
-
-    student = models.OneToOneField(Student, on_delete=models.CASCADE)
-
-    status = models.CharField(
-        max_length=2,
-        choices=Status2FA.choices,
-        default=Status2FA.DISABLED,
-        editable=False,
-    )
-
-    name = models.CharField(max_length=250, editable=False)
-    issuer = models.CharField(max_length=250, editable=False, default="Django PKMS")
-    secret = models.CharField(max_length=250, null=True, editable=False)
-    qrcode = models.ImageField(upload_to=student_2fa_photo_path, blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        self.name = self.student.username
-        if not self.secret:
-            self.secret = pyotp.random_base32()
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return f"{self.student}'s 2fa"
 
     class Meta:
         ordering = ["student"]
