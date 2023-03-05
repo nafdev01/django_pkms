@@ -1,9 +1,4 @@
 # accounts/authentication.py
-import os
-import shutil
-import pyotp
-import qrcode
-from django.conf import settings
 from accounts.models import *
 from accounts.models import *
 
