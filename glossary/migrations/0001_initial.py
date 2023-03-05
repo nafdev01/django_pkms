@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Objective",
+            name="Term",
             fields=[
                 (
                     "id",
@@ -38,25 +38,16 @@ class Migration(migrations.Migration):
                         default=django.utils.timezone.now, editable=False
                     ),
                 ),
-                ("start_date", models.DateField()),
-                ("end_date", models.DateField()),
-                ("description", models.TextField(blank=True)),
-                ("duration", models.IntegerField(editable=False)),
-                ("complete", models.BooleanField(default=False)),
+                ("definition", models.TextField()),
                 (
                     "course",
                     models.ForeignKey(
-                        null=True,
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="notes.course",
+                        on_delete=django.db.models.deletion.CASCADE, to="notes.course"
                     ),
                 ),
             ],
             options={
-                "verbose_name": "objective",
-                "verbose_name_plural": "objectives",
-                "ordering": ["start_date", "end_date", "complete", "course"],
-                "unique_together": {("name", "course")},
+                "abstract": False,
             },
         ),
     ]
