@@ -34,58 +34,14 @@ def login(request):
             )
 
             if student is not None:
-                # check if 2FA is enabled for the student
-                try:
-                    two_factor = TwoFactorAuth.objects.get(student=student)
-                    generate_2fa(student)
-                except TwoFactorAuth.DoesNotExist:
-                    generate_2fa(student)
-
-                request.session["student_id"] = student.id
-                return redirect("display_qrcode")
+                login_student(request, student)
+                return redirect("notes:dashboard")
+            else:
+                messages.error(request, "Invalid username or password.")
 
     template_path = "registration/login.html"
     context = {"form": form}
     return render(request, template_path, context)
-
-
-def display_qrcode(request):
-    student_id = request.session["student_id"]
-    student = get_object_or_404(Student, id=student_id)
-
-    # Render the QR code image using a template
-    template_path = "accounts/2fa/display_qrcode.html"
-    context = {
-        "student": student,
-        "qrcode_url": os.path.join(
-            settings.MEDIA_URL, f"user_{student.get_username()}", "2fa", "qr_code.png"
-        ),
-    }
-    return render(request, template_path, context)
-
-
-def verify_2fa(request):
-    student_id = request.session["student_id"]
-    student = get_object_or_404(Student, id=student_id)
-
-    if request.method == "POST":
-        form = TwoFactorForm(request.POST)
-        if form.is_valid():
-            otp = form.cleaned_data.get("otp")
-
-            # Verify the OTP
-            if authenticate_2fa(student, otp):
-                # OTP is valid, login the user
-                login_student(request, student)
-                messages.success(request, "Welcome back!")
-                return redirect("profile")
-            else:
-                # OTP is invalid
-                messages.error(request, "Invalid OTP. Please try again.")
-    else:
-        form = TwoFactorForm()
-
-    return render(request, "accounts/2fa/verify_2fa.html", {"form": form})
 
 
 def register(request):
