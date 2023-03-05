@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import *
 from notes.models import *
 from accounts.forms import *
-from accounts.two_factor_auth import *
 
 
 def login(request):
@@ -58,6 +57,7 @@ def register(request):
             student_form.save()
             # create a new profile object for the user object
             Profile.objects.create(student=new_student)
+            TwoFactorAuth.create(student=new_student)
 
             messages.success(request, "Registration Successful! Log in to continue")
             return redirect("login")
