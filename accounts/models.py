@@ -8,9 +8,14 @@ from datetime import date
 import pyotp
 
 
-def student_directory_path(instance, filename):
+def student_profile_photo_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return f"user_{instance.student.username}/profile_photo/{filename}"
+
+
+def student_2fa_photo_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return f"user_{instance.student.username}/2fa/{filename}"
 
 
 #  student model
@@ -69,7 +74,7 @@ class Profile(models.Model):
         default=StudentYear.FIRST,
     )
     photo = models.ImageField(
-        upload_to=student_directory_path,
+        upload_to=student_profile_photo_path,
         blank=True,
         null=True,
     )
@@ -114,7 +119,16 @@ class TwoFactorAuth(models.Model):
     two_factor_issuer = models.CharField(
         max_length=250, editable=False, default="Django PKMS"
     )
-    two_factor_secret = models.CharField(max_length=250, null=True, editable=False)
+    two_factor_secret = models.CharField(
+        max_length=250,
+        null=True,
+        editable=False,
+    )
+    two_factor_qrcode = models.ImageField(
+        upload_to=student_2fa_photo_path,
+        blank=True,
+        null=True,
+    )
 
     def save(self, *args, **kwargs):
         self.two_factor_name = self.student.username
