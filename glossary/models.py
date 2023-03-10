@@ -33,3 +33,6 @@ class Term(CommonModel):
 
     def __str__(self):
         return f"{self.name}"
+    
+    class Meta:
+    	ordering = ['course','name']

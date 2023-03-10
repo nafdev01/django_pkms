@@ -1,0 +1,106 @@
+<!-- revision/objective_detail.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load notes_tags %}
+
+{% block title %}{{ objective.name }}{% endblock %}
+
+{% block header %}
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherCourses" role="button"
+                aria-expanded="false" aria-controls="otherCourses">
+                {{ course.course_code }}
+            </a>
+        </li>
+    </ol>
+</nav>
+
+<div class="collapse" id="otherCourses">
+    <div class="row g-2">
+        {% for course in other_courses %}
+        <div class="col">
+            <a class="btn btn-sm btn-outline-dark" href="{% url 'revision:objective_list' course.id course.slug %}">
+                {{ course.course_code }}
+            </a>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+<h1>{{ course.name }} Objectives</h1>
+<hr>
+{% endblock header %}
+
+{% block content %}
+
+<button type="button" class="btn btn-sm btn-outline-success mb-2" data-bs-toggle="modal"
+    data-bs-target="#course_select_modal">
+    New Objective
+</button>
+
+{% if objectives %}
+<div class="list-group">
+    {% for objective in objectives %}
+    <div class="list-group-item">
+        <a class="h4 float-start" href="{% url 'revision:objective_detail' objective.id objective.slug %}">
+            {{ objective.name }}
+        </a>
+
+        <div class="btn-group m-3 float-end">
+            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                data-bs-target="#course_change_modal">
+                Update Objective
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                data-bs-target="#delete_objective_modal">
+                Delete
+            </button>
+        </div>
+        <div class="modal fade" id="course_select_modal" tabindex="-1" aria-labelledby="course_select"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p>Choose chapter</p>
+                    </div>
+                    <div class="modal-body">
+                        {% include "revision/includes/choose_objective_chapter.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="delete_objective_modal" tabindex="-1"
+            aria-labelledby="delete_{{ objective.slug }}_label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        {% include "revision/objective_confirm_delete.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="course_change_modal" tabindex="-1" aria-labelledby="course_select"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p>Change chapter</p>
+                    </div>
+                    <div class="modal-body">
+                        {% include "revision/includes/change_objective_chapter.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <p>{{ objective.description | markdown | truncatewords:25 }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No objectives found for this course.</p>
+{% endif %}
+{% endblock %}
