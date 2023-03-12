@@ -10,6 +10,7 @@ colorama==0.4.6
 cssbeautifier==1.14.7
 decorator==5.1.1
 defusedxml==0.7.1
+dj-database-url==1.2.0
 Django==4.1.7
 django-bootstrap-icons==0.8.2
 django-bootstrap-v5==1.0.11
@@ -18,6 +19,7 @@ djangorestframework==3.14.0
 djlint==1.19.16
 EditorConfig==0.12.3
 executing==1.2.0
+gunicorn==20.1.0
 html-tag-names==0.1.2
 html-void-elements==0.1.0
 httpie==3.2.1
@@ -39,6 +41,7 @@ pickleshare==0.7.5
 Pillow==9.4.0
 platformdirs==3.1.0
 prompt-toolkit==3.0.38
+psycopg2==2.9.5
 psycopg2-binary==2.9.5
 ptyprocess==0.7.0
 pure-eval==0.2.2
