@@ -19,7 +19,7 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://django-pkms.azurewebsites.net"]
+ALLOWED_HOSTS = ["django-pkms.azurewebsites.net"]
 
 if 'CODESPACE_NAME' in os.environ:
     CSRF_TRUSTED_ORIGINS = [f'https://{os.getenv("CODESPACE_NAME")}-8000.{os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")}']
@@ -166,6 +166,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.in.ngrok.io",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    'django-pkms.azurewebsites.net',
 ]
 
 # Email server configuration
