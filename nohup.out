@@ -1,0 +1,30 @@
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 12, 2023 - 13:06:13
+Django version 4.1.7, using settings 'django_pkms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 12, 2023 - 13:06:15
+Django version 4.1.7, using settings 'django_pkms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+Session data corrupted
+[12/Mar/2023 13:06:36] "GET / HTTP/1.1" 302 0
+Session data corrupted
+[12/Mar/2023 13:06:36] "GET /accounts/login/?next=/ HTTP/1.1" 200 2439
+/home/aegis/Code/django_pkms/django_pkms/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 12, 2023 - 13:09:02
+Django version 4.1.7, using settings 'django_pkms.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
