@@ -166,7 +166,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.in.ngrok.io",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    'django-pkms.azurewebsites.net',
+    'azurewebsites.net',
 ]
 
 # Email server configuration
