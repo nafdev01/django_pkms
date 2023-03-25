@@ -12,7 +12,7 @@ Check out the Django application here: [https://django-pkms-7bpbf.ondigitalocean
 - **Note taking and organization**: Users can take and store notes hierarchically, starting with the course, followed by the topic, then subtopic, and finally, individual entries. This hierarchical structure allows for easy navigation and quick access to notes.
 - **Glossary**: Users can store important terms and definitions for different courses, making it easier to study and review key concepts.
 - **Revision planning**: Users can set revision goals and deadlines and track their progress, helping them stay on top of their studies and achieve their academic goals.
-- **Note sharing**: Users can share their notes with others via email, making it easy  notes with friends and family.
+- **Note sharing**: Users can share their notes with others via email, making it easy to share notes with friends and family.
 - **Responsive UI**: The application is designed to work on different devices and screen sizes, ensuring a consistent and user-friendly experience across all platforms.
 
 
@@ -49,7 +49,7 @@ python manage.py runserver
 
 5. Open your web browser and go to http://localhost:8000/ to access the application.
 
-####_Note_
+#### _Note_
 _It helps to create aliases for common shell commands to ease update and troubleshooting processes and reduce repetition of commands e.g_
 ```bash
 alias serve="python manage.py runserver"
