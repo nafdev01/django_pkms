@@ -30,7 +30,7 @@ To run this application, you need:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/kms.git
+git clone https://github.com/nafdev01/django_pkms.git
 ```
 
 2. Install the required dependencies:
