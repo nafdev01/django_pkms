@@ -3,7 +3,11 @@ from django.core.management.utils import get_random_secret_key
 from pathlib import Path
 import os
 import sys
+import os
+from dotenv import load_dotenv
 import dj_database_url
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # <---- WhiteNoise!
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -78,20 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "django_pkms.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": "coursework",
-#         "HOST": "localhost",
-#         "USER": "scholar",
-#         "PASSWORD": "!-scholar_sec@2001*",
-#         "PORT": "",
-#     }
-# }
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
@@ -141,8 +132,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
-# STATICFILES_DIRS = BASE_DIR, "static"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # media files
@@ -159,7 +150,7 @@ AUTH_USER_MODEL = "accounts.Student"
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    # "accounts.authentication.EmailAuthenticationBackend",
+    "accounts.authentication.EmailAuthenticationBackend",
 ]
 
 
@@ -184,12 +175,10 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
 ]
 
-# Email server configuration
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "naftaldev@gmail.com"
-EMAIL_HOST_PASSWORD = "hciukhyuzeqbcgmg"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
-# EMAIL_HOST_USER = "django.pkms@gmail.com"
-# EMAIL_HOST_PASSWORD = "wxevgijtsknbmswn
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT"))
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS").lower() == "true"
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
