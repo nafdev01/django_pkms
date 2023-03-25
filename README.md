@@ -2,12 +2,14 @@
 
 This is a Django-based web application designed to help students organize their notes, store important terms, and set revision goals. It is a knowledge management system aimed at improving the learning experience of students by streamlining the management academic refeence material in an easy to read, easy to access format.
 
+Check out the Django application here: [https://django-pkms-7bpbf.ondigitalocean.app/](https://django-pkms-7bpbf.ondigitalocean.app/)
+
 ## Features
 
 - Multiple users support: each user can create their own profile and customize it.
-- Note taking and organization: users can take and store notes for different subjects, topics, and categories.
-- Tagging and labeling: users can assign tags and labels to their notes to make them easy to find and filter.
-- Term repository: users can store important terms and definitions for different subjects and courses.
+- Robust authentication subsystem: users can securely create and access their accounts, reset their passwords, and recover their accounts in case of any mishaps.
+- Note taking and organization: users can take and store notes hierarchically, starting with the course, followed by the topic, then subtopic, and finally, individual entries.
+- Glossary: users can store important terms and definitions for different subjects and courses.
 - Revision planning: users can set revision goals and deadlines for their notes and terms, and track their progress.
 - Sharing notes: users can share their notes with others via email.
 - Responsive UI: the application is designed to work on different devices and screen sizes.
@@ -16,8 +18,9 @@ This is a Django-based web application designed to help students organize their 
 
 To run this application, you need:
 
-- Python 3.6 or later
-- Django 3.0 or later
+- Python 3.10.8 or later
+- PostgreSQL database (version 15.0 or later)
+- Django 4.0 or later
 - A modern web browser
 
 ## Installation
