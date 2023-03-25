@@ -72,5 +72,6 @@ alias dshell="python manage.py shell"
 Contributions to this project are welcome! If you find a bug, want to request a new feature, or have an idea for improvement, please create an issue on this project's GitHub page. If you want to contribute code, please fork the repository and submit a pull request.
 
 ## License
+_Pending_
 <!-- 
 This application is licensed under the MIT License. See the LICENSE file for more details. -->
