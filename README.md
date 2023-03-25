@@ -29,36 +29,45 @@ git clone https://github.com/your-username/kms.git
 ```
 
 2. Install the required dependencies:
-
+```bash
 pip install -r requirements.txt
-
+```
 3. Create the database and apply the migrations:
-
+```bash
 python manage.py makemigrations
 python manage.py migrate
-
+```
 4. Start the development server:
-
+```bash
 python manage.py runserver
-
+```
 
 5. Open your web browser and go to http://localhost:8000/ to access the application.
+
+####_Note_
+_It helps to create aliases for common shell commands to ease update and troubleshooting processes and reduce repetition of commands e.g_
+```bash
+alias serve="python manage.py runserver"
+alias migrate="python manage.py makemigrations && python manage.py migrate"
+alias pkms="sudo service postgresql start && cd ~/Code/django_pkms/ && source ~/Code/django_pkms/.venv/bin/activate && serve"
+alias dshell="python manage.py shell"
+```
 
 ## Usage
 
 1. Register a new account or login to an existing one.
-2. Create your profile and customize it (e.g., upload a profile picture, set your timezone).
-3. Add new notes and organize them by subject, topic, and category.
+2. Create your profile and customize it (e.g., upload a profile picture, add your full name and course details).
+3. Add new notes and organize them by course, topic, and subtopic.
 4. Assign tags and labels to your notes to make them easy to find and filter.
-5. Store important terms and definitions in the term repository.
-6. Set revision goals and deadlines for your notes and terms, and track your progress.
+5. Store important terms and definitions in the glossary section.
+6. Set revision objectives and deadlines fro each course.
 7. Share your notes with others via email.
 8. Log out when you are done.
 
 ## Contributions
 
-Contributions to this project are welcome! If you find a bug, want to request a new feature, or have an idea for improvement, please create an issue on the project's GitHub page. If you want to contribute code, please fork the repository and submit a pull request.
+Contributions to this project are welcome! If you find a bug, want to request a new feature, or have an idea for improvement, please create an issue on this project's GitHub page. If you want to contribute code, please fork the repository and submit a pull request.
 
 ## License
-
-This application is licensed under the MIT License. See the LICENSE file for more details.
+<!-- 
+This application is licensed under the MIT License. See the LICENSE file for more details. -->
