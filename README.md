@@ -1,18 +1,20 @@
 # Knowledge Management System (KMS) for Students
 
-This is a Django-based web application designed to help students organize their notes, store important terms, and set revision goals. It is a knowledge management system aimed at improving the learning experience of students by streamlining the management academic refeence material in an easy to read, easy to access format.
+This is a Django-based web application designed to help students organize their notes, store important terms, and set revision goals. It is a knowledge management system aimed at improving the learning experience of students by streamlining the management of academic study materials in an easy to read, easy to access format.
 
 Check out the Django application here: [https://django-pkms-7bpbf.ondigitalocean.app/](https://django-pkms-7bpbf.ondigitalocean.app/)
 
 ## Features
 
-- Multiple users support: each user can create their own profile and customize it.
-- Robust authentication subsystem: users can securely create and access their accounts, reset their passwords, and recover their accounts in case of any mishaps.
-- Note taking and organization: users can take and store notes hierarchically, starting with the course, followed by the topic, then subtopic, and finally, individual entries.
-- Glossary: users can store important terms and definitions for different subjects and courses.
-- Revision planning: users can set revision goals and deadlines for their notes and terms, and track their progress.
-- Sharing notes: users can share their notes with others via email.
-- Responsive UI: the application is designed to work on different devices and screen sizes.
+- **Multi-user support**: Each user can create and customize their own profile, and all notes and associated data are unique to each user, ensuring that each user's data is kept private and secure.
+- **Customizability**: Users can personalize their profiles with a variety of settings, such as changing their profile picture or choosing a preferred color scheme.
+- **Robust authentication system**: Users can securely create and access their accounts, reset their passwords, and recover their accounts in case of any mishaps.
+- **Note taking and organization**: Users can take and store notes hierarchically, starting with the course, followed by the topic, then subtopic, and finally, individual entries. This hierarchical structure allows for easy navigation and quick access to notes.
+- **Glossary**: Users can store important terms and definitions for different courses, making it easier to study and review key concepts.
+- **Revision planning**: Users can set revision goals and deadlines and track their progress, helping them stay on top of their studies and achieve their academic goals.
+- **Note sharing**: Users can share their notes with others via email, making it easy  notes with friends and family.
+- **Responsive UI**: The application is designed to work on different devices and screen sizes, ensuring a consistent and user-friendly experience across all platforms.
+
 
 ## Requirements
 
