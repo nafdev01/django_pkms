@@ -24,9 +24,9 @@ To run this application, you need:
 
 1. Clone this repository to your local machine:
 
-```python
+```bash
 git clone https://github.com/your-username/kms.git
-
+```
 
 2. Install the required dependencies:
 
