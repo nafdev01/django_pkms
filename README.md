@@ -1,6 +1,6 @@
 # Knowledge Management System (KMS) for Students
 
-This is a Django-based web application designed to help students organize their notes, store important terms, and set revision goals. It is a knowledge management system aimed at improving the learning experience of students.
+This is a Django-based web application designed to help students organize their notes, store important terms, and set revision goals. It is a knowledge management system aimed at improving the learning experience of students by streamlining the management academic refeence material in an easy to read, easy to access format.
 
 ## Features
 
