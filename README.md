@@ -61,7 +61,7 @@ alias dshell="python manage.py shell"
 ## Usage
 
 1. Register a new account or login to an existing one.
-2. Customize your profile (e.g., upload a profile picture, add your full name and course details).
+2. Customize your profile (e.g., upload a profile picture, add your full name and email, and update course details).
 3. Add new notes and organize them by course, topic, and subtopic.
 4. Store important terms and definitions in the glossary section.
 5. Set revision objectives and deadlines for each of them.
