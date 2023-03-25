@@ -4,6 +4,8 @@ asttokens
 backcall
 beautifulsoup4
 black
+boto3
+botocore
 certifi
 charset-normalizer
 click
@@ -17,6 +19,7 @@ Django
 django-bootstrap-icons
 django-bootstrap-v5
 django-bootstrap5
+django-storages
 djangorestframework
 djlint
 EditorConfig
@@ -31,6 +34,7 @@ idna
 ipython
 isort
 jedi
+jmespath
 jsbeautifier
 lazy-object-proxy
 lint
@@ -58,6 +62,7 @@ pylint
 pyotp
 pypng
 PySocks
+python-dateutil
 python-dotenv
 pytz
 PyYAML
@@ -66,6 +71,7 @@ regex
 requests
 requests-toolbelt
 rich
+s3transfer
 six
 smmap
 soupsieve
