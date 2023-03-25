@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "glossary",
     "revision",
     # 3rd party
+    "whitenoise.runserver_nostatic",  # Disable Djangos static file server during DEVELOPMENT
     "django_bootstrap5",
     "django.contrib.postgres",
     "django_bootstrap_icons",
@@ -133,8 +134,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # media files
 MEDIA_URL = "media/"
