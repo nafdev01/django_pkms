@@ -3,3 +3,4 @@ media
 db.sqlite3
 *.pyc
 .vscode
+staticfiles
