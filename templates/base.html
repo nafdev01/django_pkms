@@ -56,17 +56,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0" action="{% url 'notes:search' %}" method="get">
+                        <form class="d-flex nav-item" role="search" action="{% url 'notes:search' %}" method="get">
                             <div class="input-group mb-3">
-                                <input class="form-control mr-sm-1" type="search" aria-label="Search" type="text"
-                                    name="q" placeholder="Search for a term" aria-describedby="search-button-addon2">
+                                <input class="form-control" type="search" aria-label="Search" type="text" name="q"
+                                    placeholder="Search for a term" aria-describedby="search-button-addon2">
                                 <button class="btn btn-outline-success" id="search-button-addon2"
                                     type="submit">Search</button>
                             </div>
                         </form>
                     </li>
                 </ul>
-                <div class="dropdown m-1 float-end">
+                <div class="dropdown">
                     <a class="btn btn-primary rounded-3" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="True">
                         {% if request.user.profile.photo %}
