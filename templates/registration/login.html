@@ -4,17 +4,28 @@
 
 {% block title %}Log in{% endblock %}
 
-{% block header %}<h2 class="">Log In</h2>{% endblock header%}
+{% block header %}<h1 class="text-center">Log In</h1>{% endblock header%}
 
 {% block content %}
-<form class="mb-3" method="post">
-	{% bootstrap_form form layout='floating' %}
-	{% csrf_token %}
-	<button class="btn btn-lg btn-success" type="submit">Log In</button>
-</form>
+<section class="container justify-content-center">
+	<form class="mb-3" method="post">
+		{% bootstrap_form form layout='floating' %}
+		{% csrf_token %}
+		<div class="form-check m-2">
+			<input class="form-check-input" type="checkbox" value="" id="showPasswordBox"
+				onclick="togglePasswordVisibility('login',this);">
+			<label class="form-check-label" for="showPassBox">
+				Show Password
+			</label>
+		</div>
+		<button class="btn btn-lg btn-success" type="submit" id="login-button">Log In</button>
+	</form>
+	<a href="{% url 'password_reset' %}">Forgot your password?</a>
+	<br>
+	<a href="{% url 'signup' %}">Register</a>
+</section>
 
-<a href="{% url 'password_reset' %}">Forgot your password?</a>
-<br>
-<a href="{% url 'signup' %}">Register</a>
+
+
 
 {% endblock content %}
