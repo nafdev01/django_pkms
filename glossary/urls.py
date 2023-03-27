@@ -10,6 +10,7 @@ urlpatterns = [
     #
     path("", views.term_list, name="term_list"),
     path("<int:course_id>/<slug:slug>/", views.term_list, name="terms_by_course"),
+    path("<str:first_letter>/", views.term_list, name="terms_by_letter"),
     #
     # create views
     #

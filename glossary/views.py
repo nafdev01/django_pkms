@@ -12,19 +12,26 @@ from glossary.forms import *
 
 # terms list
 @login_required
-def term_list(request, course_id=None, slug=None):
+def term_list(request, course_id=None, slug=None, first_letter=None):
     student = request.user
-    courses = Course.objects.filter(student_id=student.id)
+    terms = Term.objects.filter(course__student_id=student.id)
+    courses = sorted(set([term.course for term in terms]))
+    first_letters = sorted(set([term.name[0].upper() for term in terms]))
+
+    context = {"courses": courses, "first_letters": first_letters}
+
     if course_id:
         course = get_object_or_404(Course, id=course_id, slug=slug)
         terms = Term.objects.filter(course_id=course.id, course__student_id=student.id)
         messages.info(request, f"Now showing terms for course  '{course.name}'.")
-        context = {"course": course, "courses": courses}
+        context.update({"terms": terms, "course": course})
+    elif first_letter:
+        terms = terms.filter(name__startswith=first_letter)
+        messages.info(request, f"Now showing terms that start with '{first_letter}'.")
+        context.update({"terms": terms, "first_letter": first_letter})
     else:
-        terms = Term.objects.filter(course__student_id=student.id)
-        context = {"courses": courses}
-
-    context.update({"terms": terms})
+        messages.info(request, f"Now showing all terms.")
+        context.update({"terms": terms})
 
     template_path = "glossary/term_list.html"
     return render(request, template_path, context)

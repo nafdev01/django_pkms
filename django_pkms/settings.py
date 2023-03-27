@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",  # Disable Djangos static file server during DEVELOPMENT
     "django_bootstrap5",
     "django.contrib.postgres",
-    "django_bootstrap_icons",
     "storages",
     # default apps
     "django.contrib.admin",
