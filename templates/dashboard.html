@@ -40,7 +40,7 @@
     <div class="col">
         <div class="card p-4 border-dark">
             <h1 class="text-center mb-3">Courses</h1>
-            <div class="row row-cols-3 g-4">
+            <div class="row row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-4">
                 {% for course in courses %}
                 <div class="col">
                     <a class="btn btn-outline-dark position-relative" href="{{ course.get_absolute_url }}">

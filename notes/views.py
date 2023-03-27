@@ -22,7 +22,7 @@ def dashboard(request):
     courses = Course.objects.filter(student_id=student.id).order_by("updated")
     latest_entries = Entry.objects.filter(
         subtopic__topic__course__student_id=student.id
-    ).order_by("-updated")[:10]
+    ).order_by("-updated")[:7]
 
     today = timezone.now().date()
     objectives = Objective.objects.filter(
