@@ -29,16 +29,18 @@
     </div>
 </div>
 
-<p class="text-center h2">{{ course.name }} Objectives</p>
+<p class="text-center h2">
+    {{ course.name }} Objectives
+</p>
+<div class="d-flex justify-content-end">
+    <a href="{% url 'revision:create_objective' %}" class="btn btn-sm btn-outline-success">
+        New Objective
+    </a>
+</div>
 <hr>
 {% endblock header %}
 
 {% block content %}
-
-<a href="{% url 'revision:create_objective' %}" class="btn btn-sm btn-outline-success">
-    New Objective
-</a>
-
 {% if objectives %}
 <div class="list-group m-3">
     {% for objective in objectives %}

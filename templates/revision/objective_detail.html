@@ -37,9 +37,8 @@
 </div>
 
 <h2 class="text-center">{{ objective.name }}</h2>
-<hr>
 
-<div class="btn-group m-3">
+<div class="btn-group m-2">
     <a href="{% url 'revision:create_objective' %}" class="btn btn-sm btn-outline-success">
         New Objective
     </a>
@@ -52,7 +51,6 @@
     </button>
 </div>
 
-
 <div class="modal fade" id="delete_objective_modal" tabindex="-1" aria-labelledby="delete_{{ objective.slug }}_label"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -63,6 +61,7 @@
         </div>
     </div>
 </div>
+<hr>
 {% endblock header %}
 
 {% block content %}

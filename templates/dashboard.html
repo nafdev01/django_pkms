@@ -75,16 +75,13 @@
                             {{ entry.updated }}
                         </td>
                         <td>
-                            <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-warning"
-                                    href="{% url 'notes:update_entry' entry.id %}">
-                                    Update
-                                </a>
-                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                                    data-bs-target="#delete_entry_modal">
-                                    Delete
-                                </button>
-                            </div>
+                            <a class="btn btn-sm btn-outline-warning m-1" href="{% url 'notes:update_entry' entry.id %}">
+                                Update
+                            </a>
+                            <button type="button" class="btn btn-sm btn-outline-danger m-1" data-bs-toggle="modal"
+                                data-bs-target="#delete_entry_modal">
+                                Delete
+                            </button>
                             <div class="modal fade" id="delete_entry_modal" tabindex="-1"
                                 aria-labelledby="delete_{{ entry.slug }}_label" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">

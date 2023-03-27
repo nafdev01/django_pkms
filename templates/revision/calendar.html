@@ -34,16 +34,13 @@
                 <td>{{ objective.start_date }}</td>
                 <td>{{ objective.end_date }}</td>
                 <td>
-                    <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-warning"
-                            href="{% url 'revision:update_objective' objective.id %}">
-                            Update
-                        </a>
-                        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#delete_{{ objective.slug }}">
-                            Delete
-                        </button>
-                    </div>
+                    <a class="btn btn-sm btn-outline-warning m-1" href="{% url 'revision:update_objective' objective.id %}">
+                        Update
+                    </a>
+                    <button type="button" class="btn btn-sm btn-outline-danger m-1" data-bs-toggle="modal"
+                        data-bs-target="#delete_{{ objective.slug }}">
+                        Delete
+                    </button>
                 </td>
             </tr>
             <div class="modal fade" id="delete_{{ objective.slug }}" tabindex="-1"
