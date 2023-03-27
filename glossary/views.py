@@ -34,10 +34,11 @@ create views
 """
 @login_required
 def create_term(request):
+    student = request.user
     if request.method != "POST":
-        form = TermForm()
+        form = TermForm(student=student)
     else:
-        form = TermForm(data=request.POST)
+        form = TermForm(student=student, data=request.POST)
         if form.is_valid():
             try:
                 new_term = form.save(commit=False)
@@ -61,9 +62,9 @@ def update_term(request, term_id):
     student = request.user
     term = get_object_or_404(Term, id=term_id, course__student_id=student.id)
     if request.method != "POST":
-        form = TermForm(instance=term)
+        form = TermForm(student=student, instance=term)
     else:
-        form = TermForm(instance= term, data=request.POST)
+        form = TermForm(student=student, instance= term, data=request.POST)
         if form.is_valid():
             form.save()
             return redirect(term)
