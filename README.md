@@ -7,8 +7,9 @@ Check out the Django application here: [https://django-pkms-7bpbf.ondigitalocean
 ## Features
 
 - **Multi-user support**: Each user can create and customize their own profile, and all notes and associated data are unique to each user, ensuring that each user's data is kept private and secure.
-- **Customizability**: Users can personalize their profiles with a variety of settings, such as changing their profile picture or choosing a preferred color scheme.
 - **Robust authentication system**: Users can securely create and access their accounts, reset their passwords, and recover their accounts in case of any mishaps.
+- **Customizability**: Users can personalize their profiles with a variety of settings, such as changing their profile picture or choosing a preferred color scheme.
+- **Dashboard**: Users can view their courses, the latest note entries and both active and overdue revision objectives.
 - **Note taking and organization**: Users can take and store notes hierarchically, starting with the course, followed by the topic, then subtopic, and finally, individual entries. This hierarchical structure allows for easy navigation and quick access to notes.
 - **Glossary**: Users can store important terms and definitions for different courses, making it easier to study and review key concepts.
 - **Revision planning**: Users can set revision goals and deadlines and track their progress, helping them stay on top of their studies and achieve their academic goals.
