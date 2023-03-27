@@ -7,6 +7,7 @@ dj-database-url
 Django
 django-bootstrap5
 django-storages
+djangorestframework
 gunicorn
 image
 jmespath
@@ -19,6 +20,7 @@ platformdirs
 psycopg2
 python-dateutil
 python-dotenv
+pytz
 s3transfer
 six
 sqlparse

@@ -5,7 +5,7 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block header %}
-<p class="h2">
+<p class="h1 text-center display-1">
     Dashboard
 </p>
 {% endblock header %}
@@ -27,97 +27,115 @@
 </div> -->
 
 
-<div>
-    <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_course' %}">
+<div class=" container d-flex justify-content-evenly">
+    <a class="btn btn-outline-success" href="{% url 'notes:create_course' %}">
         New Course
     </a>
+    <a class="btn btn-outline-success" href="{% url 'glossary:create_term' %}">
+        New Term
+    </a>
 </div>
-<div class="container">
-    <h1>Notes Dashboard</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Date Updated</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for entry in latest_entries %}
-            <tr>
-                <td>
-                    <a href="{{ entry.get_absolute_url }}">
-                        {{ entry.name}}
+<br>
+<div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4">
+    <div class="col">
+        <div class="card p-4 border-dark">
+            <h1 class="text-center mb-3">Courses</h1>
+            <div class="row row-cols-3 g-4">
+                {% for course in courses %}
+                <div class="col">
+                    <a class="btn btn-outline-dark position-relative" href="{{ course.get_absolute_url }}">
+                        <p class="h5">
+                            {{ course.name }}
+                        </p>
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-dark p-1">
+                            {{ course.course_code }}
+                        </span>
                     </a>
-                </td>
-                <td>{{ entry.updated }}</td>
-                <td>
-                    <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_entry' entry.id %}">
-                            Update
-                        </a>
-                        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_entry_modal">
-                            Delete
-                        </button>
-                    </div>
-
-                    <div class="modal fade" id="delete_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    {% include "notes/delete/entry_confirm_delete.html" %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card p-2 border-dark p-4">
+            <p class="text-center mb-3 h1">
+                Latest Notes
+            </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date Updated</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in latest_entries %}
+                    <tr>
+                        <td>
+                            <a class="text-center" href="{{ course.get_absolute_url }}">
+                                {{ entry.name }}
+                            </a>
+                        </td>
+                        <td>{{ entry.updated }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-outline-warning"
+                                    href="{% url 'notes:update_entry' entry.id %}">
+                                    Update
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#delete_entry_modal">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="modal fade" id="delete_entry_modal" tabindex="-1"
+                                aria-labelledby="delete_{{ entry.slug }}_label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            {% include "notes/delete/entry_confirm_delete.html" %}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container-fluid p-4">
+            <p class="text-center h1 mb-3">
+                Active Objectives
+            </p>
+            <div class="row">
+                {% for objective in objectives %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="{{ objective.get_absolute_url }}" class=" h5 card-title">{{ objective.name
+                                }}</a>
+                        </div>
+                        <div class="card-body">
+                            <small class="card-text">
+                                Start: {{ objective.start_date }}
+                            </small>
+                            <small class="card-text">
+                                End: {{ objective.end_date }}
+                            </small>
+                            <p class="card-text">Description: {{ objective.description }}</p>
                         </div>
                     </div>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-
-
-<div class="container">
-    <h1 class="text-center my-5">Courses</h1>
-    <div class="row">
-        {% for course in courses %}
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-header">
-                    <a href="{{ course.get_absolute_url }}" class=" h5 card-title">{{ course.name }}</a>
                 </div>
-                <div class="card-body">
-                    <small class="card-text">Course Code: {{ course.course_code }}</small>
-                    <p class="card-text">About: {{ course.about }}</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
 
-<div class="container">
-    <h1 class="text-center my-5">Objectives</h1>
-    <div class="row">
-        {% for objective in objectives %}
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-header">
-                    <a href="{{ objective.get_absolute_url }}" class=" h5 card-title">{{ objective.name }}</a>
-                </div>
-                <div class="card-body">
-                    <small class="card-text">
-                        Start: {{ objective.start_date }}
-                    </small>
-                    <small class="card-text">
-                        End: {{ objective.end_date }}
-                    </small>
-                    <p class="card-text">Description: {{ objective.description }}</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+
+
 {% endblock %}
