@@ -52,11 +52,6 @@
         Share Entry
     </button>
 </div>
-<div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#create_term_modal">
-        Create Term
-    </button>
-</div>
 <div class="modal fade" id="create_term_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -83,6 +78,16 @@
         </div>
     </div>
 </div>
-<p class="h2 text-center">{{ entry.name }}</p>
+<p class="h2 text-center my-2">{{ entry.name }}</p>
+<hr>
+
 {% endblock header %}
-{% block content %}<p>{{ entry.content | markdown }}</p>{% endblock content %}
+{% block content %}
+<div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#create_term_modal">
+        Create Term
+    </button>
+</div>
+
+<p>{{ entry.content | markdown }}</p>
+{% endblock content %}

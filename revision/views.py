@@ -75,17 +75,15 @@ def objective_detail(request, id, slug):
 
 # create objective view
 @login_required
-def create_objective(request, course_id):
+def create_objective(request):
     student = request.user
-    course = get_object_or_404(Course, id=course_id, student_id=student.id)
     if request.method != "POST":
-        form = ObjectiveForm()
+        form = ObjectiveForm(student=student)
     else:
-        form = ObjectiveForm(request.POST)
+        form = ObjectiveForm(data=request.POST, student=student)
         if form.is_valid():
             try:
                 new_objective = form.save(commit=False)
-                new_objective.course = course
                 new_objective.save()
                 return redirect(new_objective)
             except IntegrityError as e:
@@ -106,21 +104,20 @@ def create_objective(request, course_id):
 
 # update objective view
 @login_required
-def update_objective(request, objective_id, course_id):
+def update_objective(request, objective_id):
     student = request.user
-    course = get_object_or_404(Course, id=course_id, student_id=student.id)
     objective = get_object_or_404(
         Objective, id=objective_id, course__student_id=student.id
     )
 
     if request.method != "POST":
-        form = ObjectiveForm(instance=objective)
+        form = ObjectiveForm(student=student, instance=objective)
     else:
-        form = ObjectiveForm(instance=objective, data=request.POST)
+        form = ObjectiveForm(student=student, instance=objective, data=request.POST)
         if form.is_valid():
             try:
                 updated_objective = form.save(commit=False)
-                updated_objective.course = course
+                updated_objective.save()
                 return redirect(updated_objective)
             except IntegrityError as e:
                 if "duplicate key value violates unique constraint" in str(e):

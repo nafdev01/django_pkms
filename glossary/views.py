@@ -117,13 +117,29 @@ update views
 def update_term(request, term_id):
     student = request.user
     term = get_object_or_404(Term, id=term_id, course__student_id=student.id)
+    course = term.course
     if request.method != "POST":
         form = TermForm(student=student, instance=term)
     else:
         form = TermForm(student=student, instance=term, data=request.POST)
+        
         if form.is_valid():
-            form.save()
-            return redirect(term)
+            try:
+                updated_term = form.save(commit=False)
+                updated_term.save()
+                messages.success(
+                    request,
+                    f"Successfully created term '{updated_term}' in {course.course_code}",
+                )
+                return redirect(updated_term)
+            except IntegrityError as e:
+                if "duplicate key value violates unique constraint" in str(e):
+                    messages.error(request, f"A term with that title already exists")
+                    return redirect(updated_term)
+                else:
+                    messages.error(request, "There was an error creating the term.")
+                    return redirect(updated_term)
+
 
     template_path = "glossary/term_update_form.html"
     context = {"form": form, "term": term}

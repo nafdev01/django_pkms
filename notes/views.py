@@ -25,8 +25,11 @@ def dashboard(request):
     ).order_by("-updated")[:7]
 
     today = timezone.now().date()
-    objectives = Objective.objects.filter(
+    active_objectives = Objective.objects.filter(
         end_date__gte=today, start_date__lte=today, complete=False
+    )
+    overdue_objectives = Objective.objects.filter(
+        end_date__lt=today, complete=False
     )
 
     template_path = "dashboard.html"
@@ -35,7 +38,8 @@ def dashboard(request):
         "latest_entries": latest_entries,
         "student": student,
         "courses": courses,
-        "objectives": objectives,
+        "active_objectives": active_objectives,
+        "overdue_objectives": overdue_objectives,
     }
     return render(request, template_path, context)
 

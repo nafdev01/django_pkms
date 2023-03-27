@@ -29,48 +29,23 @@
     </div>
 </div>
 
-<h1>{{ course.name }} Objectives</h1>
+<p class="text-center h2">{{ course.name }} Objectives</p>
 <hr>
 {% endblock header %}
 
 {% block content %}
 
-<button type="button" class="btn btn-sm btn-outline-success mb-2" data-bs-toggle="modal"
-    data-bs-target="#course_select_modal">
+<a href="{% url 'revision:create_objective' %}" class="btn btn-sm btn-outline-success">
     New Objective
-</button>
+</a>
 
 {% if objectives %}
-<div class="list-group">
+<div class="list-group m-3">
     {% for objective in objectives %}
     <div class="list-group-item">
-        <a class="h4 float-start" href="{% url 'revision:objective_detail' objective.id objective.slug %}">
+        <a class="h4" href="{% url 'revision:objective_detail' objective.id objective.slug %}">
             {{ objective.name }}
         </a>
-
-        <div class="btn-group m-3 float-end">
-            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
-                data-bs-target="#course_change_modal">
-                Update Objective
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                data-bs-target="#delete_objective_modal">
-                Delete
-            </button>
-        </div>
-        <div class="modal fade" id="course_select_modal" tabindex="-1" aria-labelledby="course_select"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <p>Choose chapter</p>
-                    </div>
-                    <div class="modal-body">
-                        {% include "revision/includes/choose_objective_chapter.html" %}
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="modal fade" id="delete_objective_modal" tabindex="-1"
             aria-labelledby="delete_{{ objective.slug }}_label" aria-hidden="true">
@@ -82,21 +57,16 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="course_change_modal" tabindex="-1" aria-labelledby="course_select"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <p>Change chapter</p>
-                    </div>
-                    <div class="modal-body">
-                        {% include "revision/includes/change_objective_chapter.html" %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br><br>
         <p>{{ objective.description | markdown | truncatewords:25 }}</p>
+        <div class="btn-group m-3">
+            <a class="btn btn-sm btn-outline-warning" href="{% url 'revision:update_objective' objective.id %}">
+                Update
+            </a>
+            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                data-bs-target="#delete_objective_modal">
+                Delete
+            </button>
+        </div>
     </div>
     {% endfor %}
 </div>

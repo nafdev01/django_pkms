@@ -5,41 +5,28 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block header %}
-<p class="h1 text-center display-1">
+<p class="text-center display-1">
     Dashboard
 </p>
 {% endblock header %}
 
 {% block content %}
-
-<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'glossary_favicon.ico'' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'revision_favicon.ico' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'notes_favicon.ico' %}" class="d-block w-100" alt="...">
-        </div>
-    </div>
-</div> -->
-
-
-<div class=" container d-flex justify-content-evenly">
+<div class="container d-flex justify-content-evenly">
     <a class="btn btn-outline-success" href="{% url 'notes:create_course' %}">
         New Course
     </a>
     <a class="btn btn-outline-success" href="{% url 'glossary:create_term' %}">
         New Term
     </a>
+    <a class="btn btn-outline-success" href="{% url 'revision:create_objective' %}">
+        New Objective
+    </a>
 </div>
 <br>
 <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4">
     <div class="col">
         <div class="card p-4 border-dark">
-            <h1 class="text-center mb-3">Courses</h1>
+            <p class="text-center mb-3 display-5">Courses</p>
             <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
                 {% for course in courses %}
                 <div class="col">
@@ -47,9 +34,9 @@
                         <p class="h5">
                             {{ course.name }}
                         </p>
-                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-dark p-1">
+                        <small>
                             {{ course.course_code }}
-                        </span>
+                        </small>
                     </a>
                 </div>
                 {% endfor %}
@@ -58,7 +45,7 @@
     </div>
     <div class="col">
         <div class="card p-2 border-dark p-4">
-            <p class="text-center mb-3 h1">
+            <p class="text-center mb-3 display-5">
                 Latest Notes
             </p>
             <table class="table table-bordered">
@@ -72,12 +59,21 @@
                 <tbody>
                     {% for entry in latest_entries %}
                     <tr>
-                        <td class="d-flex justify-content-center">
-                            <a class="text-center" href="{{ course.get_absolute_url }}">
-                                {{ entry.name }}
-                            </a>
+                        <td>
+                            <div class="d-flex justify-content-center me-4">
+                                <a class="btn btn-outline-secondary text-center flex-fill position-relative"
+                                    href="{{ entry.get_absolute_url }}">
+                                    {{ entry.name }}
+                                    <span
+                                        class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary px-2">
+                                        {{ entry.subtopic.topic.course.course_code }}
+                                    </span>
+                                </a>
+                            </div>
                         </td>
-                        <td>{{ entry.updated }}</td>
+                        <td>
+                            {{ entry.updated }}
+                        </td>
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-warning"
@@ -106,31 +102,58 @@
             </table>
         </div>
     </div>
-    <div class="col">
-        <div class="container-fluid p-4">
-            <p class="text-center h1 mb-3">
-                Active Objectives
-            </p>
-            <div class="row">
-                {% for objective in objectives %}
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <a href="{{ objective.get_absolute_url }}" class=" h5 card-title">{{ objective.name
-                                }}</a>
-                        </div>
-                        <div class="card-body">
-                            <small class="card-text">
-                                Start: {{ objective.start_date }}
-                            </small>
-                            <small class="card-text">
-                                End: {{ objective.end_date }}
-                            </small>
-                            <p class="card-text">Description: {{ objective.description }}</p>
-                        </div>
+</div>
+
+<p class="text-center display-1 m-3">
+    Objectives
+</p>
+
+<div class="card p-2 border-dark p-4">
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4">
+        <div class="col">
+            <div class="container-fluid p-4">
+                <p class="text-center h1">
+                    Active
+                </p>
+                <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 g-2">
+                    {% for objective in active_objectives %}
+                    <div class="col d-flex justify-content-center">
+                        <a class="text-center btn btn-outline-success position-relative"
+                            href="{{ objective.get_absolute_url }}">
+                            <p class="h5">
+                                {{ objective.name }}
+                            </p>
+                            <span
+                                class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-success px-2">
+                                Due on {{ objective.end_date }}
+                            </span>
+                        </a>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid p-4">
+                <p class="text-center h1">
+                    Overdue
+                </p>
+                <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 g-4">
+                    {% for objective in overdue_objectives %}
+                    <div class="col d-flex justify-content-center">
+                        <a class="text-center btn btn-outline-danger position-relative"
+                            href="{{ objective.get_absolute_url }}">
+                            <p class="h5">
+                                {{ objective.name }}
+                            </p>
+                            <span
+                                class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger px-2">
+                                Due on {{ objective.end_date }}
+                            </span>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

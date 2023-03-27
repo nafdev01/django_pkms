@@ -2,30 +2,18 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 
-{% block title %}Calendar{% endblock %}
+{% block title %}Revision Calendar{% endblock %}
 
 {% block header %}
-Calendar
+<p class="h1 text-center">Revision Calendar</p>
 {% endblock header %}
 
 {% block content %}
-<button type="button" class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#course_select_modal">
+<a href="{% url 'revision:create_objective' %}" class="btn btn-sm btn-outline-success">
     New Objective
-</button>
-<div class="modal fade" id="course_select_modal" tabindex="-1" aria-labelledby="course_select" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <p>Choose chapter</p>
-            </div>
-            <div class="modal-body">
-                {% include "revision/includes/choose_objective_chapter.html" %}
-            </div>
-        </div>
-    </div>
-</div>
+</a>
 
-<div>
+<div class="m-3">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -46,27 +34,20 @@ Calendar
                 <td>{{ objective.start_date }}</td>
                 <td>{{ objective.end_date }}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-warning my-1" data-bs-toggle="modal" data-bs-target="#course_change_modal">
-                        Update
-                    </button>
-                    <button type="button" class="btn btn-sm btn-outline-danger my-1" data-bs-toggle="modal" data-bs-target="#delete_objective_modal">
-                        Delete
-                    </button>
+                    <div class="btn-group">
+                        <a class="btn btn-sm btn-outline-warning"
+                            href="{% url 'revision:update_objective' objective.id %}">
+                            Update
+                        </a>
+                        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#delete_{{ objective.slug }}">
+                            Delete
+                        </button>
+                    </div>
                 </td>
             </tr>
-            <div class="modal fade" id="course_change_modal" tabindex="-1" aria-labelledby="course_select" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <p>Change chapter</p>
-                        </div>
-                        <div class="modal-body">
-                            {% include "revision/includes/change_objective_chapter.html" %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="delete_objective_modal" tabindex="-1" aria-labelledby="delete_{{ objective.slug }}_label" aria-hidden="true">
+            <div class="modal fade" id="delete_{{ objective.slug }}" tabindex="-1"
+                aria-labelledby="delete_{{ objective.slug }}_label" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">

@@ -9,10 +9,13 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{% url 'revision:objective_list' objective.course.id objective.course.slug %}">{{ objective.course.course_code }}</a>
+            <a href="{% url 'revision:objective_list' objective.course.id objective.course.slug %}">
+                {{ objective.course.course_code }}
+            </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherObjectives" role="button" aria-expanded="false" aria-controls="otherObjectives">
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherObjectives" role="button"
+                aria-expanded="false" aria-controls="otherObjectives">
                 {{ objective }}
             </a>
         </li>
@@ -33,34 +36,25 @@
     </div>
 </div>
 
+<h2 class="text-center">{{ objective.name }}</h2>
+<hr>
 
-<div class="btn-group m-3 float-end">
-    <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#course_select_modal">
+<div class="btn-group m-3">
+    <a href="{% url 'revision:create_objective' %}" class="btn btn-sm btn-outline-success">
         New Objective
-    </button>
-    <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#course_change_modal">
+    </a>
+    <a class="btn btn-sm btn-outline-warning" href="{% url 'revision:update_objective' objective.id %}">
         Update Objective
-    </button>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_objective_modal">
-        Delete
+    </a>
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+        data-bs-target="#delete_objective_modal">
+        Delete Objective
     </button>
 </div>
 
-<div class="modal fade" id="course_select_modal" tabindex="-1" aria-labelledby="course_select" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <p>Choose chapter</p>
-            </div>
-            <div class="modal-body">
-                {% include "revision/includes/choose_objective_chapter.html" %}
-            </div>
-        </div>
-    </div>
-</div>
 
-
-<div class="modal fade" id="delete_objective_modal" tabindex="-1" aria-labelledby="delete_{{ objective.slug }}_label" aria-hidden="true">
+<div class="modal fade" id="delete_objective_modal" tabindex="-1" aria-labelledby="delete_{{ objective.slug }}_label"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
@@ -69,20 +63,6 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="course_change_modal" tabindex="-1" aria-labelledby="course_select" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <p>Change chapter</p>
-            </div>
-            <div class="modal-body">
-                {% include "revision/includes/change_objective_chapter.html" %}
-            </div>
-        </div>
-    </div>
-</div>
-
-<h2>{{ objective.name }}</h2>
 {% endblock header %}
 
 {% block content %}

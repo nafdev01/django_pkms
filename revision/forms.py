@@ -7,6 +7,10 @@ from revision.models import *
 
 
 class ObjectiveForm(forms.ModelForm):
+    def __init__(self, student, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["course"].queryset = Course.objects.filter(student=student)
+
     class Meta:
         model = Objective
         fields = ["name", "course", "start_date", "end_date", "description"]

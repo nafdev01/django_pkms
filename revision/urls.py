@@ -17,12 +17,12 @@ urlpatterns = [
         name="objective_detail",
     ),
     path(
-        "objective/create/<int:course_id>/",
+        "objective/create/",
         views.create_objective,
         name="create_objective",
     ),
     path(
-        "objective/update/<int:objective_id>/<int:course_id>/",
+        "objective/update/<int:objective_id>/",
         views.update_objective,
         name="update_objective",
     ),
