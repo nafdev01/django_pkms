@@ -29,7 +29,7 @@ def dashboard(request):
         end_date__gte=today, start_date__lte=today, complete=False
     )
 
-    template_path = "notes/dashboard.html"
+    template_path = "dashboard.html"
     context = {
         "student": student,
         "latest_entries": latest_entries,
