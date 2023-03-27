@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 
-{% block title %}Create Term{% endblock %}
+{% block title %}New Term{% endblock title %}
 
 {% block header %}
 <h1>Create a new term</h1>
@@ -15,4 +15,4 @@
 	{% csrf_token %}
 	<input class="btn btn-outline-success" type="submit" value="Save Term">
 </form>
-{% endblock %}
+{% endblock content %}

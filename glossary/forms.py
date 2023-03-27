@@ -12,3 +12,9 @@ class TermForm(forms.ModelForm):
     class Meta:
         model = Term
         fields = ["course", "name", "definition"]
+
+
+class TermInlineForm(forms.ModelForm):
+    class Meta:
+        model = Term
+        fields = ["name", "definition"]

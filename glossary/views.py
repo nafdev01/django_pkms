@@ -5,33 +5,36 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import IntegrityError
-from notes.models import Course
+from notes.models import *
 from glossary.models import *
 from glossary.forms import *
 
-    
+
 # terms list
 @login_required
 def term_list(request, course_id=None, slug=None):
     student = request.user
     courses = Course.objects.filter(student_id=student.id)
     if course_id:
-        course = get_object_or_404(Course,id=course_id, slug=slug)
-        terms = Term.objects.filter(course_id=course.id,course__student_id=student.id)
+        course = get_object_or_404(Course, id=course_id, slug=slug)
+        terms = Term.objects.filter(course_id=course.id, course__student_id=student.id)
         messages.info(request, f"Now showing terms for course  '{course.name}'.")
-        context = {"course" : course, "courses" : courses}
+        context = {"course": course, "courses": courses}
     else:
         terms = Term.objects.filter(course__student_id=student.id)
-        context = {"courses" : courses}
-        
+        context = {"courses": courses}
+
     context.update({"terms": terms})
-        
+
     template_path = "glossary/term_list.html"
     return render(request, template_path, context)
+
 
 """
 create views
 """
+
+
 @login_required
 def create_term(request):
     student = request.user
@@ -45,18 +48,51 @@ def create_term(request):
                 new_term.save()
                 return redirect(new_term)
             except IntegrityError as e:
-                if 'duplicate key value violates unique constraint' in str(e):
-                    messages.error(request, f'A term with that title already exists')
+                if "duplicate key value violates unique constraint" in str(e):
+                    messages.error(request, f"A term with that title already exists")
                 else:
-                    messages.error(request, 'There was an error creating the term.')
-            
+                    messages.error(request, "There was an error creating the term.")
+
     template_path = "glossary/term_create_form.html"
     context = {"form": form}
     return render(request, template_path, context)
 
+
+@login_required
+def create_term_inline(request, entry_id, course_id):
+    student = request.user
+    entry = get_object_or_404(
+        Entry, id=entry_id, subtopic__topic__course__student=student
+    )
+    course = get_object_or_404(Course, id=course_id, student=student)
+    if request.method != "POST":
+        form = TermInlineForm()
+    else:
+        form = TermInlineForm(data=request.POST)
+        if form.is_valid():
+            try:
+                new_term = form.save(commit=False)
+                new_term.course = course
+                new_term.save()
+                messages.success(
+                    request,
+                    f"Successfully created term '{new_term}' in {course.course_code}",
+                )
+                return redirect(entry)
+            except IntegrityError as e:
+                if "duplicate key value violates unique constraint" in str(e):
+                    messages.error(request, f"A term with that title already exists")
+                    return redirect(entry)
+                else:
+                    messages.error(request, "There was an error creating the term.")
+                    return redirect(entry)
+
+
 """
 update views
 """
+
+
 @login_required
 def update_term(request, term_id):
     student = request.user
@@ -64,7 +100,7 @@ def update_term(request, term_id):
     if request.method != "POST":
         form = TermForm(student=student, instance=term)
     else:
-        form = TermForm(student=student, instance= term, data=request.POST)
+        form = TermForm(student=student, instance=term, data=request.POST)
         if form.is_valid():
             form.save()
             return redirect(term)
@@ -77,13 +113,15 @@ def update_term(request, term_id):
 """
 delete views
 """
+
+
 @login_required
 def delete_term(request, term_id):
     student = request.user
     term = Term.objects.get(id=term_id, course__student_id=student.id)
     term_name = term.name
-    
+
     term.delete()
     messages.success(request, f"The term {term_name} has been deleted successfully.")
-    
+
     return redirect("glossary:term_list")

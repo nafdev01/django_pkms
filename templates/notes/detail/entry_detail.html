@@ -2,83 +2,87 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 {% load notes_tags %}
-
-{% block title %}{{ entry.name }}{% endblock %}
-
+{% load glossary_tags %}
+{% block title %}{{ entry.name }}{% endblock title %}
 {% block header %}
 <br>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ entry.subtopic.topic.course.get_absolute_url }}">{{ entry.subtopic.topic.course.course_code }}</a>
+            <a href="{{ entry.subtopic.topic.course.get_absolute_url }}">
+                {{ entry.subtopic.topic.course.course_code }}
+            </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ entry.subtopic.topic.get_absolute_url }}">{{ entry.subtopic.topic | truncatechars:25 }}</a>
+            <a href="{{ entry.subtopic.topic.get_absolute_url }}">
+                {{ entry.subtopic.topic | truncatechars:25 }}
+            </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ entry.subtopic.get_absolute_url }}">{{ entry.subtopic | truncatechars:25 }}</a>
+            <a href="{{ entry.subtopic.get_absolute_url }}">
+                {{ entry.subtopic | truncatechars:25 }}
+            </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherEntries" role="button" aria-expanded="false" aria-controls="otherEntries">
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherEntries" role="button"
+                aria-expanded="false" aria-controls="otherEntries">
                 {{ entry }}
             </a>
         </li>
     </ol>
 </nav>
-
-
 <div class="collapse" id="otherEntries">
     <div class="row g-2">
         {% for other_entry in other_entries %}
         <div class="col">
-            <a class="btn btn-sm btn-outline-dark" href="{{ other_entry.get_absolute_url }}">
-                {{ other_entry.name }}
-            </a>
+            <a class="btn btn-sm btn-outline-dark" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
         </div>
-        {% endfor%}
+        {% endfor %}
     </div>
 </div>
-
-
-<div class="btn-group m-3">
-    <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_entry' entry.subtopic.id %}">
-        New Entry
-    </a>
-    <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_entry' entry.id %}">
-        Update Entry
-    </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_entry_modal">
+<div class="btn-group">
+    <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_entry' entry.subtopic.id %}">New Entry</a>
+    <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_entry' entry.id %}">Update Entry</a>
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+        data-bs-target="#delete_entry_modal">
         Delete Entry
     </button>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#share_entry_modal">
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+        data-bs-target="#share_entry_modal">
         Share Entry
     </button>
 </div>
-<div class="modal fade" id="delete_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label" aria-hidden="true">
+<div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#create_term_modal">
+        Create Term
+    </button>
+</div>
+<div class="modal fade" id="create_term_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                {% include "notes/delete/entry_confirm_delete.html" %}
+                {% create_term_inline entry %}
             </div>
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="share_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label" aria-hidden="true">
+<div class="modal fade" id="delete_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-                {% include "notes/includes/entry_confirm_share.html" %}
-            </div>
+            <div class="modal-body">{% include "notes/delete/entry_confirm_delete.html" %}</div>
         </div>
     </div>
 </div>
-
-<p class="h2 text-center">
-    {{ entry.name }}
-</p>
+<div class="modal fade" id="share_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">{% include "notes/includes/entry_confirm_share.html" %}</div>
+        </div>
+    </div>
+</div>
+<p class="h2 text-center">{{ entry.name }}</p>
 {% endblock header %}
-
-{% block content %}
-<p>{{ entry.content | markdown }}</p>
-{% endblock %}
+{% block content %}<p>{{ entry.content | markdown }}</p>{% endblock content %}

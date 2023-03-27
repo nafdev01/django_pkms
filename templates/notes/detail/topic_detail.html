@@ -9,10 +9,13 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ topic.course.get_absolute_url }}">{{ topic.course.course_code }}</a>
+            <a href="{{ topic.course.get_absolute_url }}">
+                {{ topic.course.course_code }}
+            </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherTopics" role="button" aria-expanded="false" aria-controls="otherTopics">
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherTopics" role="button"
+                aria-expanded="false" aria-controls="otherTopics">
                 {{ topic }}
             </a>
         </li>
@@ -38,11 +41,13 @@
     <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_topic' topic.id %}">
         Update Topic
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_topic_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+        data-bs-target="#delete_topic_modal">
         Delete Topic
     </button>
 </div>
-<div class="modal fade" id="delete_topic_modal" tabindex="-1" aria-labelledby="delete_{{ topic.slug }}_label" aria-hidden="true">
+<div class="modal fade" id="delete_topic_modal" tabindex="-1" aria-labelledby="delete_{{ topic.slug }}_label"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
@@ -76,12 +81,14 @@
                     {{ subtopic }}
                 </a>
             </p>
-            <button type="button" class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#show_{{ subtopic.slug }}_entries">
+            <button type="button" class="btn btn-sm btn-outline-dark" data-bs-toggle="modal"
+                data-bs-target="#show_{{ subtopic.slug }}_entries">
                 Show Entries
             </button>
         </div>
     </div>
-    <div class="modal fade" id="show_{{ subtopic.slug }}_entries" tabindex="-1" aria-labelledby="show_{{ subtopic.slug }}_entries" aria-hidden="true">
+    <div class="modal fade" id="show_{{ subtopic.slug }}_entries" tabindex="-1"
+        aria-labelledby="show_{{ subtopic.slug }}_entries" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">

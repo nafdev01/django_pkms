@@ -11,13 +11,18 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ subtopic.topic.course.get_absolute_url }}">{{ subtopic.topic.course.course_code }}</a>
+            <a href="{{ subtopic.topic.course.get_absolute_url }}">
+                {{ subtopic.topic.course.course_code }}
+            </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ subtopic.topic.get_absolute_url }}">{{ subtopic.topic | truncatechars:25 }}</a>
+            <a href="{{ subtopic.topic.get_absolute_url }}">
+                {{ subtopic.topic | truncatechars:25 }}
+            </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherSubTopic" role="button" aria-expanded="false" aria-controls="otherSubTopic">
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherSubTopic" role="button"
+                aria-expanded="false" aria-controls="otherSubTopic">
                 {{ subtopic }}
             </a>
         </li>
@@ -45,11 +50,13 @@
     <a class="btn btn-sm btn-outline-warning float-right" href="{% url 'notes:update_subtopic' subtopic.id %}">
         Update Subtopic
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_subtopic_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+        data-bs-target="#delete_subtopic_modal">
         Delete Subtopic
     </button>
 </div>
-<div class="modal fade" id="delete_subtopic_modal" tabindex="-1" aria-labelledby="delete_{{ subtopic.slug }}_label" aria-hidden="true">
+<div class="modal fade" id="delete_subtopic_modal" tabindex="-1" aria-labelledby="delete_{{ subtopic.slug }}_label"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">

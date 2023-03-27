@@ -10,9 +10,10 @@ class Term(CommonModel):
     """
     model for important terms in courses
     """
+
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     definition = models.TextField()
-    
+
     @property
     def student(self):
         return {self.course.student}
@@ -25,7 +26,6 @@ class Term(CommonModel):
                 self.course.slug,
             ],
         )
-        
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -33,6 +33,6 @@ class Term(CommonModel):
 
     def __str__(self):
         return f"{self.name}"
-    
+
     class Meta:
-    	ordering = ['course','name']
+        ordering = ["name"]

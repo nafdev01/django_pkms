@@ -6,7 +6,7 @@
 {% block title %}Glossary{% endblock %}
 
 {% block header %}
-<p class="h2">
+<p class="h1 text-center">
     Glossary
 </p>
 
@@ -35,16 +35,16 @@
 {% endblock header %}
 
 {% block content %}
-<div>
+<div class="m-2">
     <a href="{% url 'glossary:create_term' %}" class="btn btn-outline-success">
-        Create Term
+        New Term
     </a>
 </div>
 <div class="container-fluid">
-    <div class="row row-cols-2">
+    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
         {% for term in terms %}
         <div class="col">
-            <div class="card m-1 p-2">
+            <div class="card p-2">
                 <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapse{{ term.slug }}" role="button" aria-expanded="false" aria-controls="collapse{{ term.slug }}">
                     {{ term.name }}
                 </a>
@@ -58,11 +58,11 @@
     <a class="btn btn-sm btn-outline-warning" href="{% url 'glossary:update_term' term.id %}">
         Update
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_term_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_{{ term.slug }}_modal">
         Delete
     </button>
 </div>
-<div class="modal fade" id="delete_term_modal" tabindex="-1" aria-labelledby="delete_{{ term.slug }}_label" aria-hidden="true">
+<div class="modal fade" id="delete_{{ term.slug }}_modal" tabindex="-1" aria-labelledby="delete_{{ term.slug }}_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
