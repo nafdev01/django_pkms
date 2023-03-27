@@ -75,7 +75,8 @@
                             {{ entry.updated }}
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-outline-warning m-1" href="{% url 'notes:update_entry' entry.id %}">
+                            <a class="btn btn-sm btn-outline-warning m-1"
+                                href="{% url 'notes:update_entry' entry.id %}">
                                 Update
                             </a>
                             <button type="button" class="btn btn-sm btn-outline-danger m-1" data-bs-toggle="modal"
@@ -112,7 +113,7 @@
                 <p class="text-center h1">
                     Active
                 </p>
-                <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 g-2">
+                <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 g-3">
                     {% for objective in active_objectives %}
                     <div class="col d-flex justify-content-center">
                         <a class="text-center btn btn-outline-success position-relative"
@@ -122,7 +123,7 @@
                             </p>
                             <span
                                 class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-success px-2">
-                                Due on {{ objective.end_date }}
+                                {{ objective.end_date| date:"m/d/y" }}
                             </span>
                         </a>
                     </div>
@@ -135,7 +136,7 @@
                 <p class="text-center h1">
                     Overdue
                 </p>
-                <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 g-4">
+                <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 g-3">
                     {% for objective in overdue_objectives %}
                     <div class="col d-flex justify-content-center">
                         <a class="text-center btn btn-outline-danger position-relative"
@@ -145,7 +146,7 @@
                             </p>
                             <span
                                 class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger px-2">
-                                Due on {{ objective.end_date }}
+                                {{ objective.end_date |date:"m/d/y" }}
                             </span>
                         </a>
                     </div>
