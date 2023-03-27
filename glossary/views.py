@@ -14,27 +14,40 @@ from glossary.forms import *
 @login_required
 def term_list(request, course_id=None, slug=None, first_letter=None):
     student = request.user
-    terms = Term.objects.filter(course__student_id=student.id)
-    courses = sorted(set([term.course for term in terms]))
-    first_letters = sorted(set([term.name[0].upper() for term in terms]))
+    all_terms = Term.objects.filter(course__student_id=student.id)
+    courses = Course.objects.all()
 
-    context = {"courses": courses, "first_letters": first_letters}
+    first_letters_list = []
+    first_letters = sorted(set([term.name[0].upper() for term in all_terms]))
+    for letter in first_letters:
+        letter_terms = all_terms.filter(name__istartswith=letter)
+        letter_dict = {"letter": str(letter), "course": letter_terms}
+        first_letters_list.append(letter_dict)
+
+    courses = set([term.course for term in all_terms])
+    context = {
+        "courses": courses,
+        "first_letters": first_letters,
+        "all_terms": all_terms,
+    }
 
     if course_id:
         course = get_object_or_404(Course, id=course_id, slug=slug)
         terms = Term.objects.filter(course_id=course.id, course__student_id=student.id)
-        messages.info(request, f"Now showing terms for course  '{course.name}'.")
+        messages.info(request, f"Now showing terms for course '{course.name}'.")
         context.update({"terms": terms, "course": course})
     elif first_letter:
-        terms = terms.filter(name__startswith=first_letter)
+        terms = all_terms.filter(name__startswith=first_letter)
         messages.info(request, f"Now showing terms that start with '{first_letter}'.")
         context.update({"terms": terms, "first_letter": first_letter})
     else:
-        messages.info(request, f"Now showing all terms.")
+        messages.info(request, "Now showing all terms.")
+        terms = all_terms
         context.update({"terms": terms})
 
-    template_path = "glossary/term_list.html"
-    return render(request, template_path, context)
+    context.update({"first_letters_list": first_letters_list})
+    template_name = "glossary/term_list.html"
+    return render(request, template_name, context)
 
 
 """

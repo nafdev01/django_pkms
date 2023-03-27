@@ -10,55 +10,66 @@
     Glossary
 </p>
 
-<div class="accordion my-1" id="courseAccordion">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#courseAccordioncollapse" aria-expanded="true" aria-controls="courseAccordioncollapse">
-                Show Terms by Course
-            </button>
-        </h2>
-        <div id="courseAccordioncollapse" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-            data-bs-parent="#courseAccordion">
-            <div class="accordion-body">
-                <a class="btn btn-primary btn-sm m-1" href="{% url 'glossary:term_list' %}">
-                    All
-                </a>
-                {% for course in courses %}
-                <a class="btn btn-primary btn-sm m-1"
-                    href="{% url 'glossary:terms_by_course' course_id=course.id slug=course.slug %}">
-                    {{ course.course_code }}
-                </a>
-                {% endfor %}
+<section class="container-fluid">
+    <div class="accordion" id="accordionShowBy">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCourse">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCourse" aria-expanded="true" aria-controls="collapseCourse">
+                    Show Terms by Course
+                </button>
+            </h2>
+            <div id="collapseCourse" class="accordion-collapse collapse" aria-labelledby="headingCourse"
+                data-bs-parent="#accordionShowBy">
+                <div class="accordion-body">
+                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative" href="{% url 'glossary:term_list' %}">
+                        All
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ all_terms.count }}
+                        </span>
+                    </a>
+                    {% for course in courses %}
+                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative"
+                        href="{% url 'glossary:terms_by_course' course_id=course.id slug=course.slug %}">
+                        {{ course.course_code }}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ course.term_set.count }}
+                        </span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFirstLetter">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFirstLetter" aria-expanded="false" aria-controls="collapseFirstLetter">
+                    Show Terms by First Letter
+                </button>
+            </h2>
+            <div id="collapseFirstLetter" class="accordion-collapse collapse" aria-labelledby="headingFirstLetter"
+                data-bs-parent="#accordionShowBy">
+                <div class="accordion-body">
+                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative" href="{% url 'glossary:term_list' %}">
+                        All
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ all_terms.count }}
+                        </span>
+                    </a>
+                    {% for letter_dict in first_letters_list %}
+                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative"
+                        href="{% url 'glossary:terms_by_letter' letter_dict.letter %}">
+                        {{ letter_dict.letter }}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ letter_dict.course.count }}
+                        </span>
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="accordion my-1" id="letterAccordion">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#letterAccordioncollapse" aria-expanded="true" aria-controls="letterAccordioncollapse">
-                Show Terms by Letter
-            </button>
-        </h2>
-        <div id="letterAccordioncollapse" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-            data-bs-parent="#letterAccordion">
-            <div class="accordion-body">
-                <a class="btn btn-primary btn-sm m-1" href="{% url 'glossary:term_list' %}">
-                    All
-                </a>
-                {% for letter in first_letters %}
-                <a class="btn btn-primary btn-sm m-1" href="{% url 'glossary:terms_by_letter' letter %}">
-                    {{ letter }}
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
-
+</section>
 {% endblock header %}
 
 {% block content %}
@@ -67,7 +78,7 @@
         New Term
     </a>
 </div>
-<div class="container-fluid">
+<div class="">
     <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
         {% for term in terms %}
         <div class="col">
