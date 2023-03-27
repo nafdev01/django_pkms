@@ -38,9 +38,7 @@ def objective_list(request, id, slug):
         course__student_id=student.id,
     )
     courses = Course.objects.all()
-    other_courses = Course.objects.filter(student_id=student.id).exclude(
-        id=course.id
-    )
+    other_courses = Course.objects.filter(student_id=student.id).exclude(id=course.id)
 
     template_path = "revision/objective_list.html"
     context = {
@@ -150,7 +148,8 @@ def delete_objective(request, objective_id):
 
     objective.delete()
     messages.success(
-        request, f"The objective {objective_name} in {course} has been deleted successfully."
+        request,
+        f"The objective {objective_name} in {course} has been deleted successfully.",
     )
 
-    return redirect("revision:objective_list" , course.id, course.slug)
+    return redirect("revision:objective_list", course.id, course.slug)
