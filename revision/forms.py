@@ -9,10 +9,8 @@ from revision.models import *
 class ObjectiveForm(forms.ModelForm):
     class Meta:
         model = Objective
-        fields = ['name', 'start_date', 'end_date', 'description']
+        fields = ["name", "course", "start_date", "end_date", "description"]
         widgets = {
             "start_date": DatePickerInput(),
             "end_date": DatePickerInput(),
         }
-
-     
