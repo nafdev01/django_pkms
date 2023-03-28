@@ -27,14 +27,14 @@
     <div class="col">
         <div class="card p-4 border-dark">
             <p class="text-center mb-3 display-5">Courses</p>
-            <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2">
                 {% for course in courses %}
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                     <a class="btn btn-outline-dark position-relative" href="{{ course.get_absolute_url }}">
                         <p class="h5">
                             {{ course.name }}
                         </p>
-                        <small>
+                        <small class="fw-bold">
                             {{ course.course_code }}
                         </small>
                     </a>
@@ -48,7 +48,7 @@
             <p class="text-center mb-3 display-5">
                 Latest Notes
             </p>
-            <table class="table table-bordered">
+            <table class="table align-middle">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -56,11 +56,11 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                     {% for entry in latest_entries %}
                     <tr>
                         <td>
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center py-2">
                                 <a class="btn btn-outline-secondary text-center flex-fill position-relative"
                                     href="{{ entry.get_absolute_url }}">
                                     {{ entry.name }}

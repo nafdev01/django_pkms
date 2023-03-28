@@ -14,7 +14,7 @@
 </a>
 
 <div class="m-3">
-    <table class="table table-bordered">
+    <table class="table align-middle">
         <thead>
             <tr>
                 <th>Name</th>
@@ -23,18 +23,26 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             {% for objective in objectives %}
             <tr>
                 <td>
-                    <a class="fw-bold" href="{{ objective.get_absolute_url}}">
-                        {{ objective.name }} - ({{ objective.course.course_code }})
-                    </a>
+                    <div class="d-flex justify-content-center py-2">
+                        <a class="btn btn-outline-dark text-center flex-fill position-relative"
+                            href="{{ objective.get_absolute_url }}">
+                            {{ objective.name }}
+                            <span
+                                class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-dark px-2">
+                                {{ objective.course.course_code }}
+                            </span>
+                        </a>
+                    </div>
                 </td>
                 <td>{{ objective.start_date }}</td>
                 <td>{{ objective.end_date }}</td>
                 <td>
-                    <a class="btn btn-sm btn-outline-warning m-1" href="{% url 'revision:update_objective' objective.id %}">
+                    <a class="btn btn-sm btn-outline-warning m-1"
+                        href="{% url 'revision:update_objective' objective.id %}">
                         Update
                     </a>
                     <button type="button" class="btn btn-sm btn-outline-danger m-1" data-bs-toggle="modal"
