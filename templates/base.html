@@ -104,7 +104,9 @@
     {% else %}
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">WELCOME</span>
+            <a class="navbar-brand" href="{% url 'notes:dashboard' %}" title="Dashboard">
+                <img src="{% static 'pkms.png' %}" alt="" width="30" height="30">
+            </a>
             <div class="btn-group float-end" role="group">
                 <a class="btn btn-primary" href="{% url 'signup' %}">Sign Up</a>
                 <a class="btn btn-primary" href="{% url 'login' %}">Log In</a>
