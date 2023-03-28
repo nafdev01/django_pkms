@@ -72,7 +72,7 @@ class Course(CommonModel):
         max_length=2,
         choices=CourseType.choices,
     )
-    course_code = models.CharField(max_length=250, null=True, default="COSF")
+    course_code = models.CharField(max_length=250, null=True, default="CODE")
 
     about = models.TextField()
 
