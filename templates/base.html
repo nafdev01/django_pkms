@@ -34,7 +34,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}" title="Home">
-                <img src="{% static 'pkms.png' %}" alt="" width="30" height="30">
+                <img class="img-fluid rounded" src="{% static 'pkms.png' %}" alt="" width="40" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
                 aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle dashboard">
@@ -104,7 +104,7 @@
     {% else %}
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">        <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}" title="Home">
-                <img class="img-fluid rounded" src="{% static 'pkms.png' %}" alt="" width="45" height="45">
+                <img class="img-fluid rounded" src="{% static 'pkms.png' %}" alt="" width="40" height="40">
             </a>
 
             <div class="float-end" role="group">
