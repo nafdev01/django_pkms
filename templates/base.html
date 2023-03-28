@@ -60,11 +60,15 @@
                     <li class="nav-item">
                     </li>
                 </ul>
-                <div class="justify-content-middle">
+                <div class="justify-content-middle me-auto my-2">
                     <form class="d-flex" role="search" action="{% url 'notes:search' %}" method="get">
-                        <input class="form-control" type="search" aria-label="Search" type="text" name="q"
-                            placeholder="Search for a term" aria-describedby="search-button-pkms">
-                        <button class="btn btn-outline-success" id="search-button-pkms" type="submit">Search</button>
+                        <div class="input-group">
+                            <input class="form-control" type="search" aria-label="Search" type="text" name="q"
+                                placeholder="Search for a term" aria-describedby="search-button-pkms">
+                            <button class="btn btn-outline-success" id="search-button-pkms"
+                                type="submit">Search</button>
+
+                        </div>
                     </form>
                 </div>
                 <div class="dropdown">
