@@ -22,7 +22,7 @@ Check out the Django application [here](https://www.pkms.live/)
 To run this application, you need:
 
 - Python 3.10.8 or later
-- PostgreSQL database (version 15.0 or later)
+- PostgreSQL database (version 11 or later)
 - Django 4.0 or later
 - A modern web browser
 
