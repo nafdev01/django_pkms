@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
-from django.core.mail import EmailMessage, send_mail
-from django.template import Context
+from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from django.utils import timezone
-from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-import markdown
 from django.contrib import messages
 from django.db import IntegrityError
 from notes.models import *
