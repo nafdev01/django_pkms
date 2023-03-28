@@ -164,7 +164,7 @@ PASSWORD_HASHERS = [
 
 
 LOGIN_REDIRECT_URL = "profile"
-LOGOUT_REDIRECT_URL = "login"
+LOGOUT_REDIRECT_URL = "home"
 LOGIN_URL = "login"
 
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

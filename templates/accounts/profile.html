@@ -9,6 +9,29 @@ Profile
 {% endif %}
 {% endblock %}
 {% block content %}
+<button type="button" class="btn btn-lg btn-outline-danger m-1" data-bs-toggle="modal"
+    data-bs-target="#delete_account_modal">
+    Delete Account
+</button>
+<div class="modal fade" id="delete_account_modal" tabindex="-1" aria-labelledby="delete_{{ request.user }}_label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="h2 text-center">Delete Account</p>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Are you sure you want to delete your account {{ request.user.username }}?
+                </p>
+                <small class="text-danger">
+                    This action cannot be reversed and all your data will be lost
+                </small>
+                <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="container mt-4 mb-4 p-3 d-flex justify-content-center">
     <div class="card p-4">
         {% if request.user is user %}

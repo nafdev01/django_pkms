@@ -25,10 +25,10 @@ def dashboard(request):
     ).order_by("-updated")[:7]
 
     today = timezone.now().date()
-    active_objectives = Objective.objects.filter(
+    active_objectives = Objective.objects.filter(course__student=student,
         end_date__gte=today, start_date__lte=today, complete=False
     )
-    overdue_objectives = Objective.objects.filter(
+    overdue_objectives = Objective.objects.filter(course__student=student,
         end_date__lt=today, complete=False
     )
 

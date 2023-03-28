@@ -38,7 +38,9 @@ class ProfileEditForm(forms.ModelForm):
         }
 
 
-class TwoFactorForm(forms.Form):
-    otp = forms.CharField(
-        max_length=6, label="Enter 6-digit code from Google Authenticator"
-    )
+# class DeleteAccountForm(forms.ModelForm):
+#     confirm_delete = forms.BooleanField(label="Confirm deletion", required=True)
+
+#     class Meta:
+#         model = Student
+#         fields = []

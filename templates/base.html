@@ -33,7 +33,7 @@
     {% if request.user.is_authenticated %}
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'notes:dashboard' %}" title="Dashboard">
+            <a class="navbar-brand" href="{% url 'home' %}" title="Home">
                 <img src="{% static 'pkms.png' %}" alt="" width="30" height="30">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
@@ -102,11 +102,11 @@
     </nav>
 
     {% else %}
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'notes:dashboard' %}" title="Dashboard">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}" title="Home">
                 <img src="{% static 'pkms.png' %}" alt="" width="30" height="30">
             </a>
+
             <div class="btn-group float-end" role="group">
                 <a class="btn btn-primary" href="{% url 'signup' %}">Sign Up</a>
                 <a class="btn btn-primary" href="{% url 'login' %}">Log In</a>

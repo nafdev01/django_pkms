@@ -117,3 +117,12 @@ def edit_profile(request):
         "section": "profile",
     }
     return render(request, template_path, context)
+
+
+@login_required
+def delete_account(request):
+    student = request.user
+    student.delete()
+    request.session.flush()
+    messages.success(request, "You have deleted your account successfully")
+    return redirect("login")

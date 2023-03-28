@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron m-3">
+    <p class="display-2 text-center">Welcome to PKMS!</p>
+    <p class="lead">PKMS is a powerful and easy-to-use knowledge management system designed to help students organize
+        their notes, store important terms, and set revision goals.</p>
+    <hr class="my-4">
+    <p>With PKMS, you can streamline the management of your academic study materials through an easy-to-use interface,
+        making your learning experience more efficient and effective.</p>
+    <a class="btn btn-primary btn-lg m-3" href="{% url 'signup' %}" role="button">Sign up for free</a>
+</div>
+
+<div class="container">
+    <p class="display-5 text-center">Features</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Note Taking and Organization</h2>
+                    <p class="card-text">
+                        Easily take and organize notes hierarchically by course, topic, and subtopic.
+                        This hierarchical structure allows for easy navigation and quick access to your notes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Glossary</h2>
+                    <p class="card-text">
+                        Store important terms and definitions for different courses in one central
+                        location, making it easier to study and review key concepts.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Revision Planning</h2>
+                    <p class="card-text">
+                        Set revision goals and deadlines, and track your progress, helping you stay on
+                        top of your studies and achieve your academic goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2>Customizable Profile</h2>
+                    <p>
+                        Personalize your profile with a variety of settings, such as changing your profile picture or
+                        choosing a
+                        preferred color scheme.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2>Note Sharing</h2>
+                    <p>
+                        Share your notes with others via email, making it easy to collaborate and study with friends and
+                        classmates.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
