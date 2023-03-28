@@ -73,16 +73,14 @@ def profile(request, user_id=None, username=None):
     Profile.objects.get_or_create(student=student)
 
     profile = student.profile
-    certifications = Course.certifications.filter(student_id=student.id)
-    coursework = Course.coursework_modules.filter(student_id=student.id)
+    courses = Course.objects.filter(student_id=student.id)
 
     template_path = "accounts/profile.html"
     context = {
         "student": student,
         "profile": profile,
         "section": "profile",
-        "certifications": certifications,
-        "coursework": coursework,
+        "courses": courses,
     }
     return render(request, template_path, context)
 

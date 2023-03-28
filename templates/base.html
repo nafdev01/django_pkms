@@ -15,9 +15,9 @@
     </title>
 
     {% if "glossary" in request.path %}
-    <link rel="icon" type="image/x-icon" href="{% static 'glossary_favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'glossary.jpg' %}">
     {% elif "revision" in request.path %}
-    <link rel="icon" type="image/x-icon" href="{% static 'revision_favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'revision.jpg' %}">
     {% else %}
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     {% endif %}
@@ -33,11 +33,13 @@
     {% if request.user.is_authenticated %}
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'notes:dashboard' %}" title="Dashboard">
+                <img src="{% static 'pkms.png' %}" alt="" width="30" height="30">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
                 aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle dashboard">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -56,16 +58,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <form class="d-flex nav-item" role="search" action="{% url 'notes:search' %}" method="get">
-                            <div class="input-group mb-3">
-                                <input class="form-control" type="search" aria-label="Search" type="text" name="q"
-                                    placeholder="Search for a term" aria-describedby="search-button-addon2">
-                                <button class="btn btn-outline-success" id="search-button-addon2"
-                                    type="submit">Search</button>
-                            </div>
-                        </form>
                     </li>
                 </ul>
+                <div class="justify-content-middle">
+                    <form class="d-flex" role="search" action="{% url 'notes:search' %}" method="get">
+                        <input class="form-control" type="search" aria-label="Search" type="text" name="q"
+                            placeholder="Search for a term" aria-describedby="search-button-pkms">
+                        <button class="btn btn-outline-success" id="search-button-pkms" type="submit">Search</button>
+                    </form>
+                </div>
                 <div class="dropdown">
                     <a class="btn btn-primary rounded-3" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="True">

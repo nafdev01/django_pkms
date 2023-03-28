@@ -10,11 +10,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% if "glossary" in request.path %}
-    <link rel="icon" type="image/x-icon" href="{% static 'glossary_favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'glossary.jpg' %}">
     {% elif "revision" in request.path %}
-    <link rel="icon" type="image/x-icon" href="{% static 'revision_favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'revision.jpg' %}">
     {% else %}
-    <link rel="icon" type="image/x-icon" href="{% static 'notes_favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     {% endif %}
 
     {% load django_bootstrap5 %}
