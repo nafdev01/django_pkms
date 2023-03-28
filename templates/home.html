@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 
-{% block title %}
-    About
-{% endblock title %}
-    
-{% block content %}
+{% block title %}About{% endblock title %}
+
+{% block header %}
 <div class="jumbotron m-3">
     <p class="display-2 text-center">Welcome to PKMS!</p>
     <p class="lead">
@@ -14,6 +12,11 @@
         academic study materials through an easy-to-use interface,
         making your learning experience more efficient and effective.
     </p>
+    <hr>
+{% endblock header%}
+
+{% block content %}
+
     <a class="btn btn-primary btn-lg m-3" href="{% url 'signup' %}" role="button">Sign up for free</a>
 </div>
 
