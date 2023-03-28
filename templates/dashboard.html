@@ -48,6 +48,8 @@
             <p class="text-center mb-3 display-5">
                 Latest Notes
             </p>
+
+            {% if latest_entries %}
             <table class="table align-middle">
                 <thead>
                     <tr>
@@ -98,6 +100,11 @@
                     {% endfor %}
                 </tbody>
             </table>
+            {% else %}
+            <p class="h6">No entries yet</p>
+            {% endif %}
+
+
         </div>
     </div>
 </div>
