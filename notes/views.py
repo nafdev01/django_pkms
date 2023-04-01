@@ -22,11 +22,14 @@ def dashboard(request):
     ).order_by("-updated")[:7]
 
     today = timezone.now().date()
-    active_objectives = Objective.objects.filter(course__student=student,
-        end_date__gte=today, start_date__lte=today, complete=False
+    active_objectives = Objective.objects.filter(
+        course__student=student,
+        end_date__gte=today,
+        start_date__lte=today,
+        complete=False,
     )
-    overdue_objectives = Objective.objects.filter(course__student=student,
-        end_date__lt=today, complete=False
+    overdue_objectives = Objective.objects.filter(
+        course__student=student, end_date__lt=today, complete=False
     )
 
     template_path = "dashboard.html"
@@ -61,9 +64,6 @@ def course_detail(request, id, slug):
 def topic_detail(request, id, slug):
     student = request.user
     topic = get_object_or_404(Topic, id=id, slug=slug, course__student_id=student.id)
-    other_topics = Topic.objects.filter(
-        course_id=topic.course.id, course__student_id=student.id
-    ).exclude(id=topic.id)
     subtopics = topic.subtopic_set.filter(topic__course__student_id=student.id)
 
     template_path = "notes/detail/topic_detail.html"
@@ -71,7 +71,6 @@ def topic_detail(request, id, slug):
         "student": student,
         "topic": topic,
         "subtopics": subtopics,
-        "other_topics": other_topics,
     }
     return render(request, template_path, context)
 
@@ -82,16 +81,12 @@ def subtopic_detail(request, id, slug):
     subtopic = get_object_or_404(
         SubTopic, id=id, slug=slug, topic__course__student_id=student.id
     )
-    other_subtopics = SubTopic.objects.filter(
-        topic_id=subtopic.topic.id, topic__course__student_id=student.id
-    ).exclude(id=subtopic.id)
     entries = subtopic.entry_set.filter(subtopic__topic__course__student_id=student.id)
 
     template_path = "notes/detail/subtopic_detail.html"
     context = {
         "student": student,
         "subtopic": subtopic,
-        "other_subtopics": other_subtopics,
         "entries": entries,
     }
     return render(request, template_path, context)
@@ -103,12 +98,12 @@ def entry_detail(request, id, slug):
     entry = get_object_or_404(
         Entry, id=id, slug=slug, subtopic__topic__course__student_id=student.id
     )
-    other_entries = Entry.objects.filter(
-        subtopic_id=entry.subtopic.id, subtopic__topic__course__student_id=student.id
-    ).exclude(id=entry.id)
 
     template_path = "notes/detail/entry_detail.html"
-    context = {"student": student, "entry": entry, "other_entries": other_entries}
+    context = {
+        "student": student,
+        "entry": entry,
+    }
     return render(request, template_path, context)
 
 

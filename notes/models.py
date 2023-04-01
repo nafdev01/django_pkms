@@ -88,6 +88,11 @@ class Course(CommonModel):
     def __str__(self):
         return f"{self.name} ({self.course_code})"
 
+    @property
+    def other_courses(self):
+        courses = Course.objects.filter(student_id=self.student.id).exclude(id=self.id)
+        return courses
+
     class Meta:
         verbose_name = "course"
         verbose_name_plural = "courses"
@@ -111,6 +116,13 @@ class Topic(CommonModel):
     def student(self):
         return {self.course.student}
 
+    @property
+    def other_topics(self):
+        topics = Topic.objects.filter(
+            course__student_id=self.course.student.id, course_id=self.course.id
+        ).exclude(id=self.id)
+        return topics
+
     def __str__(self):
         return f"{self.number} {self.name} in {self.course.course_code}"
 
@@ -131,6 +143,14 @@ class SubTopic(CommonModel):
         on_delete=models.CASCADE,
     )
     number = models.PositiveIntegerField(null=True)
+
+    @property
+    def other_subtopics(self):
+        other_subtopics = SubTopic.objects.filter(
+            topic_id=self.topic.id,
+            topic__course__student_id=self.topic.course.student.id,
+        ).exclude(id=self.id)
+        return other_subtopics
 
     def __str__(self):
         return f"{self.topic.number}.{self.number} {self.name}"
@@ -155,6 +175,14 @@ class Entry(CommonModel):
     )
     content = models.TextField()
     revised = models.BooleanField(default=False)
+
+    @property
+    def other_entries(self):
+        other_entries = Entry.objects.filter(
+            subtopic_id=self.subtopic.id,
+            subtopic__topic__course__student_id=self.subtopic.topic.course.student.id,
+        ).exclude(id=self.id)
+        return other_entries
 
     def __str__(self):
         return f"{self.name}"

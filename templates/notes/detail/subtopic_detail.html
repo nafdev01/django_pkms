@@ -32,7 +32,7 @@
 
 <div class="collapse" id="otherSubTopic">
     <div class="row g-2">
-        {% for other_subtopic in other_subtopics %}
+        {% for other_subtopic in subtopic.other_subtopics %}
         <div class="col">
             <a class="btn btn-sm btn-outline-dark" href="{{ other_subtopic.get_absolute_url }}">
                 {{ other_subtopic }}

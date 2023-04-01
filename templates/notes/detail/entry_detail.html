@@ -33,7 +33,7 @@
 </nav>
 <div class="collapse" id="otherEntries">
     <div class="row g-2">
-        {% for other_entry in other_entries %}
+        {% for other_entry in entry.other_entries %}
         <div class="col">
             <a class="btn btn-sm btn-outline-dark" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
         </div>

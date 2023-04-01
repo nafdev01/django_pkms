@@ -24,7 +24,7 @@
 
 <div class="collapse" id="otherTopics">
     <div class="row g-2">
-        {% for other_topic in other_topics %}
+        {% for other_topic in topic.other_topics %}
         <div class="col">
             <a class="btn btn-sm btn-outline-dark" href="{{ other_topic.get_absolute_url }}">
                 {{ other_topic }}
