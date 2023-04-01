@@ -17,7 +17,12 @@
 
     {% block content %}
 
-    <a class="btn btn-primary btn-lg mx-3" href="{% url 'signup' %}" role="button">Sign up for free</a>
+    {% if not user.is_authenticated %}
+    <a class="btn btn-primary btn-lg mx-3" href="{% url 'signup' %}" role="button">
+        Sign up for free
+    </a>
+    {% endif %}
+
 </div>
 
 <div class="container">

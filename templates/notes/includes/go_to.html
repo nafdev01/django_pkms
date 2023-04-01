@@ -11,14 +11,12 @@
             {{ course.course_code }}
         </a>
         {% empty %}
-        <div>
-            <p>
-                You haven't created any courses yet.
-                <a class="link-sucess" href="{% url 'notes:create_course' %}">
-                    Add Course Here
-                </a>
-            </p>
-        </div>
+        <p>
+            You haven't created any courses yet.
+            <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_course' %}">
+                Add Course Here
+            </a>
+        </p>
         {% endfor %}
     </div>
 </section>
