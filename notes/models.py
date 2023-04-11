@@ -124,7 +124,7 @@ class Topic(CommonModel):
         return topics
 
     def __str__(self):
-        return f"{self.number} {self.name} in {self.course.course_code}"
+        return f"{self.number}. {self.name} in {self.course.course_code}"
 
     class Meta:
         verbose_name = "topic"
@@ -153,7 +153,7 @@ class SubTopic(CommonModel):
         return other_subtopics
 
     def __str__(self):
-        return f"{self.topic.number}.{self.number} {self.name}"
+        return f"{self.topic.number}.{self.number}. {self.name}"
 
     class Meta:
         verbose_name = "subtopic"
