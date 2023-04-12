@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherTopics" role="button"
+            <a class="btn btn-sm btn-dark" data-mdb-toggle="collapse" href="#otherTopics" role="button"
                 aria-expanded="false" aria-controls="otherTopics">
                 {{ topic }}
             </a>
@@ -41,23 +41,21 @@
     <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_topic' topic.id %}">
         Update Topic
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-        data-bs-target="#delete_topic_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
+        data-mdb-target="#delete_topic_modal">
         Delete Topic
     </button>
 </div>
+
 <div class="modal fade" id="delete_topic_modal" tabindex="-1" aria-labelledby="delete_{{ topic.slug }}_label"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                {% include "notes/delete/topic_confirm_delete.html" %}
-            </div>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-center">
+            {% include "notes/delete/topic_confirm_delete.html" %}
         </div>
     </div>
 </div>
 
-</div>
 <p class="h2 text-center">
     {{ topic.name }}
 </p>
@@ -81,8 +79,8 @@
                     {{ subtopic }}
                 </a>
             </p>
-            <button type="button" class="btn btn-sm btn-outline-dark" data-bs-toggle="modal"
-                data-bs-target="#show_{{ subtopic.slug }}_entries">
+            <button type="button" class="btn btn-sm btn-outline-dark" data-mdb-toggle="modal"
+                data-mdb-target="#show_{{ subtopic.slug }}_entries">
                 Show Entries
             </button>
         </div>
