@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img src="{% static 'pkms.png' %}" height="30" alt="PKMS Logo" loading="lazy" />
+                    <img src="{% static 'pkms.png' %}" height="35" width="35" alt="PKMS Logo" loading="lazy" />
                 </a>
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -72,8 +72,11 @@
             <!-- Collapsible wrapper -->
             <form class="input-group w-auto my-auto d-none d-sm-flex me-2" role="search"
                 action="{% url 'notes:search' %}" method="get">
-                <input name="q" autocomplete="off" type="search" class="form-control rounded" placeholder="Search"
+                <input name="q" autocomplete="off" type="search" class="form-control" placeholder="Search"
                     style="min-width: 125px;" />
+                <button class="btn btn-success">
+                        <i class="fas fa-search"></i>
+                </button>
             </form>
             <!-- Right elements -->
             <div class="d-flex align-items-center">
@@ -83,8 +86,8 @@
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                         id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                         {% if request.user.profile.photo %}
-                        <img src="{{ request.user.profile.photo.url }}" class="rounded-5" alt="..." width="25"
-                            height="25">
+                        <img src="{{ request.user.profile.photo.url }}" class="rounded-5" alt="..." width="35"
+                            height="35">
                         {% endif %}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
