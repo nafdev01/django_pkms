@@ -1,10 +1,10 @@
 <div class="modal-header bg-danger text-white d-flex justify-content-center">
-    <h5 class="modal-title" id="delete_{{ subtopic.slug }}_label">
+    <p class="modal-title" id="delete_{{ subtopic.slug }}_label">
         Are you sure you want to delete subtopic "{{ subtopic.name }}"
-    </h5>
+    </p>
 </div>
 <div class="modal-body">
-    <div class="modal-footer d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
         <a class="btn btn-danger btn-sm ms-2" href="{% url 'notes:delete_subtopic' subtopic.id %}">
             Delete
         </a>
