@@ -1,6 +1,16 @@
-<p>
-    Are you sure you want to delete topic "{{ topic.name }}"?
-</p>
-<a class="btn btn-danger" href="{% url 'notes:delete_topic' topic.id %}">
-    Delete
-</a>
+<div class="modal-header bg-danger text-white d-flex justify-content-center">
+    <h5 class="modal-title" id="delete_{{ topic.slug }}_label">
+        Are you sure you want to delete topic "{{ topic.name }}"?
+    </h5>
+</div>
+<div class="modal-body">
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-danger btn-sm ms-2" href="{% url 'notes:delete_topic' topic.id %}">
+            Delete
+        </a>
+        <button type="button" class="btn btn-info btn-sm ms-2" data-mdb-dismiss="modal">
+            Cancel
+        </button>
+
+    </div>
+</div>

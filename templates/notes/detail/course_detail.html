@@ -12,21 +12,25 @@
     <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_course' course.id %}">
         Update Course
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete_course_modal">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
+        data-mdb-target="#delete_course_modal">
         Delete Course
     </button>
+    <!-- Modal -->
 </div>
-<div class="modal fade" id="delete_course_modal" tabindex="-1" aria-labelledby="delete_{{ course.course_code }}_label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                {% include "notes/delete/course_confirm_delete.html" %}
-            </div>
+
+
+<div class="modal fade" id="delete_course_modal" tabindex="-1" aria-labelledby="delete_{{ course.course_code }}_label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-frame modal-top">
+        <div class="modal-content rounded-5">
+            {% include "notes/delete/course_confirm_delete.html" %}
         </div>
     </div>
 </div>
 
-</div>
+
 <p class="h2 text-center">
     {{ course }}
 </p>

@@ -24,7 +24,7 @@
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherEntries" role="button"
+            <a class="btn btn-sm btn-dark"   data-mdb-toggle="collapse" href="#otherEntries" role="button"
                 aria-expanded="false" aria-controls="otherEntries">
                 {{ entry }}
             </a>
@@ -43,12 +43,12 @@
 <div class="btn-group">
     <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_entry' entry.subtopic.id %}">New Entry</a>
     <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_entry' entry.id %}">Update Entry</a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-        data-bs-target="#delete_entry_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger"   data-mdb-toggle="modal"
+        data-mdb-target="#delete_entry_modal">
         Delete Entry
     </button>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-        data-bs-target="#share_entry_modal">
+    <button type="button" class="btn btn-sm btn-outline-primary"   data-mdb-toggle="modal"
+        data-mdb-target="#share_entry_modal">
         Share Entry
     </button>
 </div>
@@ -84,7 +84,7 @@
 {% endblock header %}
 {% block content %}
 <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#create_term_modal">
+    <button type="button" class="btn btn-sm btn-success"   data-mdb-toggle="modal" data-mdb-target="#create_term_modal">
         Create Term
     </button>
 </div>
