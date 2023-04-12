@@ -75,7 +75,7 @@
                 <input name="q" autocomplete="off" type="search" class="form-control" placeholder="Search"
                     style="min-width: 125px;" />
                 <button class="btn btn-success">
-                        <i class="fas fa-search"></i>
+                    <i class="fas fa-search"></i>
                 </button>
             </form>
             <!-- Right elements -->
@@ -88,6 +88,8 @@
                         {% if request.user.profile.photo %}
                         <img src="{{ request.user.profile.photo.url }}" class="rounded-5" alt="..." width="35"
                             height="35">
+                        {% else %}
+                        <img src="{% static 'no-photo-icon.jpg' %}" class="rounded-5" alt="..." width="35" height="35">
                         {% endif %}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
