@@ -11,16 +11,29 @@
 {% endblock header %}
 
 {% block content %}
-<div class="container d-flex justify-content-evenly">
-    <a class="btn btn-outline-success" href="{% url 'notes:create_course' %}">
-        New Course
+<div class="dropdown d-flex justify-content-center">
+    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-mdb-toggle="dropdown"
+        aria-expanded="false">
+        Create
     </a>
-    <a class="btn btn-outline-success" href="{% url 'glossary:create_term' %}">
-        New Term
-    </a>
-    <a class="btn btn-outline-success" href="{% url 'revision:create_objective' %}">
-        New Objective
-    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li>
+            <a class="dropdown-item" href="{% url 'notes:create_course' %}">
+                New Course
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'glossary:create_term' %}">
+                New Term
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'revision:create_objective' %}">
+                New Objective
+            </a>
+        </li>
+    </ul>
 </div>
 <br>
 <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4">
