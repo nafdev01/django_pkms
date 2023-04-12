@@ -13,7 +13,12 @@
     <title>
         {% block title %}{% endblock %}
     </title>
-
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
     {% if "glossary" in request.path %}
     <link rel="icon" type="image/x-icon" href="{% static 'glossary.jpg' %}">
     {% elif "revision" in request.path %}
@@ -21,27 +26,31 @@
     {% else %}
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     {% endif %}
-
-    {% load django_bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
 
 <body>
-
-    <!-- Site dashboard -->
     {% if request.user.is_authenticated %}
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}" title="Home">
-                <img class="img-fluid rounded" src="{% static 'pkms.png' %}" alt="" width="40" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
-                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle dashboard">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav me-auto">
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                    <img src="{% static 'pkms.png' %}" height="30" alt="PKMS Logo" loading="lazy" />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class=" nav-link" href="{% url 'notes:dashboard' %}" title="Dashboard">
                             Dashboard
@@ -57,65 +66,69 @@
                             Revision
                         </a>
                     </li>
-                    <li class="nav-item">
-                    </li>
                 </ul>
-                <div class="justify-content-middle me-auto my-2">
-                    <form class="d-flex" role="search" action="{% url 'notes:search' %}" method="get">
-                        <div class="input-group">
-                            <input class="form-control" type="search" aria-label="Search" type="text" name="q"
-                                placeholder="Search for a term" aria-describedby="search-button-pkms">
-                            <button class="btn btn-outline-success" id="search-button-pkms"
-                                type="submit">Search</button>
-                        </div>
-                    </form>
-                </div>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <form class="input-group w-auto my-auto d-none d-sm-flex me-2" role="search"
+                action="{% url 'notes:search' %}" method="get">
+                <input name="q" autocomplete="off" type="search" class="form-control rounded" placeholder="Search"
+                    style="min-width: 125px;" />
+            </form>
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <!-- Avatar -->
                 <div class="dropdown">
-                    <a class="btn btn-primary rounded-3" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="True">
+                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                        id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                         {% if request.user.profile.photo %}
                         <img src="{{ request.user.profile.photo.url }}" class="rounded-5" alt="..." width="25"
                             height="25">
                         {% endif %}
-                        {{ request.user.get_username }}
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                         <li>
-                            <a class="text-success dropdown-item" href="{% url 'profile' %}">
+                            <a class="dropdown-item" href="{% url 'profile' %}">
                                 Profile
                             </a>
                         </li>
                         <li>
-                            <a class="text-danger dropdown-item" href="{% url 'logout' %}">
-                                Log Out
+                            <a class=" dropdown-item" href="#">
+                                Change Settings
                             </a>
                         </li>
                         <li>
-                            <a class=" text-warning dropdown-item" href="{% url 'password_change' %}">Change
-                                Password</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </li>
                     </ul>
                 </div>
-
             </div>
+            <!-- Right elements -->
         </div>
+        <!-- Container wrapper -->
     </nav>
-
+    <!-- Navbar -->
     {% else %}
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">        <div class="container-fluid">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- brand -->
             <a class="navbar-brand" href="{% url 'home' %}" title="Home">
                 <img class="img-fluid rounded" src="{% static 'pkms.png' %}" alt="" width="40" height="40">
             </a>
-
-            <div class="float-end" role="group">
+            <!-- brand -->
+            <div class="" role="group">
                 <a class="btn btn-primary me-2" href="{% url 'signup' %}">Sign Up</a>
                 <a class="btn btn-primary me-2" href="{% url 'login' %}">Log In</a>
             </div>
         </div>
+        <!-- Container wrapper -->
     </nav>
+    <!-- Navbar -->
 
     {% endif %}
-
 
     <div class='m-1'>
         {% bootstrap_messages %}
@@ -141,6 +154,8 @@
             {% endblock content%}
         </main>
     </div>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 
