@@ -84,7 +84,9 @@
                     {{ entry.name }}
                 </h5>
                 <p class="card-text">
-                    {{ entry.content | markdown | truncatewords:20 }}
+                    <small>
+                        {{ entry.content | markdown | truncatewords:20 }}
+                    </small>
                 </p>
                 <a href="{{ entry.get_absolute_url }}" class="btn btn-primary">
                     Read More
