@@ -6,7 +6,7 @@
 {% block title %}{{ objective.name }}{% endblock %}
 
 {% block header %}
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+<nav style="--mdb-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="{% url 'revision:objective_list' objective.course.id objective.course.slug %}">
