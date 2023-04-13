@@ -50,14 +50,14 @@
             <div id="collapseFirstLetter" class="accordion-collapse collapse" aria-labelledby="headingFirstLetter"
                 data-mdb-parent="#accordionShowBy">
                 <div class="accordion-body">
-                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative" href="{% url 'glossary:term_list' %}">
+                    <a class="btn btn-primary btn-sm m-1 position-relative" href="{% url 'glossary:term_list' %}">
                         All
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             {{ all_terms.count }}
                         </span>
                     </a>
                     {% for letter_dict in first_letters_list %}
-                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative"
+                    <a class="btn btn-primary btn-sm m-1 position-relative"
                         href="{% url 'glossary:terms_by_letter' letter_dict.letter %}">
                         {{ letter_dict.letter }}
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
