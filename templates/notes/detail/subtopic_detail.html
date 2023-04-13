@@ -75,7 +75,7 @@
 <a class="btn btn-sm btn-outline-success float-right m-2" href="{% url 'notes:create_entry' subtopic.id %}">
     New Entry
 </a>
-<div class="row">
+<div class="row g-4">
     {% for entry in entries %}
     <div class="col-sm-6">
         <div class="card text-center">
@@ -85,10 +85,10 @@
                 </h5>
                 <p class="card-text">
                     <small>
-                        {{ entry.content | markdown | truncatewords:20 }}
+                        {{ entry.content | markdown | truncatewords:25 }}
                     </small>
                 </p>
-                <a href="{{ entry.get_absolute_url }}" class="btn btn-primary">
+                <a href="{{ entry.get_absolute_url }}" class="btn btn-sm btn-primary">
                     Read More
                 </a>
             </div>
