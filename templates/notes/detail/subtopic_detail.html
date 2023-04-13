@@ -7,7 +7,6 @@
 {% block title %}{{ subtopic.name }}{% endblock %}
 
 {% block header %}
-<br>
 <nav style="--mdb-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -76,21 +75,23 @@
 <a class="btn btn-sm btn-outline-success float-right m-2" href="{% url 'notes:create_entry' subtopic.id %}">
     New Entry
 </a>
-<ul class="list-group">
+<div class="row">
     {% for entry in entries %}
-    <li class="list-group-item p-2">
-        <p class="h5 text-decoration-underline text-center">
-            {{ entry.name }}
-        </p>
-        <p class="fw-light">
-            {{ entry.content | truncatewords:30 | markdown }}
-        </p>
-        <div class="d-flex align-items-end flex-column">
-            <a class="btn btn-sm btn-primary" href="{{ entry.get_absolute_url }}">
-                Read More
-            </a>
+    <div class="col-sm-6">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ entry.name }}
+                </h5>
+                <p class="card-text">
+                    {{ entry.content | markdown | truncatewords:20 }}
+                </p>
+                <a href="{{ entry.get_absolute_url }}" class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
         </div>
-    </li>
+    </div>
     {% endfor %}
-</ul>
-{% endblock %}
+    </ul>
+    {% endblock %}
