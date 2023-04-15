@@ -14,7 +14,7 @@
     <div class="accordion" id="accordionShowBy">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingCourse">
-                <button class="accordion-button collapsed" type="button"   data-mdb-toggle="collapse"
+                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
                     data-mdb-target="#collapseCourse" aria-expanded="true" aria-controls="collapseCourse">
                     Show Terms by Course
                 </button>
@@ -42,7 +42,7 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingFirstLetter">
-                <button class="accordion-button collapsed" type="button"   data-mdb-toggle="collapse"
+                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
                     data-mdb-target="#collapseFirstLetter" aria-expanded="false" aria-controls="collapseFirstLetter">
                     Show Terms by First Letter
                 </button>
@@ -83,8 +83,9 @@
         {% for term in terms %}
         <div class="col">
             <div class="card p-1">
-                <a class="btn btn-outline-dark position-relative my-1"   data-mdb-toggle="collapse" href="#collapse{{ term.slug }}" role="button"
-                    aria-expanded="false" aria-controls="collapse{{ term.slug }}">
+                <a class="btn btn-outline-dark position-relative my-1" data-mdb-toggle="collapse"
+                    href="#collapse{{ term.slug }}" role="button" aria-expanded="false"
+                    aria-controls="collapse{{ term.slug }}">
                     {{ term.name }}
                     <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-dark p-1">
                         {{ term.course.course_code }}
@@ -100,18 +101,16 @@
                     <a class="btn btn-sm btn-outline-warning" href="{% url 'glossary:update_term' term.id %}">
                         Update
                     </a>
-                    <button type="button" class="btn btn-sm btn-outline-danger"   data-mdb-toggle="modal"
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
                         data-mdb-target="#delete_{{ term.slug }}_modal">
                         Delete
                     </button>
                 </div>
                 <div class="modal fade" id="delete_{{ term.slug }}_modal" tabindex="-1"
                     aria-labelledby="delete_{{ term.slug }}_label" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                {% include "glossary/term_confirm_delete.html" %}
-                            </div>
+                    <div class="modal-dialog modal-frame modal-sm modal-top">
+                        <div class="modal-content rounded-5 text-center">
+                            {% include "glossary/term_confirm_delete.html" %}
                         </div>
                     </div>
                 </div>
