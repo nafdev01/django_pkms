@@ -83,14 +83,61 @@
 </div>
 <p class="h2 text-center my-2">{{ entry.name }}</p>
 <hr>
-
 {% endblock header %}
+
+
 {% block content %}
-<div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-sm btn-success" data-mdb-toggle="modal" data-mdb-target="#create_term_modal">
-        Create Term
-    </button>
-</div>
+<section class="container-fluid p-2">
+    <div class="accordion" id="accordionShowBy">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCourse">
+                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#collapseCourse" aria-expanded="true" aria-controls="collapseCourse">
+                    Show Terms
+                </button>
+            </h2>
+            <div id="collapseCourse" class="accordion-collapse collapse" aria-labelledby="headingCourse"
+                data-mdb-parent="#accordionShowBy">
+                <div class="accordion-body">
+                    {% for term in terms_definitions %}
+                    <button class="btn btn-primary btn-sm me-auto" data-mdb-toggle="modal"
+                        data-mdb-target="#term_{{ term.slug }}">
+                        {{ term.name }}
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade left" id="term_{{ term.slug }}" tabindex="-1"
+                        aria-labelledby="label_term_{{ term.slug }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content text-center">
+                                <div class="modal-header bg-primary text-white d-flex justify-content-center">
+                                    <p class="h4 modal-title text-center text-white" id="label_term_{{ term.slug }}">
+                                        {{term.name }}
+                                    </p>
+                                    <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>
+                                        {{ term.definition }}
+                                    </p>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <button type="button" class="btn btn-primary">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <button type="button" class="btn btn-success btn-sm me-auto" data-mdb-toggle="modal"
+                        data-mdb-target="#create_term_modal">
+                        Create Term
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <p>{{ entry.content | markdown }}</p>
 {% endblock content %}

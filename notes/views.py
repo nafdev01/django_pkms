@@ -98,11 +98,15 @@ def entry_detail(request, id, slug):
     entry = get_object_or_404(
         Entry, id=id, slug=slug, subtopic__topic__course__student_id=student.id
     )
+    terms_definitions = Term.objects.filter(
+        course_id=entry.subtopic.topic.course.id, course__student_id=student.id
+    )
 
     template_path = "notes/detail/entry_detail.html"
     context = {
         "student": student,
         "entry": entry,
+        "terms_definitions": terms_definitions,
     }
     return render(request, template_path, context)
 
