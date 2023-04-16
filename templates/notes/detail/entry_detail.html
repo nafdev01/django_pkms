@@ -100,35 +100,14 @@
                 data-mdb-parent="#accordionShowBy">
                 <div class="accordion-body">
                     {% for term in terms_definitions %}
-                    <button class="btn btn-primary btn-sm me-auto" data-mdb-toggle="modal"
-                        data-mdb-target="#term_{{ term.slug }}">
+                    <a tabindex="0" class="btn btn-sm btn-primary p-2" role="button" 
+                    data-mdb-toggle="popover"
+                    data-mdb-trigger="focus"
+                    data-mdb-placement="bottom"
+                    title="Definition of {{ term.name }}"
+                    data-mdb-content="{{ term.definition }}">
                         {{ term.name }}
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade left" id="term_{{ term.slug }}" tabindex="-1"
-                        aria-labelledby="label_term_{{ term.slug }}" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                            <div class="modal-content text-center">
-                                <div class="modal-header bg-primary text-white d-flex justify-content-center">
-                                    <p class="h4 modal-title text-center text-white" id="label_term_{{ term.slug }}">
-                                        {{term.name }}
-                                    </p>
-                                    <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <p>
-                                        {{ term.definition }}
-                                    </p>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center">
-                                    <button type="button" class="btn btn-primary">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                    </a> {% endfor %}
                     <button type="button" class="btn btn-success btn-sm me-auto" data-mdb-toggle="modal"
                         data-mdb-target="#create_term_modal">
                         Create Term
