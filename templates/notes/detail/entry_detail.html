@@ -32,14 +32,10 @@
         </li>
     </ol>
 </nav>
-<div class="collapse" id="otherEntries">
-    <div class="row g-2">
-        {% for other_entry in entry.other_entries %}
-        <div class="col">
-            <a class="btn btn-sm btn-outline-dark" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
-        </div>
-        {% endfor %}
-    </div>
+<div class="collapse m-2" id="otherEntries">
+    {% for other_entry in entry.other_entries %}
+    <a class="btn btn-sm btn-outline-dark" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
+    {% endfor %}
 </div>
 <div class="btn-group">
     <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_entry' entry.subtopic.id %}">New Entry</a>
@@ -100,12 +96,9 @@
                 data-mdb-parent="#accordionShowBy">
                 <div class="accordion-body">
                     {% for term in terms_definitions %}
-                    <a tabindex="0" class="btn btn-sm btn-primary m-1" role="button" 
-                    data-mdb-toggle="popover"
-                    data-mdb-trigger="focus"
-                    data-mdb-placement="bottom"
-                    title="Definition of {{ term.name }}"
-                    data-mdb-content="{{ term.definition }}">
+                    <a tabindex="0" class="btn btn-sm btn-primary m-1" role="button" data-mdb-toggle="popover"
+                        data-mdb-trigger="focus" data-mdb-placement="bottom" title="Definition of {{ term.name }}"
+                        data-mdb-content="{{ term.definition }}">
                         {{ term.name }}
                     </a> {% endfor %}
                     <button type="button" class="btn btn-success btn-sm m-1" data-mdb-toggle="modal"
