@@ -32,9 +32,9 @@
         </li>
     </ol>
 </nav>
-<div class="collapse m-2" id="otherEntries">
+<div class="collapse my-2" id="otherEntries">
     {% for other_entry in entry.other_entries %}
-    <a class="btn btn-sm btn-outline-dark p-1" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
+    <a class="btn btn-sm btn-outline-dark m-1" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
     {% endfor %}
 </div>
 <div class="btn-group">
