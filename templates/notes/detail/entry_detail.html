@@ -16,18 +16,18 @@
         </li>
         <li class="breadcrumb-item">
             <a href="{{ entry.subtopic.topic.get_absolute_url }}">
-                {{ entry.subtopic.topic | truncatechars:25 }}
+                {{ entry.subtopic.topic.name | truncatechars:25 }}
             </a>
         </li>
         <li class="breadcrumb-item">
             <a href="{{ entry.subtopic.get_absolute_url }}">
-                {{ entry.subtopic | truncatechars:25 }}
+                {{ entry.subtopic.name | truncatechars:25 }}
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             <a class="btn btn-sm btn-dark" data-mdb-toggle="collapse" href="#otherEntries" role="button"
                 aria-expanded="false" aria-controls="otherEntries">
-                {{ entry }}
+                {{ entry.name }}
             </a>
         </li>
     </ol>
