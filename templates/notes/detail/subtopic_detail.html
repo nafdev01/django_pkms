@@ -16,13 +16,13 @@
         </li>
         <li class="breadcrumb-item">
             <a href="{{ subtopic.topic.get_absolute_url }}">
-                {{ subtopic.topic | truncatechars:25 }}
+                {{ subtopic.topic.name | truncatechars:25 }}
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             <a class="btn btn-sm btn-dark" data-mdb-toggle="collapse" href="#otherSubTopic" role="button"
                 aria-expanded="false" aria-controls="otherSubTopic">
-                {{ subtopic }}
+                {{ subtopic.name }}
             </a>
         </li>
     </ol>
