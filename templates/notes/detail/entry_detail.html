@@ -100,7 +100,7 @@
                 data-mdb-parent="#accordionShowBy">
                 <div class="accordion-body">
                     {% for term in terms_definitions %}
-                    <a tabindex="0" class="btn btn-sm btn-primary p-2" role="button" 
+                    <a tabindex="0" class="btn btn-sm btn-primary m-1" role="button" 
                     data-mdb-toggle="popover"
                     data-mdb-trigger="focus"
                     data-mdb-placement="bottom"
@@ -108,7 +108,7 @@
                     data-mdb-content="{{ term.definition }}">
                         {{ term.name }}
                     </a> {% endfor %}
-                    <button type="button" class="btn btn-success btn-sm me-auto" data-mdb-toggle="modal"
+                    <button type="button" class="btn btn-success btn-sm m-1" data-mdb-toggle="modal"
                         data-mdb-target="#create_term_modal">
                         Create Term
                     </button>
