@@ -272,7 +272,7 @@ def update_subtopic(request, subtopic_id):
         form = SubTopicForm(instance=subtopic, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(subtopic)
+            return redirect(subtopic.topic)
 
     template_path = "notes/update/subtopic_update_form.html"
     context = {"form": form, "subtopic": subtopic}
@@ -288,7 +288,7 @@ def update_entry(request, entry_id):
         form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(entry)
+            return redirect(entry.subtopic.topic)
 
     template_path = "notes/update/entry_update_form.html"
     context = {"form": form, "entry": entry}
