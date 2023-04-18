@@ -158,9 +158,11 @@
                             <p>{{ entry.content | markdown }}</p>
                         </div>
                         <div class="modal-footer">
-                            <div class="btn-group">
+                            <div class="btn-group d-flex justify-content-center w-100 m-2">
                                 <a class="btn btn-sm btn-outline-success"
-                                    href="{% url 'notes:create_entry' entry.subtopic.id %}">New Entry</a>
+                                    href="{% url 'notes:create_entry' entry.subtopic.id %}">
+                                    New Entry
+                                </a>
                                 <a class="btn btn-sm btn-outline-warning"
                                     href="{% url 'notes:update_entry' entry.id %}">
                                     Update
@@ -174,8 +176,9 @@
                                     Share
                                 </button>
                             </div>
-                            <button type="button" class="btn btn-sm btn-secondary" data-mdb-dismiss="modal">
-                                Close
+                            <button type="button" class="btn d-flex btn-secondary justify-content-center"
+                                data-mdb-dismiss="modal">
+                                Close Entry
                             </button>
                         </div>
                     </div>
