@@ -132,7 +132,7 @@
             <div class="collapse mt-3" id="{{ subtopic.slug }}Collapse">
                 {% for entry in subtopic.entry_set.all %}
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary m-1" data-mdb-toggle="modal"
+                <button type="button" class="btn btn-primary btn-sm m-1" data-mdb-toggle="modal"
                     data-mdb-target="#{{ entry.slug }}Modal">
                     {{ entry.name }}
                 </button>
