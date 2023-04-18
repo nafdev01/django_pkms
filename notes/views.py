@@ -450,4 +450,4 @@ def entry_share(request, entry_id):
             request, f"The entry '{entry}' could not be shared with '{recipient}'"
         )
 
-    return redirect(entry)
+    return redirect(entry.subtopic.topic)
