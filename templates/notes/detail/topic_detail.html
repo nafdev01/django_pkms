@@ -36,6 +36,13 @@
     </div>
 </div>
 
+<p class="display-2 text-center">
+    {{ topic.name }}
+</p>
+<p class="text-muted text-center fw-lighter">
+    {{ topic.overview }}
+</p>
+
 <div class="btn-group m-3">
     <a class="btn btn-sm btn-outline-success " href="{% url 'notes:create_topic' topic.course.id %}">
         New Topic
@@ -57,14 +64,6 @@
         </div>
     </div>
 </div>
-
-<p class="h2 text-center">
-    {{ topic.name }}
-</p>
-<p class="text-muted text-center fw-lighter">
-    {{ topic.overview }}
-</p>
-
 {% endblock header %}
 
 {% block content %}
