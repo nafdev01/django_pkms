@@ -171,14 +171,11 @@
                     </div>
                 </div>
                 {% empty %}
-                <a class="btn btn-sm btn-outline-success m-1"
-                    href="{% url 'notes:create_entry' subtopic.id %}">
+                <p class="m-1">No entries yet</p>
+                {% endfor %}
+                <a class="btn btn-sm btn-outline-success m-1" href="{% url 'notes:create_entry' subtopic.id %}">
                     New Entry
                 </a>
-                <p class="my-2">No entries yet</p>
-                <br>
-                {% endfor %}
-
             </div>
             <div class="card-footer d-flex justify-content-center">
                 <div class="btn-group">
