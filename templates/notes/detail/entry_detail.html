@@ -37,46 +37,7 @@
     <a class="btn btn-sm btn-outline-dark m-1" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
     {% endfor %}
 </div>
-<div class="btn-group">
-    <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_entry' entry.subtopic.id %}">New Entry</a>
-    <a class="btn btn-sm btn-outline-warning" href="{% url 'notes:update_entry' entry.id %}">Update Entry</a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
-        data-mdb-target="#delete_entry_modal">
-        Delete Entry
-    </button>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-mdb-toggle="modal"
-        data-mdb-target="#share_entry_modal">
-        Share Entry
-    </button>
-</div>
-<div class="modal fade" id="create_term_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                {% create_term_inline entry.subtopic.topic %}
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="delete_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-frame modal-top">
-        <div class="modal-content rounded-5 text-center">
-            {% include "notes/delete/entry_confirm_delete.html" %}
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="share_entry_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">{% include "notes/includes/entry_confirm_share.html" %}</div>
-        </div>
-    </div>
-</div>
 <p class="h2 text-center my-2">{{ entry.name }}</p>
 <hr>
 {% endblock header %}
