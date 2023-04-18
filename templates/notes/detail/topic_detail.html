@@ -1,6 +1,8 @@
 <!-- notes/course_detail.html -->
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
+{% load notes_tags %}
+{% load glossary_tags %}
 
 {% block title %}{{ topic }}{% endblock %}
 
@@ -62,56 +64,143 @@
 <p class="text-muted text-center fw-lighter">
     {{ topic.overview }}
 </p>
+
 {% endblock header %}
 
 {% block content %}
+<section class="container-fluid p-2">
+    <div class="accordion" id="accordionShowBy">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCourse">
+                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#collapseCourse" aria-expanded="true" aria-controls="collapseCourse">
+                    Show Terms
+                </button>
+            </h2>
+            <div id="collapseCourse" class="accordion-collapse collapse" aria-labelledby="headingCourse"
+                data-mdb-parent="#accordionShowBy">
+                <div class="accordion-body">
+                    {% for term in terms_definitions %}
+                    <a tabindex="0" class="btn btn-sm btn-primary m-1" role="button" data-mdb-toggle="popover"
+                        data-mdb-trigger="focus" data-mdb-placement="bottom" title="Definition of {{ term.name }}"
+                        data-mdb-content="{{ term.definition }}">
+                        {{ term.name }}
+                    </a>
+                    {% endfor %}
+                    <button type="button" class="btn btn-sm btn-success m-1" data-mdb-toggle="modal"
+                        data-mdb-target="#create_term_modal">
+                        Create Term
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <br>
-<a class="btn btn-sm btn-outline-success m-2" href="{% url 'notes:create_subtopic' topic.id %}">
-    New SubTopic
-</a>
+<div class="m-2 btn-group">
+    <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_subtopic' topic.id %}">
+        New SubTopic
+    </a>
+</div>
+<div class="modal fade" id="create_term_modal" tabindex="-1" aria-labelledby="delete_{{ entry.slug }}_label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% create_term_inline topic %}
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="row row-cols-2 g-2">
     {% for subtopic in subtopics %}
     <div class="col">
-        <div class="card p-2">
+        <div class="card p-3">
             <p class="card-title">
-                <a class="link-dark fw-bold" href="{{ subtopic.get_absolute_url }}">
+                <button class="btn btn-outline-dark d-flex w-100 justify-content-center" type="button"
+                    data-mdb-toggle="collapse" data-mdb-target="#{{ subtopic.slug }}Collapse" aria-expanded="false"
+                    aria-controls="{{ subtopic.slug }}Collapse">
                     {{ subtopic }}
-                </a>
+                </button>
             </p>
-            <button type="button" class="btn btn-sm btn-outline-dark" data-mdb-toggle="modal"
-                data-mdb-target="#show_{{ subtopic.slug }}_entries">
-                Show Entries
-            </button>
-        </div>
-    </div>
-    <div class="modal fade" id="show_{{ subtopic.slug }}_entries" tabindex="-1"
-        aria-labelledby="show_{{ subtopic.slug }}_entries" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <p class="h4 float-center">Entries in {{ subtopic }}</p>
-                </div>
-                <div class="modal-body">
-                    <div class="row row-cols-sm-2 g-3">
-                        {% for entry in subtopic.entry_set.all %}
-                        <div class="col">
-                            <a class="btn btn-outline-dark" href="{{ entry.get_absolute_url}}">
-                                {{ entry.name }}
-                            </a>
-                        </div>
 
-                        {% empty %}
-                        <p>
-                            No entries found.
-                        </p>
-                        {% endfor %}
+            <!-- Collapsed content -->
+            <div class="collapse mt-3" id="{{ subtopic.slug }}Collapse">
+                {% for entry in subtopic.entry_set.all %}
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-mdb-toggle="modal"
+                    data-mdb-target="#{{ entry.slug }}Modal">
+                    {{ entry.name }}
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="{{ entry.slug }}Modal" tabindex="-1" data-mdb-backdrop="static"
+                    data-mdb-keyboard="false" aria-labelledby="{{ entry.slug }}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p class="h2 text-center modal-title" id="{{ entry.slug }}ModalLabel">
+                                    {{ entry.name }}
+                                </p>
+                                <button type="button" class="btn-close" data-mdb-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>{{ entry.content | markdown }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-sm btn-success"
+                                    href="{% url 'notes:create_entry' entry.subtopic.id %}">
+                                    New
+                                </a>
+                                <a class="btn btn-sm btn-warning" href="{% url 'notes:update_entry' entry.id %}">
+                                    Update
+                                </a>
+                                <button type="button" class="btn btn-sm btn-secondary" data-mdb-dismiss="modal">
+                                    Close
+                                </button>
+                                <a href="{{ entry.get_absolute_url }}" type="button" class="btn btn-sm btn-primary">
+                                    PageView
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                    <a class="btn btn-outline-success" href="{% url 'notes:create_entry' subtopic.id %}">
-                        Add new entry
-                    </a>
                 </div>
+                {% empty %}
+                <a class="btn btn-sm btn-outline-success m-1"
+                    href="{% url 'notes:create_entry' subtopic.id %}">
+                    New Entry
+                </a>
+                <p class="my-2">No entries yet</p>
+                <br>
+                {% endfor %}
+
+            </div>
+            <div class="card-footer d-flex justify-content-center">
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-outline-warning float-right"
+                        href="{% url 'notes:update_subtopic' subtopic.id %}">
+                        Update
+                    </a>
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
+                        data-mdb-target="#delete_subtopic_modal">
+                        Delete
+                    </button>
+                </div>
+
+                <div class="modal fade" id="delete_subtopic_modal" tabindex="-1"
+                    aria-labelledby="delete_{{ subtopic.slug }}_label" aria-hidden="true">
+                    <div class="modal-dialog modal-frame modal-sm modal-top">
+                        <div class="modal-content rounded-5 text-center">
+                            {% include "notes/delete/subtopic_confirm_delete.html" %}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

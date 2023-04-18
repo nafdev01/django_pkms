@@ -8,7 +8,7 @@ register = template.Library()
 
 
 @register.inclusion_tag("notes/includes/create_new_term.html")
-def create_term_inline(entry):
+def create_term_inline(topic):
     form = TermInlineForm()
-    course = entry.subtopic.topic.course
-    return {"course": course, "entry": entry, "form": form}
+    course = topic.course
+    return {"course": course, "topic": topic, "form": form}
