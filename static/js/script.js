@@ -24,3 +24,18 @@ function togglePasswordVisibility(formType, checkBox) {
 
     }
 }
+
+// Toggle section visibility based on radio selection
+const radioButtons = document.querySelectorAll('input[name="section"]');
+radioButtons.forEach((button) => {
+    button.addEventListener('change', () => {
+        const sectionContainers = document.querySelectorAll('.section-container');
+        sectionContainers.forEach((container) => {
+            if (container.id === button.value) {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    });
+});
