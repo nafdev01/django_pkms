@@ -64,7 +64,6 @@ def course_detail(request, id, slug):
 def topic_detail(request, id, slug):
     student = request.user
     topic = get_object_or_404(Topic, id=id, slug=slug, course__student_id=student.id)
-    subtopics = topic.subtopic_set.filter(topic__course__student_id=student.id)
     terms_definitions = Term.objects.filter(
         course_id=topic.course.id, course__student_id=student.id
     )
@@ -73,9 +72,7 @@ def topic_detail(request, id, slug):
     context = {
         "student": student,
         "topic": topic,
-        "subtopics": subtopics,
         "terms_definitions": terms_definitions,
-
     }
     return render(request, template_path, context)
 
