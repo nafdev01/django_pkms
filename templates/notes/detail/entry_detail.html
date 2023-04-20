@@ -3,9 +3,10 @@
 
 <div class="my-2" id="otherEntries">
     {% for other_entry in entry.other_entries %}
-    <a class="btn btn-sm btn-outline-dark m-1" href="{{ other_entry.get_absolute_url }}">
+    <button type="button" class="btn btn-lg btn-outline-dark m-1 w-100" data-mdb-toggle="modal"
+        data-mdb-target="#{{ other_entry.slug }}Modal">
         {{ other_entry.name }}
-    </a>
+    </button>
     {% empty %}
     <small class="text-muted">There are no other entries in this subtopic</small>
     {% endfor %}
