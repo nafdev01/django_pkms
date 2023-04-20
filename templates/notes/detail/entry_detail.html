@@ -2,7 +2,7 @@
 {% load glossary_tags %}
 
 <div class="my-2" id="otherEntries">
-    {% for other_entry in entry.topic.entry_set.all %}
+    {% for other_entry in entry.subtopic.entry_set.all %}
     <button type="button" class="btn btn-outline-dark m-1" data-mdb-toggle="modal"
         data-mdb-target="#{{ other_entry.slug }}Modal">
         {{ other_entry.name }}
