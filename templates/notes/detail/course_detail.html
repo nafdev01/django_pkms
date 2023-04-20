@@ -24,6 +24,10 @@
         data-mdb-target="#delete_course_modal">
         Delete Course
     </button>
+    <a class="btn btn-sm btn-outline-success m-2"
+        href="{% url 'notes:create_topic' course.id %}">
+        New Topic
+    </a>
     <!-- Modal -->
 </div>
 
@@ -41,10 +45,6 @@
 {% endblock header %}
 
 {% block content %}
-<a class="btn btn-sm btn-outline-success d-flex justify-content-end m-2" href="{% url 'notes:create_topic' course.id %}">
-    New Topic
-</a>
-
 <div class="row row-cols-2 g-2">
     {% for topic in topics %}
     <div class="col">
