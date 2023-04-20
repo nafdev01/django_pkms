@@ -141,7 +141,7 @@
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<p>{{ entry.content | markdown }}</p>
+							{% include "notes/detail/entry_detail.html" %}
 						</div>
 						<div class="modal-footer">
 							<div class="btn-group d-flex justify-content-center w-100 m-2">
