@@ -7,7 +7,7 @@
 {% block title %}{{ topic }}{% endblock title %}
 
 {% block header %}
-<br />
+<br>
 <nav style="--mdb-breadcrumb-divider: '>'" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -25,10 +25,10 @@
 </nav>
 <div class="collapse" id="otherTopics">
   <div class="row g-2">
-    {% for topic in topic.other_topics %}
+    {% for other_topic in topic.other_topics %}
     <div class="col">
-      <a class="btn btn-sm btn-outline-dark" href="{{ topic.get_absolute_url }}">
-        {{ topic } }
+      <a class="btn btn-sm btn-outline-dark" href="{{ other_topic.get_absolute_url }}">
+        {{ other_topic }}
       </a>
     </div>
     {% endfor %}
