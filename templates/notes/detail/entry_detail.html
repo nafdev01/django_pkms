@@ -1,49 +1,9 @@
-<!-- notes/entry_detail.html -->
-{% extends "base.html" %}
-{% load django_bootstrap5 %}
-{% load notes_tags %}
-{% load glossary_tags %}
-
-{% block title %}{{ entry.name }}{% endblock title %}
-
-{% block header %}
-<nav style="--mdb-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="{{ entry.subtopic.topic.course.get_absolute_url }}">
-                {{ entry.subtopic.topic.course.course_code }}
-            </a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="{{ entry.subtopic.topic.get_absolute_url }}">
-                {{ entry.subtopic.topic.name | truncatechars:25 }}
-            </a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="{{ entry.subtopic.get_absolute_url }}">
-                {{ entry.subtopic.name | truncatechars:25 }}
-            </a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-mdb-toggle="collapse" href="#otherEntries" role="button"
-                aria-expanded="false" aria-controls="otherEntries">
-                {{ entry.name }}
-            </a>
-        </li>
-    </ol>
-</nav>
 <div class="collapse my-2" id="otherEntries">
     {% for other_entry in entry.other_entries %}
     <a class="btn btn-sm btn-outline-dark m-1" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
     {% endfor %}
 </div>
 
-<p class="h2 text-center my-2">{{ entry.name }}</p>
-<hr>
-{% endblock header %}
-
-
-{% block content %}
 <section class="container-fluid p-2">
     <div class="accordion" id="accordionShowBy">
         <div class="accordion-item">
@@ -62,15 +22,12 @@
                         data-mdb-content="{{ term.definition }}">
                         {{ term.name }}
                     </a> {% endfor %}
-                    <button type="button" class="btn btn-success btn-sm m-1" data-mdb-toggle="modal"
-                        data-mdb-target="#create_term_modal">
-                        Create Term
-                    </button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<p>{{ entry.content | markdown }}</p>
-{% endblock content %}
+<p>
+    {{ entry.content | markdown }}
+</p>
