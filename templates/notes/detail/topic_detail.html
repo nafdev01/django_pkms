@@ -24,15 +24,13 @@
   </ol>
 </nav>
 <div class="collapse" id="otherTopics">
-  <div class="row g-2">
-    {% for other_topic in topic.other_topics %}
-    <div class="col">
-      <a class="btn btn-sm btn-outline-dark" href="{{ other_topic.get_absolute_url }}">
-        {{ other_topic }}
-      </a>
-    </div>
-    {% endfor %}
+  {% for other_topic in topic.other_topics %}
+  <div class="m-1">
+    <a class="btn btn-sm btn-outline-dark" href="{{ other_topic.get_absolute_url }}">
+      {{ other_topic }}
+    </a>
   </div>
+  {% endfor %}
 </div>
 <p class="display-2 text-center">
   {{ topic.name }}
@@ -109,8 +107,8 @@
 
 <div class="btn-group-vertical d-flex" role="group" aria-label="Vertical button group">
   {% for subtopic in topic.subtopic_set.all %}
-  <input type="radio" class="btn-check" name="section" id="subtopic_{{
-        subtopic.id }}" value="s_{{ subtopic.id }}" autocomplete="off" {% if forloop.first %}checked{% endif%} />
+  <input type="radio" class="btn-check" name="section" id="subtopic_{{subtopic.id }}" value="s_{{ subtopic.id }}"
+    autocomplete="off" {% if forloop.first %}checked{% endif%}>
   <label class="btn btn-secondary" for="s_{{ subtopic.id }}">
     {{ subtopic }}
   </label>
