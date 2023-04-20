@@ -24,7 +24,10 @@
                         data-mdb-trigger="focus" data-mdb-placement="bottom" title="Definition of {{ term.name }}"
                         data-mdb-content="{{ term.definition }}">
                         {{ term.name }}
-                    </a> {% endfor %}
+                    </a>
+                    {% empty %}
+                    <p>No terms in this course</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>

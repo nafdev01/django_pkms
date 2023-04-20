@@ -83,6 +83,8 @@
 						data-mdb-content="{{ term.definition }}">
 						{{ term.name }}
 					</a>
+					{% empty %}
+                    <p>No terms in this course</p>
 					{% endfor %}
 					<button type="button" class="btn btn-sm btn-success m-1" data-mdb-toggle="modal"
 						data-mdb-target="#create_term_modal">
