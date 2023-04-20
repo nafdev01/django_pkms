@@ -1,3 +1,6 @@
+{% load notes_tags %}
+{% load glossary_tags %}
+
 <div class="collapse my-2" id="otherEntries">
     {% for other_entry in entry.other_entries %}
     <a class="btn btn-sm btn-outline-dark m-1" href="{{ other_entry.get_absolute_url }}">{{ other_entry.name }}</a>
