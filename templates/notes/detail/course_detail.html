@@ -5,6 +5,13 @@
 {% block title %}{{ course.course_code }}{% endblock %}
 
 {% block header %}
+<p class="h2 text-center">
+    {{ course }}
+</p>
+<p class="text-center text-muted fw-lighter">
+    {{ course.about}}
+</p>
+
 <div class="btn-group m-3">
     <a class="btn btn-sm btn-outline-success" href="{% url 'notes:create_course' %}">
         New Course
@@ -20,7 +27,6 @@
     <!-- Modal -->
 </div>
 
-
 <div class="modal fade" id="delete_course_modal" tabindex="-1" aria-labelledby="delete_{{ course.course_code }}_label"
     aria-hidden="true">
     <div class="modal-dialog modal-sm modal-frame modal-top">
@@ -31,21 +37,13 @@
 </div>
 
 
-<p class="h2 text-center">
-    {{ course }}
-</p>
-<p class="text-center text-muted fw-lighter">
-    {{ course.about}}
-</p>
-
 <hr>
 {% endblock header %}
 
 {% block content %}
-<a class="btn btn-sm btn-outline-success float-right m-2" href="{% url 'notes:create_topic' course.id %}">
+<a class="btn btn-sm btn-outline-success d-flex justify-content-end m-2" href="{% url 'notes:create_topic' course.id %}">
     New Topic
 </a>
-
 
 <div class="row row-cols-2 g-2">
     {% for topic in topics %}
