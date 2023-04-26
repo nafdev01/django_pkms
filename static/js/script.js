@@ -31,7 +31,7 @@ radioButtons.forEach((button) => {
     button.addEventListener('change', () => {
         const sectionContainers = document.querySelectorAll('.section-container');
         sectionContainers.forEach((container) => {
-            if (container.id === button.value) {
+            if (container.id == button.value) {
                 container.style.display = 'block';
             } else {
                 container.style.display = 'none';
