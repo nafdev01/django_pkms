@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "django.contrib.postgres",
     "storages",
+    "markdownx",
     # default apps
     "django.contrib.admin",
     "django.contrib.auth",
