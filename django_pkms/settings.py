@@ -135,7 +135,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-from .cdn.conf import *  # noqa
+if not LOCAL_SERVER:
+    from .cdn.conf import *  # noqa
 
 # media files
 MEDIA_URL = "/media/"
