@@ -84,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_pkms.wsgi.application"
 
 
-if DEVELOPMENT_MODE is True and LOCAL_SERVER is not True:
+if DEVELOPMENT_MODE is True:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
