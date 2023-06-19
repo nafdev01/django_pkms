@@ -218,7 +218,7 @@ class ReferenceBook(models.Model):
         editable=False,
     )
 
-    author = models.CharField()
+    author = models.CharField(max_length=250)
     course = models.ForeignKey(
         "course",
         on_delete=models.CASCADE,
@@ -226,16 +226,8 @@ class ReferenceBook(models.Model):
         blank=True,
     )
     year_of_publication = models.IntegerField()
-    edition = models.CharField()
+    edition = models.CharField(max_length=250)
     file = models.FileField(upload_to=reference_book_path, blank=True, null=True)
-
-    @property
-    def other_entries(self):
-        other_entries = Entry.objects.filter(
-            subtopic_id=self.subtopic.id,
-            subtopic__topic__course__student_id=self.subtopic.topic.course.student.id,
-        ).exclude(id=self.id)
-        return other_entries
 
     def __str__(self):
         return f"{self.title}"
