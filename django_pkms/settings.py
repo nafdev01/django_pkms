@@ -84,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_pkms.wsgi.application"
 
 
-if DEVELOPMENT_MODE is True:
+if DEVELOPMENT_MODE is True and LOCAL_SERVER is not True:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -136,7 +136,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-from .cdn.conf import *  # noqa
+if DEVELOPMENT_MODE is False:
+    from .cdn.conf import *  # noqa
 
 # media files
 MEDIA_URL = "/media/"
