@@ -27,6 +27,8 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split("
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
+LOCAL_SERVER = os.getenv("LOCAL_SERVER", "False") == "True"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,7 +85,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_pkms.wsgi.application"
 
 
-if DEVELOPMENT_MODE is True:
+if DEVELOPMENT_MODE and not LOCAL_SERVER:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -135,7 +137,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-from .cdn.conf import * # noqa
+if not LOCAL_SERVER:
+    from .cdn.conf import *  # noqa
 
 # media files
 MEDIA_URL = "/media/"
