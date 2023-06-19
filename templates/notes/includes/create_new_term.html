@@ -2,7 +2,7 @@
 
 <div class="container">
     <p class="text-center">Create a new term</p>
-    <form method="post" action="{% url 'glossary:create_term_inline' entry.id course.id %}">
+    <form method="post" action="{% url 'glossary:create_term_inline' topic.id course.id %}">
         {% bootstrap_form form %}
         {% csrf_token %}
         <input class="btn btn-outline-success" type="submit" value="Create Term">

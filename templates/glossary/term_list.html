@@ -14,22 +14,22 @@
     <div class="accordion" id="accordionShowBy">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingCourse">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseCourse" aria-expanded="true" aria-controls="collapseCourse">
+                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#collapseCourse" aria-expanded="true" aria-controls="collapseCourse">
                     Show Terms by Course
                 </button>
             </h2>
             <div id="collapseCourse" class="accordion-collapse collapse" aria-labelledby="headingCourse"
-                data-bs-parent="#accordionShowBy">
+                data-mdb-parent="#accordionShowBy">
                 <div class="accordion-body">
-                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative" href="{% url 'glossary:term_list' %}">
+                    <a class="btn btn-primary btn-sm m-1 position-relative" href="{% url 'glossary:term_list' %}">
                         All
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             {{ all_terms.count }}
                         </span>
                     </a>
                     {% for course in courses %}
-                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative"
+                    <a class="btn btn-primary btn-sm m-1 position-relative"
                         href="{% url 'glossary:terms_by_course' course_id=course.id slug=course.slug %}">
                         {{ course.course_code }}
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -42,22 +42,22 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingFirstLetter">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseFirstLetter" aria-expanded="false" aria-controls="collapseFirstLetter">
+                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#collapseFirstLetter" aria-expanded="false" aria-controls="collapseFirstLetter">
                     Show Terms by First Letter
                 </button>
             </h2>
             <div id="collapseFirstLetter" class="accordion-collapse collapse" aria-labelledby="headingFirstLetter"
-                data-bs-parent="#accordionShowBy">
+                data-mdb-parent="#accordionShowBy">
                 <div class="accordion-body">
-                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative" href="{% url 'glossary:term_list' %}">
+                    <a class="btn btn-primary btn-sm m-1 position-relative" href="{% url 'glossary:term_list' %}">
                         All
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             {{ all_terms.count }}
                         </span>
                     </a>
                     {% for letter_dict in first_letters_list %}
-                    <a class="btn btn-primary btn-sm mx-2 my-1 position-relative"
+                    <a class="btn btn-primary btn-sm m-1 position-relative"
                         href="{% url 'glossary:terms_by_letter' letter_dict.letter %}">
                         {{ letter_dict.letter }}
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -79,12 +79,13 @@
     </a>
 </div>
 <div class="">
-    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-3">
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-3">
         {% for term in terms %}
         <div class="col">
-            <div class="card p-2">
-                <a class="btn btn-outline-dark position-relative my-1" data-bs-toggle="collapse" href="#collapse{{ term.slug }}" role="button"
-                    aria-expanded="false" aria-controls="collapse{{ term.slug }}">
+            <div class="card p-1">
+                <a class="btn btn-outline-dark position-relative my-1" data-mdb-toggle="collapse"
+                    href="#collapse{{ term.slug }}" role="button" aria-expanded="false"
+                    aria-controls="collapse{{ term.slug }}">
                     {{ term.name }}
                     <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-dark p-1">
                         {{ term.course.course_code }}
@@ -100,18 +101,16 @@
                     <a class="btn btn-sm btn-outline-warning" href="{% url 'glossary:update_term' term.id %}">
                         Update
                     </a>
-                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                        data-bs-target="#delete_{{ term.slug }}_modal">
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
+                        data-mdb-target="#delete_{{ term.slug }}_modal">
                         Delete
                     </button>
                 </div>
                 <div class="modal fade" id="delete_{{ term.slug }}_modal" tabindex="-1"
                     aria-labelledby="delete_{{ term.slug }}_label" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                {% include "glossary/term_confirm_delete.html" %}
-                            </div>
+                    <div class="modal-dialog modal-frame modal-sm modal-top">
+                        <div class="modal-content rounded-5 text-center">
+                            {% include "glossary/term_confirm_delete.html" %}
                         </div>
                     </div>
                 </div>
