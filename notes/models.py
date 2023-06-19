@@ -4,6 +4,11 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
+def reference_book_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return f"user_{instance.course.student.username}/reference_books/{instance.course.course_code}/{instance.title}"
+
+
 class CommonModel(models.Model):
     """
     Common abstract model for notes application course, topic,subtopic, and entry.
@@ -57,10 +62,15 @@ class Course(CommonModel):
                 super().get_queryset().filter(course_type=Course.CourseType.COURSEWORK)
             )
 
+    class OtherCourseManager(models.Manager):
+        def get_queryset(self):
+            return super().get_queryset().filter(course_type=Course.CourseType.OTHER)
+
     # choices for student year
     class CourseType(models.TextChoices):
         CERTIFICATION = "CT", "Certification"
         COURSEWORK = "CW", "Course Work"
+        OTHER = "OT", "Other"
 
     student = models.ForeignKey(
         "accounts.Student",
@@ -79,6 +89,7 @@ class Course(CommonModel):
     objects = models.Manager()  # The default manager.
     certifications = CertificationManager()  # Our custom manager.
     coursework_modules = CourseWorkManager()  # Our custom manager.
+    others = OtherCourseManager()  # Our custom manager.
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -192,3 +203,45 @@ class Entry(CommonModel):
         verbose_name_plural = "entries"
         ordering = ["updated", "name"]
         unique_together = ["name", "subtopic"]
+
+
+class ReferenceBook(models.Model):
+    """
+    model for course reference books
+    """
+
+    title = models.CharField()
+    slug = models.SlugField(
+        max_length=250,
+        null=True,
+        blank=True,
+        editable=False,
+    )
+
+    author = models.CharField()
+    course = models.ForeignKey(
+        "course",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
+    year_of_publication = models.IntegerField()
+    edition = models.CharField()
+    file = models.FileField(upload_to=reference_book_path, blank=True, null=True)
+
+    @property
+    def other_entries(self):
+        other_entries = Entry.objects.filter(
+            subtopic_id=self.subtopic.id,
+            subtopic__topic__course__student_id=self.subtopic.topic.course.student.id,
+        ).exclude(id=self.id)
+        return other_entries
+
+    def __str__(self):
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = "reference book"
+        verbose_name_plural = "reference books"
+        ordering = ["course", "title"]
+        unique_together = ["title", "course"]
