@@ -1,0 +1,1598 @@
+[33mcommit cec69256c02aa3f8d32c30dea8818f26662e9f70[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 27abb83 2d275c2
+Author: Naftal Matoya <nafdev01>
+Date:   Fri Apr 28 10:03:04 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 2d275c2fb0f83340fee82b8b2daaf3708ed086b9[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Apr 28 13:02:36 2023 +0300
+
+    changed seo
+
+[33mcommit 27abb83eaacaf0ff5931988da82cee40581b2862[m
+Merge: bd1e6b0 a6e9286
+Author: Naftal Matoya <nafdev01>
+Date:   Fri Apr 28 09:59:35 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit a6e928682b28e5e7c2336f4dda241e0f16754fc5[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Apr 28 12:59:10 2023 +0300
+
+    changed seo
+
+[33mcommit bd1e6b0a882dfbc66280e96ae601cf603f3c4376[m
+Merge: 01fa157 ba33352
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 26 14:03:56 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit ba33352ce5edcacbf3bc7c89bf21b635962f5569[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Wed Apr 26 17:03:14 2023 +0300
+
+    changed order
+
+[33mcommit 01fa1578c2c9eb7db4a8593d3fce929d9c1e8cf1[m
+Merge: fa03709 9c2f637
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 26 12:32:06 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 9c2f63788b9e2c17b334433d344526c1699d3d6e[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Wed Apr 26 15:30:27 2023 +0300
+
+    fixed topic toggle
+
+[33mcommit fa03709e2531d80733942f154a1138dc74bf0ef4[m
+Merge: c47a6fe 19a869a
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 15:18:16 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 19a869afc64ef1e264e5fa91c1950df43221402f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 18:18:03 2023 +0300
+
+    dfdf
+
+[33mcommit c47a6feead7b8c9940d8a08e80eb2af7c3fe60f3[m
+Merge: 79cf95e 9692ff6
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 15:17:41 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 9692ff6e67dd5396f86b579ea870732c289ad0fc[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 18:17:28 2023 +0300
+
+    dfd
+
+[33mcommit 79cf95ecaba3e0519cc3182f919250e151ff52a0[m
+Merge: ae4ff28 f79c802
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 15:16:21 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit f79c80200c53e8a0a06889b372a29f30d396aeeb[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 18:16:12 2023 +0300
+
+    d
+
+[33mcommit ae4ff2894991ddabe1e02b61fa3fae6902c09602[m
+Merge: 03d87c3 2b9ed5b
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 15:14:30 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 2b9ed5b330dd7ccb99e5dbe34b1f1ad74f26c2d3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 18:14:15 2023 +0300
+
+    ds
+
+[33mcommit 03d87c335b9c55cc4ed7957ec5aa126291544111[m
+Merge: 173a111 e2d679f
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 15:12:33 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit e2d679f8bf8a340843fc810bbb4c00c3be0f0576[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 18:12:26 2023 +0300
+
+    ,,,
+
+[33mcommit 173a1115a63da202d466093ee05b60f37c930ca1[m
+Merge: 1f82e00 a084fc7
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 15:02:46 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit a084fc70c24264eb01b9700e9538952e8ed3c488[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 18:02:36 2023 +0300
+
+    hgf
+
+[33mcommit 1f82e007b00bbdf7d3b1668addf2381788021e77[m
+Merge: da0502b 4014372
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:58:31 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 4014372a3afc816f307712d3bf502996720b97e3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:58:18 2023 +0300
+
+    dsd
+
+[33mcommit da0502b1fc3d24fc8985bc013eb30645d5dc008f[m
+Merge: 9f024f8 eda28ad
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:57:44 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit eda28ad0d77b0563a3d582c05582f0a0288c1a22[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:57:34 2023 +0300
+
+    ..
+
+[33mcommit 9f024f895735df4dc33fa705c1ead2d1a133af5e[m
+Merge: 20cdcca 27fcdcb
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:57:15 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 27fcdcbd350bd627ae4f0b3a6e55cb888c349485[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:57:02 2023 +0300
+
+    ...
+
+[33mcommit 20cdcca505fe1c0e6a6702024e5893bdf8170482[m
+Merge: 94098fa de559ba
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:55:01 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit de559bac9597abeeb618ed4115c4f6ee69d45751[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:54:46 2023 +0300
+
+    ff
+
+[33mcommit 94098fa12265a6ae1a303d9a4ce3e5969c69a505[m
+Merge: 4df8791 7844c7e
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:54:00 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 7844c7ebb00b66e0586014a809aa8d38e03d1060[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:53:49 2023 +0300
+
+    ..
+
+[33mcommit 4df87917b972a05624866a8972483be5a052d243[m
+Merge: f82a179 358eb9e
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:52:13 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 358eb9eee8a65714bd94f2482ad89461c16ec6d3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:51:58 2023 +0300
+
+    ...
+
+[33mcommit f82a179da5d8caa5f00df7039bf2346d2d8ed95a[m
+Merge: 6c40cf2 9880b0e
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:46:22 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 9880b0e1bce2f8471636b2b4fc4024b3f1011e74[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:46:00 2023 +0300
+
+    df
+
+[33mcommit 6c40cf240e3f328e312d9574d4b6cd559e69c753[m
+Merge: bae74a4 627ec69
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:44:30 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 627ec697dc777f3699c80dd858f28fce049d017f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:44:20 2023 +0300
+
+    ...
+
+[33mcommit bae74a4f3fa0fa2d4609e6ceacdb8ed3f05c2bf5[m
+Merge: dc1e622 524485c
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:42:22 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 524485c65331f278a6426763050eccd1a08b68f4[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:41:25 2023 +0300
+
+    df
+
+[33mcommit dc1e62265020d24d18885c1f90314b0b03cfd251[m
+Merge: 4806b6b 9a1057e
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:39:56 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 9a1057e828024e18fa01244959352f394afa57b5[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:39:19 2023 +0300
+
+    ,,,
+
+[33mcommit 10a4b12332d2e9dea48fc0f92202ea59ff5509c3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:32:44 2023 +0300
+
+    ...
+
+[33mcommit 4806b6b1d4c164f906533c25b97f0e016ece8fad[m
+Merge: a3ae4d2 b140560
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:29:52 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit b140560400eaa6f39557fbb22e9e2ac01f797e7d[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:28:43 2023 +0300
+
+    c
+
+[33mcommit 220ef00254c3067a3e5f7a6dfc7d7a735507661b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:28:18 2023 +0300
+
+    df
+
+[33mcommit a3ae4d2031f684e17370cace85b4436df826fdb3[m
+Merge: 42fe5b8 8544996
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:26:27 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 85449969364d6bd8e7b9f4f5b966a88cbaa0dc5a[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:26:19 2023 +0300
+
+    d
+
+[33mcommit 42fe5b8f71af458d8fd815c928591c11355365d6[m
+Merge: 5ccf31f fe0e40e
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 20 14:21:56 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit fe0e40ec7878affab929e7ad722d1914533b86dd[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 20 17:21:14 2023 +0300
+
+    ...
+
+[33mcommit 5ccf31fadd38f4fcf804022d6bc160ced3a12259[m
+Merge: 60dc0ca f896e0a
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 17:02:44 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit f896e0ab18dcc9a5f4b947e9c0a13e671a602a33[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 20:00:44 2023 +0300
+
+    ...
+
+[33mcommit 60dc0cac687f1391af47df5356a146ca7489c592[m
+Merge: dcc1b44 d4032b9
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 16:39:28 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit d4032b97ca0c246e60da9ef61e9bf4cfba62d583[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 19:37:07 2023 +0300
+
+    jjj
+
+[33mcommit dcc1b44d0cfdffa0debb5ab628f7db95a989bfd3[m
+Merge: 6a49682 d74c59d
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 16:35:48 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit d74c59db35041c209dcbde23be07f8365ba01a41[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 19:34:46 2023 +0300
+
+    ere`
+
+[33mcommit 6a49682f397beff979a3050c89fca60f7a6231b7[m
+Merge: 0cc5943 bab0d97
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 16:27:04 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit bab0d973d637f68f0ed1eeedc21bc78ada169ba1[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 19:26:14 2023 +0300
+
+    k
+
+[33mcommit 0cc59434d89aa3481ef0e9c0e26ceecd61ced8ec[m
+Merge: ef850de 47244ca
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 16:19:49 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 47244ca79920b74bdcf036a3d4231796e5938fb4[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 19:19:26 2023 +0300
+
+    j
+
+[33mcommit ef850defbbfed334260d20a2a83417eea8f61be4[m
+Merge: 2b562ff bace7da
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 16:03:16 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit bace7dacf6bd20382757506090ae37ad8e328fa1[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 19:02:06 2023 +0300
+
+    k
+
+[33mcommit 313a8ae6517dc702f859d38ef43d9052e723532b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 18:59:16 2023 +0300
+
+    jj
+
+[33mcommit 635e65108c6cb2ca542a0c53ff39ef03c69f130e[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 18:55:59 2023 +0300
+
+    hj
+
+[33mcommit 2b562ff53f15e0b442ac6843a9c332793d0364b7[m
+Merge: d9e3834 82ddaea
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 15:45:58 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit d9e383401161a501ddf7c0e4222edbe2ebe389ab[m
+Merge: 6e0cc1a 00ac375
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 15:45:39 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 82ddaead007712775fde4395efe398622f0cee5b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 18:45:30 2023 +0300
+
+    c
+
+[33mcommit 00ac375525a15786f146658c10ef0dc7e08c5698[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 18:45:04 2023 +0300
+
+    v
+
+[33mcommit 6e0cc1ab14ef7585d70b6dcfd7037faab28bd1a3[m
+Merge: 9e615a0 b6c5bae
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:23:20 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit b6c5baea695769f92bcbbe4365e1c3ed3d6d4940[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:23:05 2023 +0300
+
+    jk
+
+[33mcommit 9e615a0cc1d9fb7be8177613dc0cd021e5218fbb[m
+Merge: 125db9f 7d150fb
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:22:17 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 7d150fb9394c3eaa8c64f272b850b59964a4bad4[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:22:07 2023 +0300
+
+    mkkk
+
+[33mcommit 125db9f0bda862f13d9cc673071b5c574ccd87ab[m
+Merge: c60dd24 3c0c5e4
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:20:08 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 3c0c5e4d1a304ea06ea9389e47db14918722e011[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:19:54 2023 +0300
+
+    bn
+
+[33mcommit c60dd24db7ce142bb83a9d0cf5e7f4ea7cf0f18f[m
+Merge: e866716 b548088
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:19:15 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit b5480886e57ffc7eed87673ac910a3acce3bdc3a[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:18:58 2023 +0300
+
+    ...
+
+[33mcommit e8667169260bf26b6ae4841dde67f629b52d74d0[m
+Merge: 1439747 12e4c3b
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:15:16 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 12e4c3b96144736c4cbab75fbb88a1079e6f5c84[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:15:02 2023 +0300
+
+    jhk
+
+[33mcommit 1439747678ad0cd2d74cbb4a49fc9ff0708efad4[m
+Merge: d514908 531ef08
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:13:24 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 531ef08abbba3d9f750e0586a0759a42265bcd0b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:12:44 2023 +0300
+
+    ...
+
+[33mcommit d51490824d8d567324d9c298b44a076512bcd992[m
+Merge: 01dad95 75de012
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 18 04:07:49 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 75de012fc52fe23c2b2777e5084e5b813184d1b2[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Apr 18 07:07:37 2023 +0300
+
+    updated topic view
+
+[33mcommit 01dad953fe3aef64426eb04c6aa892242c0aefa6[m
+Merge: d010a6b ffc6bcc
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:48:07 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit ffc6bcc046b1bd4aa7d7a9bd1d8a810f5936e30e[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:47:24 2023 +0300
+
+    ...
+
+[33mcommit d010a6b4b5810321a011060ec193d20c8d1cbfe7[m
+Merge: fdb49f5 c357b24
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:29:54 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit c357b2433d8810a6bb5da0c0eb171447ec0d41e4[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:29:32 2023 +0300
+
+    bnm
+
+[33mcommit fdb49f5422d63823c9029ea15f3d0790adf98536[m
+Merge: f497966 c5fec15
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:28:41 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit c5fec15cffcf78a7db157eb013870530a3472f71[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:28:17 2023 +0300
+
+    nbm,
+
+[33mcommit f497966337853849cbfbd463cc06a133cd23882f[m
+Merge: 42be387 4bba7cb
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:26:45 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 4bba7cb6d03b3f87c5b26917a4f96fce1f9c5f0f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:26:28 2023 +0300
+
+    jk,;
+
+[33mcommit 42be38703008b0c495575dbe9a9e51e82c3680da[m
+Merge: e6a6c37 0e176d4
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:23:25 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 0e176d42457285735f8f649248033eeebb6e67ec[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:23:04 2023 +0300
+
+    ,.
+
+[33mcommit e6a6c3784f1bea3ad807e3b6b0d935c5bdf1f303[m
+Merge: 7cd4851 5c76618
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:21:04 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 5c766184bb9f2d0ec0a2b62670e54b6bb0693776[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:20:30 2023 +0300
+
+    ...
+
+[33mcommit 7cd4851522ee069666b2b10cd5a156009f8c4386[m
+Merge: 8c4c2af c3a59f3
+Author: Naftal Matoya <nafdev01>
+Date:   Sun Apr 16 16:09:07 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit c3a59f39400fee0c5be86e91fdd6cf0e77733323[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Apr 16 19:08:29 2023 +0300
+
+    ...
+
+[33mcommit 8c4c2af9c94c0bbbcd1e7bf1bdfb11ed4b61096e[m
+Merge: fce3de2 32be799
+Author: Naftal Matoya <nafdev01>
+Date:   Sat Apr 15 06:33:26 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 32be7999d23ed63d87a7efda611739a0de24a610[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 15 09:33:04 2023 +0300
+
+    ...
+
+[33mcommit fce3de2a9e6977e4f629f3d3f5020c40fd2702af[m
+Merge: efb86f3 bf1aca4
+Author: Naftal Matoya <nafdev01>
+Date:   Sat Apr 15 06:27:01 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit bf1aca48779a61ab349a8db2bdce9bba00a463b7[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 15 09:26:24 2023 +0300
+
+    ...
+
+[33mcommit efb86f3d9e42d8edfc1edef463a72b683134725b[m
+Merge: f99aa5b f490ea0
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 04:34:13 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit f490ea0ebb4940b326eedb22d392904e303a9823[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 07:33:51 2023 +0300
+
+    k
+
+[33mcommit f99aa5b1852ef1c770191b98cd93efc54bf8ddc6[m
+Merge: 90c12d2 4d1953c
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 04:30:20 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 4d1953c6378176da25fb0ed8434346ff14adf36a[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 07:30:06 2023 +0300
+
+    kl
+
+[33mcommit 90c12d2053a2774951b3e13792a3911a725fa668[m
+Merge: 7838e89 ebd36ba
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 04:29:03 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit ebd36ba219e7b14bfbcd08022b4d09b483a15ab2[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 07:28:37 2023 +0300
+
+    updated ui
+
+[33mcommit 7838e891dacf479b1f05d13efb774684cc3660f1[m
+Merge: 9b6170d 54d74a8
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 03:54:48 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 54d74a8d20e4487d9cb135043b50c9cb70c32c5e[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 06:54:09 2023 +0300
+
+    df
+
+[33mcommit 9b6170d3cba7766502ff3df9293961b26280c7d5[m
+Merge: c311933 41931f4
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 03:52:59 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 41931f47597747c2f39f558296fc3aadc9090330[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 06:52:30 2023 +0300
+
+    mdb
+
+[33mcommit c31193310091f8af4965409212d55c0b6bdcb14a[m
+Merge: 90d9552 c022e2e
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 03:47:09 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit c022e2e3bbde8b79ef0d694c1c1a78c5df2afca8[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 06:46:01 2023 +0300
+
+    df
+
+[33mcommit 90d95522ea649edb8b84ff4fc8439c4367cc0de4[m
+Merge: a69dfe0 5befb7a
+Author: Naftal Matoya <nafdev01>
+Date:   Thu Apr 13 03:37:30 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 5befb7a77d968c26b7b0eed060cf0fcbfd840837[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Thu Apr 13 06:36:53 2023 +0300
+
+    updated
+
+[33mcommit a69dfe0e5af9354cc0177a4454b87b42e465a98d[m
+Merge: 2a334d5 781a1d8
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 20:12:42 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 781a1d823bf6a62b2676ada47c4daba84fbbae4f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 23:12:32 2023 +0300
+
+    b
+
+[33mcommit 2a334d5cd029ffcf1b2ee63475a2abef447ba737[m
+Merge: 213c86f 80a41c1
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 18:17:35 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 80a41c1a310c1bab0b2d1f1fe1f4c1464813572c[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 21:17:20 2023 +0300
+
+    updated ui
+
+[33mcommit 213c86f039f9bfbf0073527a5019470aed940a09[m
+Merge: 07db536 77e1459
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 18:10:25 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 77e1459f6087b315614bf57324d8abb18f8a8c27[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 21:09:59 2023 +0300
+
+    updated ui
+
+[33mcommit bbac73f1526b2a82be727f6eb2831579472bcda6[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 20:59:45 2023 +0300
+
+    updated ui
+
+[33mcommit 07db5363a34a75e7e0b6ccfeae846e3058108c0d[m
+Merge: b6ddf05 b233b5a
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 07:10:17 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit b233b5a5608321ac2bc61667d25ba6ef8598db3d[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 10:09:48 2023 +0300
+
+    ...
+
+[33mcommit b6ddf05cf7fc2170607358a0757b5957303e0003[m
+Merge: eea040f f7490c7
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 07:07:38 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit f7490c75208272646d3d6b54b686e3cf2e0a50f7[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 10:06:57 2023 +0300
+
+    ...
+
+[33mcommit eea040f8d54a936762e200ec047da7f46bcc84be[m
+Merge: c8a3ba2 1e17f0f
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 06:43:41 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 1e17f0fa615dfe5608f800dbf5e9ceebdf258cfc[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 09:42:25 2023 +0300
+
+    ...
+
+[33mcommit c8a3ba20d4465bd69d8c1cff697e4a7d889dc211[m
+Merge: 9f6186c 031a870
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 06:29:41 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit 031a8702345cf90d725b79d56ecea1df677fd245[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 09:29:22 2023 +0300
+
+    updated ui
+
+[33mcommit 9f6186c8288139ae34da568ac196b1d067a0624d[m
+Merge: 5de7b0d c73ac74
+Author: Naftal Matoya <nafdev01>
+Date:   Wed Apr 12 06:19:39 2023 +0000
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit c73ac7483360b4f4e28ef9f86bc85feeb1cab5f9[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Wed Apr 12 09:17:34 2023 +0300
+
+    add mdbootstrap
+
+[33mcommit 5de7b0dd92d4afe61ca8f34d875b492c7d8b371c[m
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Apr 11 16:59:40 2023 +0000
+
+    ...
+
+[33mcommit 7b6269ef3047552d4505114d124fa7f2329554c6[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 1 23:19:53 2023 +0300
+
+    ,,,
+
+[33mcommit 80d3cacf7f6a65a22c6e432bbd491a3bb682b329[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 1 23:01:06 2023 +0300
+
+    updated other in template
+
+[33mcommit 54e83b021f051366d6bcbe971beeca85c28911fd[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 1 21:15:23 2023 +0300
+
+    updated home
+
+[33mcommit b29bb291e733514688c2532c254bac37e565a294[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 1 21:12:23 2023 +0300
+
+    updated home
+
+[33mcommit dcead3886d3599d54bc2e9d29b90d239b471f45e[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Apr 1 21:01:14 2023 +0300
+
+    updated html
+
+[33mcommit 7e16516097026c9798fb8bafdfe07c4bc0ee0fa4[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 19:10:29 2023 +0300
+
+    ,,,,
+
+[33mcommit 4b947c0125ccdaba63cdb2e712eecb1ccdce1b51[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 19:08:24 2023 +0300
+
+    ...
+
+[33mcommit 0b8f7ad4aa9e68c704667096a6c8bb35c815ef5f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 18:59:07 2023 +0300
+
+    updated
+
+[33mcommit 16d2f8fe1cdbc6a451a8e04ff97d3a2a9e4ff186[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 17:23:42 2023 +0300
+
+    updated views
+
+[33mcommit 6b82a0ef810002a8e0b9685383f9009275bc4713[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 15:02:46 2023 +0300
+
+    updated dashboard
+
+[33mcommit f0e26cfc0ac3f2b4eceec396c0a2db968b46b42d[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:59:52 2023 +0300
+
+    updated homepage
+
+[33mcommit c7bdba6973658a5b363c5b663eb0957b43f0b816[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:54:23 2023 +0300
+
+    updated homepage
+
+[33mcommit 5202881cf22e7563b0ad03be3c5c201e66f65d5b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:52:28 2023 +0300
+
+    updated homepage
+
+[33mcommit b426048d1c13627defbb748806f48e4576abfd34[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:51:48 2023 +0300
+
+    updated homepage
+
+[33mcommit 078ef28d2ab796f677cb320f10cfff8054b257c8[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:42:06 2023 +0300
+
+    updated homepage
+
+[33mcommit 6bfdef1484e7dad2d7b3007ce16a943f30eeb3ef[m
+Merge: fa964b2 025728c
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:40:07 2023 +0300
+
+    Merge branch 'main' of https://github.com/nafdev01/django_pkms
+
+[33mcommit fa964b2107a36930c92d509e7311dea11b4c2d43[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 14:37:55 2023 +0300
+
+    added homepage
+
+[33mcommit 025728ca6f6be074d0238c4c5791d22d0b162d84[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 12:51:21 2023 +0300
+
+    Update README.md
+
+[33mcommit b7b9cca35b62aebee2fa80dcd7e4287670a28b0d[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 12:15:45 2023 +0300
+
+    updted dashboard
+
+[33mcommit d4b25c0e3cd19c3573bec64c71b19a471f4e3e6a[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 12:13:02 2023 +0300
+
+    updated navbar
+
+[33mcommit 4643822f204e3383209279d8fc6109225ecbd9e8[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 12:09:46 2023 +0300
+
+    updated
+
+[33mcommit 409afa4b32d5fb50f20f5d8603d068102f870bdc[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 11:12:58 2023 +0300
+
+    ...
+
+[33mcommit 0d24a5e10e3fb5702080496c1a2ecb371ef074c8[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 11:12:18 2023 +0300
+
+    ...
+
+[33mcommit 8b1b5f88c980f7d5585661938889622baa2d973d[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 11:11:06 2023 +0300
+
+    ...
+
+[33mcommit e930537cf2ccf56a1415d730eb0e9af07548108c[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 11:00:23 2023 +0300
+
+    updated ui
+
+[33mcommit b650b7aa2847c97c0238a6998367c83f430cef34[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 10:54:04 2023 +0300
+
+    updated navbar
+
+[33mcommit 078531e6ddb82e5761df6df24be7fd2c96ef697c[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 10:48:43 2023 +0300
+
+    updated profile
+
+[33mcommit ed80208ac5187eb19354bf30df9fd71e2d92a356[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 09:31:30 2023 +0300
+
+    updated dashboard
+
+[33mcommit 130df5525c6d4a2bba11a1c4b8d508e523ab3fb3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Tue Mar 28 08:39:27 2023 +0300
+
+    Update README.md
+
+[33mcommit a4af4d616405fe2437afa3a0f96088d26bcca523[m
+Author: Naftal Matoya <nafdev01>
+Date:   Tue Mar 28 05:37:43 2023 +0000
+
+    update README
+
+[33mcommit 3b2732e9465a4adb2ac8fddbb43c4ceafce1ea95[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 20:20:36 2023 +0300
+
+    Update README.md
+
+[33mcommit 1ead18567efa30d35afcf5ed0bc1b483790b8bd3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 20:19:45 2023 +0300
+
+    Update README.md
+
+[33mcommit 1355749f78722884781f5e8a9cfb5d3c04244449[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 20:09:19 2023 +0300
+
+    dash
+
+[33mcommit e205354a6b15de6ecf78ab8961e188547f9fbce0[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 20:04:54 2023 +0300
+
+    update dashboard
+
+[33mcommit fab117b1d2afab0aa2c985eb34e2526059bb6012[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 20:03:40 2023 +0300
+
+    updated ui
+
+[33mcommit e7b758c6bba89386f4fcc4f03f27bd0e7c2a310f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 19:47:35 2023 +0300
+
+    updated dashboard
+
+[33mcommit 0c89690a45cc5e05b88869f4ea52732e7a006db6[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:59:20 2023 +0300
+
+    ...
+
+[33mcommit 61a5a2157416096e22c32589b71b7599113472f5[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:52:13 2023 +0300
+
+    updated base
+
+[33mcommit 0ce8164fa3f7b0c825cd1eed2507c08782e50d79[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:49:41 2023 +0300
+
+    updated
+
+[33mcommit 29a08c290027bdac45fd12ca31f202c24093fc00[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:49:18 2023 +0300
+
+    updated dashboard
+
+[33mcommit 0a7b04f84a3abe8d92cbd37c41daedb58af9f18c[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:40:55 2023 +0300
+
+    updated dashboard
+
+[33mcommit fce189dfb2be1ac9d2967b6c3ab252a766f2ecb7[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:23:01 2023 +0300
+
+    updated
+
+[33mcommit c082ace5b8f5d2f23ced0591d3aaf4cde66223db[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:09:55 2023 +0300
+
+    updated dashboard
+
+[33mcommit 3dd743813f4130d691036f3dd1c855d058789d86[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 16:09:02 2023 +0300
+
+    updated requirements
+
+[33mcommit d66e4d30e428c26634709d32fe949a695b59583d[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 13:35:56 2023 +0300
+
+    updated dashboard
+
+[33mcommit e20c04544948552905c50f1f3054678a522cbf65[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 13:30:38 2023 +0300
+
+    updated badge
+
+[33mcommit 87465b3814672fefea98f6417f934cae4fee4ee3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 13:24:56 2023 +0300
+
+    added badge
+
+[33mcommit 56ec1f41575e5b592cb8978b5f366c524b5b3cda[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 13:23:12 2023 +0300
+
+    added badge
+
+[33mcommit 95553ba0000c3599f629a6aa53012694788a21d5[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 12:57:21 2023 +0300
+
+    nn
+
+[33mcommit 40cdff8d886c187123b5596809538455c8454488[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 12:47:18 2023 +0300
+
+    updated glossary
+
+[33mcommit ee8bb16b8d1dba2f5cd301b8680a4591363a4f14[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 11:24:33 2023 +0300
+
+    updated glossary
+
+[33mcommit 0e143a12864d758f3faf5375d37a02d404934439[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 09:59:55 2023 +0300
+
+    updated glossary
+
+[33mcommit 60041557db74260affa00d6c8a4f44e187e0686b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Mon Mar 27 07:25:33 2023 +0300
+
+    updated glossary privacy
+
+[33mcommit 899457ea3e5393048711263736200bfbcb16929b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 26 18:43:50 2023 +0300
+
+    updated ui
+
+[33mcommit 2c4ba6ec052072c1903e05965d1e9c05f3cbbf8c[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 26 01:14:19 2023 +0300
+
+    updated readme
+
+[33mcommit b0547ab27adde84130b567541f4aa49aae9899e3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 26 01:12:31 2023 +0300
+
+    updated readme
+
+[33mcommit 79287c19b1bc0d971db9f755529ad1d2e0df66a8[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 26 01:05:24 2023 +0300
+
+    updated navbar
+
+[33mcommit bf65cc6bf1517a0c7d63c04bd9a48d6d281def47[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 26 00:39:05 2023 +0300
+
+    updated media
+
+[33mcommit 9e7ae6dd36c3da38f26b131275fffafefdf52032[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:27:42 2023 +0300
+
+    update readme
+
+[33mcommit 59e1e53b165f8479f23dc8f730b07504d92ccefa[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:26:14 2023 +0300
+
+    update readme
+
+[33mcommit fe08fc01a732876ff1eae4f7fdbe32cf3b3799ab[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:25:27 2023 +0300
+
+    updated readme
+
+[33mcommit a1263e3c18c37fc9f1761c4eec2dd42c02ac6ea6[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:24:19 2023 +0300
+
+    update
+
+[33mcommit be151eb4939a803d22e45f2aa32f39cd43af0fd2[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:22:11 2023 +0300
+
+    updated read me
+
+[33mcommit b4487aaf9eb2416dd079265fe9f4ea05d5ce68ea[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:21:32 2023 +0300
+
+    updated readme
+
+[33mcommit 7c1012a3a69bdc86a7cd8bc8cd93bc8188142a42[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:07:14 2023 +0300
+
+    updated readme
+
+[33mcommit c80dbc7c0a45d4abdef9c29131434cdff8485719[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 23:06:16 2023 +0300
+
+    update readme
+
+[33mcommit 56b4889cef82c18852c4d9b54a08fb0c87a4b64c[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 22:52:11 2023 +0300
+
+    Update README.md
+
+[33mcommit 165525391f5ab1d36894a1d6278baf132057d17e[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 22:49:37 2023 +0300
+
+    updated readme
+
+[33mcommit 36c5fd465a43f1e741698e87465ce5ca0f98774f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 22:41:46 2023 +0300
+
+    ..
+
+[33mcommit a873f33ec0e5e8f31f5a5c9464479856ac40c226[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 22:39:38 2023 +0300
+
+    updated
+
+[33mcommit 0a0ac1b5bf99f16dee5fda5e9cc28a8cbca1baff[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 22:37:54 2023 +0300
+
+    updated readme
+
+[33mcommit e5b27aec87b7348445e5d24251b1f1f7ce5eb9de[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 22:34:26 2023 +0300
+
+    updated settings
+
+[33mcommit 27f928aca6f87984f934299ae0c2bd7ceef316b8[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 21:55:38 2023 +0300
+
+    updated ico
+
+[33mcommit 0b6694eab2e88d21d673685d12102e29617cb3fc[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 21:48:30 2023 +0300
+
+    updated ico
+
+[33mcommit bdea77da0b3f423a8168efcf44576720903b9e0b[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 21:43:34 2023 +0300
+
+    updated static
+
+[33mcommit 6f28738a3e15768a2ca51469d07fcef0d5a7a04a[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 21:20:19 2023 +0300
+
+    updated static
+
+[33mcommit 1cedff2ee01dd9154d0de4d3788714f5af3f646f[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 21:03:46 2023 +0300
+
+    updated
+
+[33mcommit 5c4ccb3df9d638e742187e66b844a21854c73346[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 20:14:24 2023 +0300
+
+    fixed signup
+
+[33mcommit 07b8eb7fb62dab972667b81a7b497b70f45f0381[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Mar 25 20:08:05 2023 +0300
+
+    updated
+
+[33mcommit 9ade3ef2968b8ace08d5ae9f12fa847f12220be7[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Mon Mar 13 08:46:29 2023 +0300
+
+    Updated Email
+
+[33mcommit 763112f25af471f82da696943e66e83aa8625e16[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Mon Mar 13 07:08:29 2023 +0300
+
+    Initial Commit
+
+[33mcommit 434119344e98122f7e0974b72e01dae352e86327[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Mon Mar 13 07:06:00 2023 +0300
+
+    Initial Commit
+
+[33mcommit 5480ea70cbf1acd42579e19182d71e2c4ce73233[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Mon Mar 13 06:47:58 2023 +0300
+
+    Initial Commit
+
+[33mcommit 5b41c7458563185ea9425322ff575d4e6aba53ac[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Mon Mar 13 06:47:14 2023 +0300
+
+    Initial Commit
+
+[33mcommit 46cd3f8137d6c9bfd5ebc7fa6140b4fe714a0f24[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Mon Mar 13 06:45:23 2023 +0300
+
+    Initial Commit
+
+[33mcommit 2b08e8e60d5e14d4edeaf95eb8acc51f46d293a0[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 15:27:27 2023 +0300
+
+    Initial Commit
+
+[33mcommit 15e068a4e0499cb1cd08f8c9e09e942b403c64a3[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 12 14:01:34 2023 +0300
+
+    ...
+
+[33mcommit 45c3723f39484ca850fb5e724241ede945ca0e29[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 13:52:25 2023 +0300
+
+    Initial Commit
+
+[33mcommit d0f2e878c3e3f0f299d8dd81b5d0ac769cc39208[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 13:50:55 2023 +0300
+
+    Initial Commit
+
+[33mcommit 8b3746018ac1a1d59358f29ca2be4c87abde3da7[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 13:42:37 2023 +0300
+
+    Initial Commit
+
+[33mcommit ed7174cb69ca725d2943e40804bd512def6db27b[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 13:25:21 2023 +0300
+
+    Initial Commit
+
+[33mcommit 6e84868eb1c2cdfffffa28464b657271abc5ca60[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 13:14:37 2023 +0300
+
+    Initial Commit
+
+[33mcommit a3fb0f50adffec743ce197ce8aa618f76c18e9bb[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 13:09:30 2023 +0300
+
+    Initial Commit
+
+[33mcommit 01c178b2dad8da7b0eb6e28d043078f8d57787ee[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 12:47:41 2023 +0300
+
+    Initial Commit
+
+[33mcommit 35cfcc50f681b40ba9cd0d49752adbe42de9aaa3[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 12 12:46:14 2023 +0300
+
+    Initial Commit
+
+[33mcommit 2e9da7d7f7f07840fba5719cbf1872e1f2634945[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sun Mar 12 12:28:57 2023 +0300
+
+    Add or update the Azure App Service build and deployment workflow config
+
+[33mcommit 93c11a997705bc48f851aa3579a168bef79a9dd6[m
+Author: Naftal Matoya <aegis@aegis.custos>
+Date:   Sun Mar 12 12:07:40 2023 +0300
+
+    Initial Commit
+
+[33mcommit baa8befe72e8ecef0a25be55b39a34d56e8c7d6a[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Fri Mar 10 07:25:33 2023 +0300
+
+    updated objectives
+
+[33mcommit 81da3e1b95162955f03274519bfc36a89eb68c92[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 5 12:46:55 2023 +0300
+
+    ...
+
+[33mcommit a4a369e562dd35fa78360a00e6d55ba184852e1b[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 5 12:46:18 2023 +0300
+
+    ...
+
+[33mcommit ea62d13e0a673614bd98f27743a1bc451c557c28[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 5 12:17:37 2023 +0300
+
+    ...
+
+[33mcommit 07b905aed2ee7ae7fce782dbe81b86588b89177a[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 5 11:48:33 2023 +0300
+
+    ...
+
+[33mcommit 6e0b7ab849ba389399640acda7db427b615b7713[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 5 11:40:17 2023 +0300
+
+    ...
+
+[33mcommit 2805e1aa266cc8aad21cc6904aa5fd8d72faad44[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Mar 5 11:31:58 2023 +0300
+
+    ...
+
+[33mcommit 5e840e6576b514d55335f388db1a2c11e60f65d7[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 05:27:36 2023 +0300
+
+    2fa prototype
+
+[33mcommit 2009c5eaaad1c5d76f8cc3a30ca6af82afc43877[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 02:05:51 2023 +0300
+
+    ds
+
+[33mcommit 54982ae29bd0d5095ad3c4769f51758d1fa48271[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 01:40:59 2023 +0300
+
+    de
+
+[33mcommit 88f83fb28966bf069ffb2a82963c0c6b17af1579[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 01:31:47 2023 +0300
+
+    ....
+
+[33mcommit 76b26ddfabfc4d93812e35ed27cf6055a7aa933a[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 00:49:57 2023 +0300
+
+    ...
+
+[33mcommit d107f83a1e3a0bc462d0fe342c8598e2bd63e1a8[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 00:47:09 2023 +0300
+
+    ...
+
+[33mcommit 731fd83881f0ee2ed4f7c7888d0a0b961536433f[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 00:46:08 2023 +0300
+
+    ...
+
+[33mcommit ae6e0cfe8b9983b42012d9b98fcc3c6d28b62328[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 00:38:42 2023 +0300
+
+    ...
+
+[33mcommit 6ab8b18030869753701c149bbe5750b2cbcd9d6d[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Fri Mar 3 00:26:09 2023 +0300
+
+    ...
+
+[33mcommit ccfbe005b16fa0aa15a931821ac93fc272804598[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Thu Mar 2 23:10:27 2023 +0300
+
+    ...
+
+[33mcommit 521050fbed216713f3c24e0c6ffa165b38fe7c6e[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Thu Mar 2 22:54:57 2023 +0300
+
+    ...
+
+[33mcommit ec7f1e1442eaffe31c7b8f1c558f13ac5c925f54[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Wed Feb 22 05:08:59 2023 +0300
+
+    ....
+
+[33mcommit e0237f60766fbdd4bfbc887fe24ddc9d7fb8385f[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Feb 12 11:44:33 2023 +0300
+
+    ...
+
+[33mcommit 80067fa57120f2e5b7c917771f53ed5f41c9c588[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Feb 11 18:21:50 2023 +0300
+
+    ...
+
+[33mcommit fb4d4e3723ea8dd6e8b79622073aa07d95b50545[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Feb 11 18:13:20 2023 +0300
+
+    ...
+
+[33mcommit 6eab01d3f31f672c0ceb87051290132ea6f9acb5[m
+Author: nmatoya <naftaldev@gmail.com>
+Date:   Sat Feb 11 17:37:03 2023 +0300
+
+    ...
+
+[33mcommit f5a05443714f69c3e16cb2117bb94567e79ce800[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Sun Feb 5 17:19:42 2023 +0300
+
+    ...
+
+[33mcommit 92d8950be3d7987ee5401f778c29036ed40ae0d7[m
+Author: naftaldev@gmail.com <naftaldev@gmail.com>
+Date:   Tue Jan 31 23:27:44 2023 +0300
+
+    ...
+
+[33mcommit 06d976abbcac2a3e6c7c50df84576a0dc7b1ee65[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Tue Jan 31 23:25:00 2023 +0300
+
+    ...
+
+[33mcommit 55bcd6c0f0fd6cf403647422636b0911eff189c6[m
+Author: naftaldev@gmail.com <naftaldev@gmail.com>
+Date:   Tue Jan 31 23:23:42 2023 +0300
+
+    ...
+
+[33mcommit a79094ac590f3a108b25517a48ca20cc5a241284[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Tue Jan 31 23:04:01 2023 +0300
+
+    initial commit
+
+[33mcommit f1e05bde04c37d906bcdde40e7d21372c65b44b4[m
+Author: nafdev01 <naftaldev@gmail.com>
+Date:   Tue Jan 31 23:02:18 2023 +0300
+
+    first commit
