@@ -6,7 +6,7 @@
 {% block title %}{{ objective.name }}{% endblock %}
 
 {% block header %}
-<nav style="--mdb-breadcrumb-divider: '>';" aria-label="breadcrumb">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="{% url 'revision:objective_list' objective.course.id objective.course.slug %}">
@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark"   data-mdb-toggle="collapse" href="#otherObjectives" role="button"
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherObjectives" role="button"
                 aria-expanded="false" aria-controls="otherObjectives">
                 {{ objective }}
             </a>
@@ -45,8 +45,8 @@
     <a class="btn btn-sm btn-outline-warning" href="{% url 'revision:update_objective' objective.id %}">
         Update Objective
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger"   data-mdb-toggle="modal"
-        data-mdb-target="#delete_objective_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+        data-bs-target="#delete_objective_modal">
         Delete Objective
     </button>
 </div>

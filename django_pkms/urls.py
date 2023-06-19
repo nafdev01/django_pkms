@@ -13,7 +13,6 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path("glossary/", include("glossary.urls")),
     path("revision/", include("revision.urls")),
-    path("markdownx/", include("markdownx.urls")),
 ]
 
 if settings.DEBUG:
