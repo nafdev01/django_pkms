@@ -1,15 +1,6 @@
-<div class="modal-header bg-danger text-white d-flex justify-content-center">
-    <h5 class="modal-title" id="delete_{{ course.course_code }}_label">
-        Are you sure you want to delete the course "{{ course.name }}"?
-    </h5>
-</div>
-<div class="modal-body">
-    <div class="d-flex justify-content-center">
-        <a class="btn btn-danger btn-sm ms-2" href="{% url 'notes:delete_course' course.id %}">
-            Delete
-        </a>
-        <button type="button" class="btn btn-info btn-sm ms-2" data-mdb-dismiss="modal">
-            Cancel
-        </button>
-    </div>
-</div>
+<p>
+    Are you sure you want to delete course "{{ course.name }}"?
+</p>
+<a class="btn btn-danger" href="{% url 'notes:delete_course' course.id %}">
+    Delete
+</a>

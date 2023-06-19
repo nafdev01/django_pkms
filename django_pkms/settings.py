@@ -26,7 +26,6 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
-LOCAL_SERVER = os.getenv("LOCAL_SERVER", "False") == "True"
 
 # Application definition
 
@@ -135,8 +134,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-if not LOCAL_SERVER:
-    from .cdn.conf import *  # noqa
+from .cdn.conf import * # noqa
 
 # media files
 MEDIA_URL = "/media/"

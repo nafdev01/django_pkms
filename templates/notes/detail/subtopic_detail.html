@@ -7,7 +7,8 @@
 {% block title %}{{ subtopic.name }}{% endblock %}
 
 {% block header %}
-<nav style="--mdb-breadcrumb-divider: '>';" aria-label="breadcrumb">
+<br>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="{{ subtopic.topic.course.get_absolute_url }}">
@@ -16,13 +17,13 @@
         </li>
         <li class="breadcrumb-item">
             <a href="{{ subtopic.topic.get_absolute_url }}">
-                {{ subtopic.topic.name | truncatechars:25 }}
+                {{ subtopic.topic | truncatechars:25 }}
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <a class="btn btn-sm btn-dark" data-mdb-toggle="collapse" href="#otherSubTopic" role="button"
+            <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#otherSubTopic" role="button"
                 aria-expanded="false" aria-controls="otherSubTopic">
-                {{ subtopic.name }}
+                {{ subtopic }}
             </a>
         </li>
     </ol>
@@ -49,21 +50,21 @@
     <a class="btn btn-sm btn-outline-warning float-right" href="{% url 'notes:update_subtopic' subtopic.id %}">
         Update Subtopic
     </a>
-    <button type="button" class="btn btn-sm btn-outline-danger" data-mdb-toggle="modal"
-        data-mdb-target="#delete_subtopic_modal">
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+        data-bs-target="#delete_subtopic_modal">
         Delete Subtopic
     </button>
 </div>
-
 <div class="modal fade" id="delete_subtopic_modal" tabindex="-1" aria-labelledby="delete_{{ subtopic.slug }}_label"
     aria-hidden="true">
-    <div class="modal-dialog modal-frame modal-sm modal-top">
-        <div class="modal-content rounded-5 text-center">
-            {% include "notes/delete/subtopic_confirm_delete.html" %}
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include "notes/delete/subtopic_confirm_delete.html" %}
+            </div>
         </div>
     </div>
 </div>
-
 
 <p class="h2 text-center">
     {{ subtopic.name }}
@@ -75,25 +76,21 @@
 <a class="btn btn-sm btn-outline-success float-right m-2" href="{% url 'notes:create_entry' subtopic.id %}">
     New Entry
 </a>
-<div class="row g-4">
+<ul class="list-group">
     {% for entry in entries %}
-    <div class="col-sm-6 col-md-3 col-lg-4">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">
-                    {{ entry.name }}
-                </h5>
-                <p class="card-text">
-                    <small>
-                        {{ entry.content | markdown | truncatewords:25 }}
-                    </small>
-                </p>
-                <a href="{{ entry.get_absolute_url }}" class="btn btn-sm btn-primary">
-                    Read More
-                </a>
-            </div>
+    <li class="list-group-item p-2">
+        <p class="h5 text-decoration-underline text-center">
+            {{ entry.name }}
+        </p>
+        <p class="fw-light">
+            {{ entry.content | truncatewords:30 | markdown }}
+        </p>
+        <div class="d-flex align-items-end flex-column">
+            <a class="btn btn-sm btn-primary" href="{{ entry.get_absolute_url }}">
+                Read More
+            </a>
         </div>
-    </div>
+    </li>
     {% endfor %}
-    </ul>
-    {% endblock %}
+</ul>
+{% endblock %}

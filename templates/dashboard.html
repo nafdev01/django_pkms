@@ -11,29 +11,16 @@
 {% endblock header %}
 
 {% block content %}
-<div class="dropdown d-flex justify-content-center">
-    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="createdropdownMenu" data-mdb-toggle="dropdown"
-        aria-expanded="false">
-        Create
+<div class="container d-flex justify-content-evenly">
+    <a class="btn btn-outline-success" href="{% url 'notes:create_course' %}">
+        New Course
     </a>
-
-    <ul class="dropdown-menu" aria-labelledby="createdropdownMenu">
-        <li>
-            <a class="dropdown-item" href="{% url 'notes:create_course' %}">
-                New Course
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item" href="{% url 'glossary:create_term' %}">
-                New Term
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item" href="{% url 'revision:create_objective' %}">
-                New Objective
-            </a>
-        </li>
-    </ul>
+    <a class="btn btn-outline-success" href="{% url 'glossary:create_term' %}">
+        New Term
+    </a>
+    <a class="btn btn-outline-success" href="{% url 'revision:create_objective' %}">
+        New Objective
+    </a>
 </div>
 <br>
 <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4">
@@ -94,15 +81,17 @@
                                 href="{% url 'notes:update_entry' entry.id %}">
                                 Update
                             </a>
-                            <button type="button" class="btn btn-sm btn-outline-danger m-1" data-mdb-toggle="modal"
-                                data-mdb-target="#delete_entry_modal">
+                            <button type="button" class="btn btn-sm btn-outline-danger m-1" data-bs-toggle="modal"
+                                data-bs-target="#delete_entry_modal">
                                 Delete
                             </button>
                             <div class="modal fade" id="delete_entry_modal" tabindex="-1"
                                 aria-labelledby="delete_{{ entry.slug }}_label" aria-hidden="true">
-                                <div class="modal-dialog modal-sm modal-frame modal-top">
-                                    <div class="modal-content rounded-5 text-center">
-                                        {% include "notes/delete/entry_confirm_delete.html" %}
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            {% include "notes/delete/entry_confirm_delete.html" %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
