@@ -210,7 +210,7 @@ class ReferenceBook(models.Model):
     model for course reference books
     """
 
-    title = models.CharField()
+    title = models.CharField(max_length=255)
     slug = models.SlugField(
         max_length=250,
         null=True,
