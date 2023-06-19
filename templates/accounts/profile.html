@@ -9,8 +9,8 @@ Profile
 {% endif %}
 {% endblock %}
 {% block content %}
-<button type="button" class="btn btn-lg btn-outline-danger m-1" data-bs-toggle="modal"
-    data-bs-target="#delete_account_modal">
+<button type="button" class="btn btn-sm btn-outline-danger m-1"   data-mdb-toggle="modal"
+    data-mdb-target="#delete_account_modal">
     Delete Account
 </button>
 <div class="modal fade" id="delete_account_modal" tabindex="-1" aria-labelledby="delete_{{ request.user }}_label"
