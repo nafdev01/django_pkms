@@ -13,7 +13,7 @@ class ObjectiveForm(forms.ModelForm):
 
     class Meta:
         model = Objective
-        fields = ["name", "course", "start_date", "end_date", "description", "complete"]
+        fields = ["name", "course", "start_date", "end_date", "description"]
         widgets = {
             "start_date": DatePickerInput(),
             "end_date": DatePickerInput(),

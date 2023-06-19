@@ -64,15 +64,13 @@ def course_detail(request, id, slug):
 def topic_detail(request, id, slug):
     student = request.user
     topic = get_object_or_404(Topic, id=id, slug=slug, course__student_id=student.id)
-    terms_definitions = Term.objects.filter(
-        course_id=topic.course.id, course__student_id=student.id
-    )
+    subtopics = topic.subtopic_set.filter(topic__course__student_id=student.id)
 
     template_path = "notes/detail/topic_detail.html"
     context = {
         "student": student,
         "topic": topic,
-        "terms_definitions": terms_definitions,
+        "subtopics": subtopics,
     }
     return render(request, template_path, context)
 
@@ -100,15 +98,11 @@ def entry_detail(request, id, slug):
     entry = get_object_or_404(
         Entry, id=id, slug=slug, subtopic__topic__course__student_id=student.id
     )
-    terms_definitions = Term.objects.filter(
-        course_id=entry.subtopic.topic.course.id, course__student_id=student.id
-    )
 
     template_path = "notes/detail/entry_detail.html"
     context = {
         "student": student,
         "entry": entry,
-        "terms_definitions": terms_definitions,
     }
     return render(request, template_path, context)
 
@@ -177,7 +171,7 @@ def create_subtopic(request, topic_id):
                 new_subtopic = form.save(commit=False)
                 new_subtopic.topic = topic
                 new_subtopic.save()
-                return redirect(new_subtopic.topic)
+                return redirect(new_subtopic)
             except IntegrityError as e:
                 if "duplicate key value violates unique constraint" in str(e):
                     messages.error(
@@ -207,7 +201,7 @@ def create_entry(request, subtopic_id):
                 new_entry = form.save(commit=False)
                 new_entry.subtopic = subtopic
                 new_entry.save()
-                return redirect(new_entry.subtopic.topic)
+                return redirect(new_entry)
             except IntegrityError as e:
                 if "duplicate key value violates unique constraint" in str(e):
                     messages.error(
@@ -269,7 +263,7 @@ def update_subtopic(request, subtopic_id):
         form = SubTopicForm(instance=subtopic, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(subtopic.topic)
+            return redirect(subtopic)
 
     template_path = "notes/update/subtopic_update_form.html"
     context = {"form": form, "subtopic": subtopic}
@@ -285,7 +279,7 @@ def update_entry(request, entry_id):
         form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(entry.subtopic.topic)
+            return redirect(entry)
 
     template_path = "notes/update/entry_update_form.html"
     context = {"form": form, "entry": entry}
@@ -447,4 +441,4 @@ def entry_share(request, entry_id):
             request, f"The entry '{entry}' could not be shared with '{recipient}'"
         )
 
-    return redirect(entry.subtopic.topic)
+    return redirect(entry)

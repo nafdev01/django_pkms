@@ -79,10 +79,10 @@ def create_term(request):
 
 
 @login_required
-def create_term_inline(request, topic_id, course_id):
+def create_term_inline(request, entry_id, course_id):
     student = request.user
     entry = get_object_or_404(
-        Topic, id=topic_id, course__student=student
+        Entry, id=entry_id, subtopic__topic__course__student=student
     )
     course = get_object_or_404(Course, id=course_id, student=student)
     if request.method != "POST":

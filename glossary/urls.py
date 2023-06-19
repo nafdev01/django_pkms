@@ -16,7 +16,7 @@ urlpatterns = [
     #
     path("term/create/", views.create_term, name="create_term"),
     path(
-        "term/create/<int:topic_id>/<int:course_id>",
+        "term/create/<int:entry_id>/<int:course_id>",
         views.create_term_inline,
         name="create_term_inline",
     ),
