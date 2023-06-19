@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "django.contrib.postgres",
     "storages",
-    "markdownx",
     # default apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -69,7 +68,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [BASE_DIR / "templates"],
-        "APP_DIRS": False,
+        "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -84,7 +83,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_pkms.wsgi.application"
 
 
-if DEVELOPMENT_MODE and not LOCAL_SERVER:
+if DEVELOPMENT_MODE is True:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
