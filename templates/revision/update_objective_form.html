@@ -10,9 +10,15 @@
 {% endblock header %}
 
 {% block content %}
-<form method="post">
-    {% bootstrap_form form %}
-    {% csrf_token %}
-    <input class="btn btn-outline-success" type="submit" value="Update Objective">
-</form>
+<div>
+    <form method="post">
+        {% bootstrap_form form %}
+        {% csrf_token %}
+        <input class="btn btn-outline-success" type="submit" value="Update Objective">
+    </form>
+</div>
+<div>
+    {{ form.media }}
+</div>
+
 {% endblock %}
