@@ -113,6 +113,14 @@ class Topic(CommonModel):
     overview = models.TextField(null=True, blank=True)
 
     @property
+    def has_subobjectives(self):
+        if self.subobjective_set.all:
+            return True
+        else:
+            return False
+
+
+    @property
     def student(self):
         return {self.course.student}
 

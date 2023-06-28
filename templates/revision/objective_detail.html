@@ -67,30 +67,31 @@
 {% block content %}
 <p>{{ objective.description | markdown }}</p>
 
+
+<div class="container d-flex justify-content-between">
+    <h5 class="underline">Sub Objectives</h5>
+    <a href="{% url 'revision:create_subobjective' objective.id %}">
+        Add Sub-Objective
+        <i class="fas fa-plus fa-beat -fa-xl"></i>
+    </a>
+</div>
 {% if objective.has_subobjectives %}
 <div class="container">
-    <div class="d-flex justify-content-between">
-        <h5 class="underline">Sub Objectives</h5>
-        <a href="{% url 'revision:create_subobjective' objective.id %}">
-            Add Sub-Objective
-            <i class="fas fa-plus fa-beat -fa-xl"></i>
-        </a>
-    </div>
     {% for subobjective in objective.subobjective_set.all %}
     <div class="sub-objective">
         {% if subobjective.complete %}
         <p class="complete">
             <span>
-                <a class="text-danger" href="{% url 'revision:mark_sub_incomplete' subobjective.id %}"
+                <a class="text-danger" href="{% url 'revision:mark_sub_incomplete' subobjective.id request.path %}"
                     title="Mark Incomplete">
                     <i class="fas fa-x"></i>
                 </a>
             </span>
             <span class="sub-objective-text">
-                {{ subobjective.number }}. {{ subobjective.name }}
+                {{ objective.number }}.{{ subobjective.number }}. {{ subobjective.name }}
             </span>
             <span>
-                <a class="text-danger" href="{% url 'revision:delete_subobjective' subobjective.id %}"
+                <a class="text-danger" href="{% url 'revision:delete_subobjective' subobjective.id request.path %}"
                     title="Delete Sub-Objective">
                     <i class="fas fa-trash"></i>
                 </a>
@@ -99,16 +100,16 @@
         {% else %}
         <p class="incomplete">
             <span>
-                <a class="text-success" href="{% url 'revision:mark_sub_complete' subobjective.id %}"
+                <a class="text-success" href="{% url 'revision:mark_sub_complete' subobjective.id request.path %}"
                     title="Mark Incomplete">
                     <i class="fa-solid fa-check"></i>
                 </a>
             </span>
             <span class="sub-objective-text">
-                {{ subobjective.number }}. {{ subobjective.name }}
+                {{ objective.number }}.{{ subobjective.number }}. {{ subobjective.name }}
             </span>
             <span>
-                <a class="text-danger" href="{% url 'revision:delete_subobjective' subobjective.id %}"
+                <a class="text-danger" href="{% url 'revision:delete_subobjective' subobjective.id request.path %}"
                     title="Delete Sub-Objective">
                     <i class="fas fa-trash"></i>
                 </a>

@@ -108,7 +108,7 @@ def create_subobjective(request, objective_id):
     student = request.user
     objective = Objective.objects.get(id=objective_id, course__student_id=student.id)
     course = objective.course
-    
+
     if request.method != "POST":
         form = SubObjectiveForm(course=course, student=student)
     else:
@@ -186,7 +186,7 @@ def delete_objective(request, objective_id):
 
 
 @login_required
-def delete_subobjective(request, subobjective_id):
+def delete_subobjective(request, subobjective_id, object_path):
     student = request.user
     subobjective = SubObjective.objects.get(
         id=subobjective_id, objective__course__student_id=student.id
@@ -200,10 +200,10 @@ def delete_subobjective(request, subobjective_id):
         f"The sub-objective {subobjective_name} in {objective} has been deleted successfully.",
     )
 
-    return redirect(subobjective.objective)
+    return redirect(object_path)
 
 
-def mark_sub_complete(request, subobjective_id):
+def mark_sub_complete(request, subobjective_id, object_path):
     student = request.user
     subobjective = SubObjective.objects.get(
         id=subobjective_id, objective__course__student_id=student.id
@@ -211,10 +211,10 @@ def mark_sub_complete(request, subobjective_id):
     subobjective.complete = True
     subobjective.save()
 
-    return redirect(subobjective.objective)
+    return redirect(object_path)
 
 
-def mark_sub_incomplete(request, subobjective_id):
+def mark_sub_incomplete(request, subobjective_id, object_path):
     student = request.user
     subobjective = SubObjective.objects.get(
         id=subobjective_id, objective__course__student_id=student.id
@@ -222,4 +222,4 @@ def mark_sub_incomplete(request, subobjective_id):
     subobjective.complete = False
     subobjective.save()
 
-    return redirect(subobjective.objective)
+    return redirect(object_path)

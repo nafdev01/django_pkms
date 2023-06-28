@@ -37,17 +37,17 @@ urlpatterns = [
         name="delete_objective",
     ),
     path(
-        "subobjective/delete/<int:subobjective_id>/",
+        "subobjective/delete/<int:subobjective_id>/<path:object_path>/",
         views.delete_subobjective,
         name="delete_subobjective",
     ),
     path(
-        "objective/mark_sub_complete/<int:subobjective_id>/",
+        "objective/mark_sub_complete/<int:subobjective_id>/<path:object_path>/",
         views.mark_sub_complete,
         name="mark_sub_complete",
     ),
     path(
-        "objective/mark_sub_incomplete/<int:subobjective_id>/",
+        "objective/mark_sub_incomplete/<int:subobjective_id>/<path:object_path>/",
         views.mark_sub_incomplete,
         name="mark_sub_incomplete",
     ),

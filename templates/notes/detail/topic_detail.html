@@ -65,8 +65,71 @@
 {% endblock header %}
 
 {% block content %}
+
 <section class="container-fluid p-2">
 	<div class="accordion" id="accordionShowTerms">
+		{% if topic.has_subobjectives %}
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingSubs">
+				<button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+					data-mdb-target="#collapseSubs" aria-expanded="true" aria-controls="collapseSubs">
+					Show Sub Objectives
+				</button>
+			</h2>
+			<div id="collapseSubs" class="accordion-collapse collapse" aria-labelledby="headingSubs"
+				data-mdb-parent="#accordionShowTerms">
+				<div class="accordion-body">
+					{% for subobjective in topic.subobjective_set.all %}
+					<div class="sub-objective">
+						{% if subobjective.complete %}
+						<p class="complete">
+							<span>
+								<a class="text-danger"
+									href="{% url 'revision:mark_sub_incomplete' subobjective.id request.path %}"
+									title="Mark Incomplete">
+									<i class="fas fa-x"></i>
+								</a>
+							</span>
+							<span class="sub-objective-text">
+								{{ subobjective.objective.number }}.{{ subobjective.number }}. {{ subobjective.name }}
+							</span>
+							<span>
+								<a class="text-danger"
+									href="{% url 'revision:delete_subobjective' subobjective.id request.path %}"
+									title="Delete Sub-Objective">
+									<i class="fas fa-trash"></i>
+								</a>
+							</span>
+						</p>
+						{% else %}
+						<p class="incomplete">
+							<span>
+								<a class="text-success"
+									href="{% url 'revision:mark_sub_complete' subobjective.id request.path %}"
+									title="Mark Incomplete">
+									<i class="fa-solid fa-check"></i>
+								</a>
+							</span>
+							<span class="sub-objective-text">
+								{{ subobjective.objective.number }}.{{ subobjective.number }}. {{ subobjective.name }}
+							</span>
+							<span>
+								<a class="text-danger"
+									href="{% url 'revision:delete_subobjective' subobjective.id request.path %}"
+									title="Delete Sub-Objective">
+									<i class="fas fa-trash"></i>
+								</a>
+							</span>
+
+						</p>
+						{% endif %}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="headingCourse">
 				<button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
@@ -88,7 +151,7 @@
 						{{ term.name }}
 					</a>
 					{% empty %}
-                    <p>No terms in this course</p>
+					<p>No terms in this course</p>
 					{% endfor %}
 				</div>
 			</div>

@@ -7,6 +7,7 @@ from notes.models import Course, CommonModel, Topic
 
 
 class Objective(CommonModel):
+    number = models.IntegerField(default=0)
     start_date = models.DateField()
     end_date = models.DateField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
@@ -61,7 +62,7 @@ class Objective(CommonModel):
 
 
 class SubObjective(CommonModel):
-    number = models.CharField(max_length=255)
+    number = models.IntegerField(default=0)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, null=True)
     objective = models.ForeignKey(Objective, on_delete=models.CASCADE, null=True)
     duration = models.IntegerField(editable=False)
@@ -98,5 +99,5 @@ class SubObjective(CommonModel):
     class Meta:
         verbose_name = "sub objective"
         verbose_name_plural = "sub objectives"
-        ordering = ["number", "start_date", "end_date", "complete", "topic"]
+        ordering = ["-complete", "number", "start_date", "end_date", "topic"]
         unique_together = ["name", "topic"]
