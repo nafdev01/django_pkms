@@ -26,4 +26,4 @@ class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
         fields = ["name", "content", "revised"]
-        widgets = {"content": MarkdownxWidget(attrs={"cols": 80, "rows": 20})}
+        widgets = {"content": MarkdownxWidget(attrs={"rows": 10})}

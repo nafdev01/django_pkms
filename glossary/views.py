@@ -79,10 +79,10 @@ def create_term(request):
 
 
 @login_required
-def create_term_inline(request, entry_id, course_id):
+def create_term_inline(request, topic_id, course_id):
     student = request.user
-    entry = get_object_or_404(
-        Entry, id=entry_id, subtopic__topic__course__student=student
+    topic = get_object_or_404(
+        Topic, id=topic_id, course__student=student
     )
     course = get_object_or_404(Course, id=course_id, student=student)
     if request.method != "POST":
@@ -98,14 +98,14 @@ def create_term_inline(request, entry_id, course_id):
                     request,
                     f"Successfully created term '{new_term}' in {course.course_code}",
                 )
-                return redirect(entry)
+                return redirect(topic)
             except IntegrityError as e:
                 if "duplicate key value violates unique constraint" in str(e):
                     messages.error(request, f"A term with that title already exists")
-                    return redirect(entry)
+                    return redirect(topic)
                 else:
                     messages.error(request, "There was an error creating the term.")
-                    return redirect(entry)
+                    return redirect(topic)
 
 
 """

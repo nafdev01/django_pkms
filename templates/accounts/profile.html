@@ -1,14 +1,10 @@
 <!-- accounts/profile.html -->
 {% extends "base.html" %}
 {% load static %}
-{% block title %}
-{% if request.user is student %}
-Profile
-{% else %}
-{{ student }}'s profile
-{% endif %}
-{% endblock %}
+
+{% block title %}Profile{% endblock %}
 {% block content %}
+
 <button type="button" class="btn btn-sm btn-outline-danger m-1"   data-mdb-toggle="modal"
     data-mdb-target="#delete_account_modal">
     Delete Account

@@ -2,11 +2,11 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 
-{% block title %}Create Objective{% endblock %}
+{% block title %}Create Sub-Objective{% endblock %}
 
 {% block header %}
-<h1>Create a new objective</h1>
-<p>Fill on the form fields as required</p>
+<h1>Create a new subobjective</h1>
+<p>Fill in the form fields as required</p>
 {% endblock header %}
 
 {% block content %}
@@ -14,7 +14,7 @@
 	<form method="post">
 		{% bootstrap_form form %}
 		{% csrf_token %}
-		<input class="btn btn-outline-success" type="submit" value="Create Objective">
+		<input class="btn btn-outline-success" type="submit" value="Create Sub-Objective">
 	</form>
 </div>
 <div>

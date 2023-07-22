@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.db import IntegrityError
 from notes.models import *
 from revision.models import *
-from revision.forms import ObjectiveForm
+from revision.forms import ObjectiveForm, SubObjectiveForm
 
 
 @login_required
@@ -102,6 +102,39 @@ def create_objective(request):
     return render(request, template_path, context)
 
 
+# create objective view
+@login_required
+def create_subobjective(request, objective_id):
+    student = request.user
+    objective = Objective.objects.get(id=objective_id, course__student_id=student.id)
+    course = objective.course
+
+    if request.method != "POST":
+        form = SubObjectiveForm(course=course, student=student)
+    else:
+        form = SubObjectiveForm(course=course, data=request.POST, student=student)
+        if form.is_valid():
+            try:
+                new_subobjective = form.save(commit=False)
+                new_subobjective.objective = objective
+                new_subobjective.save()
+                return redirect(new_subobjective.objective)
+            except IntegrityError as e:
+                if "duplicate key value violates unique constraint" in str(e):
+                    messages.error(
+                        request,
+                        f"An objective with that name already exists in this course.",
+                    )
+                else:
+                    messages.error(
+                        request, "There was an error creating the objective."
+                    )
+
+    template_path = "revision/create_subobjective_form.html"
+    context = {"form": form}
+    return render(request, template_path, context)
+
+
 # update objective view
 @login_required
 def update_objective(request, objective_id):
@@ -150,3 +183,43 @@ def delete_objective(request, objective_id):
     )
 
     return redirect("revision:objective_list", course.id, course.slug)
+
+
+@login_required
+def delete_subobjective(request, subobjective_id, object_path):
+    student = request.user
+    subobjective = SubObjective.objects.get(
+        id=subobjective_id, objective__course__student_id=student.id
+    )
+    subobjective_name = subobjective.name
+    objective = subobjective.objective
+
+    subobjective.delete()
+    messages.success(
+        request,
+        f"The sub-objective {subobjective_name} in {objective} has been deleted successfully.",
+    )
+
+    return redirect(object_path)
+
+
+def mark_sub_complete(request, subobjective_id, object_path):
+    student = request.user
+    subobjective = SubObjective.objects.get(
+        id=subobjective_id, objective__course__student_id=student.id
+    )
+    subobjective.complete = True
+    subobjective.save()
+
+    return redirect(object_path)
+
+
+def mark_sub_incomplete(request, subobjective_id, object_path):
+    student = request.user
+    subobjective = SubObjective.objects.get(
+        id=subobjective_id, objective__course__student_id=student.id
+    )
+    subobjective.complete = False
+    subobjective.save()
+
+    return redirect(object_path)
