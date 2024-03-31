@@ -11,7 +11,7 @@
 
 {% block content %}
 <div>
-	<form method="post" onsubmit="createEntry()">
+	<form method="post" onsubmit="createEntry()" id="entry-form">
 		{% csrf_token %}
 		<div class="mb-3">
 			<label for="id_name" class="form-label">Name</label>
@@ -27,7 +27,7 @@
 <script>
 	function createEntry(event) {
 		event.preventDefault();
-		const form = event.target;
+		const form = document.querySelector('#entry-form');
 		const textarea = form.querySelector('#id_content');
 		textarea.value = easyMDE.value();
 		form.submit();
