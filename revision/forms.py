@@ -4,7 +4,6 @@ from django import forms
 from .widgets import DatePickerInput
 from notes.models import *
 from revision.models import *
-from markdownx.widgets import MarkdownxWidget
 
 
 class ObjectiveForm(forms.ModelForm):
@@ -18,7 +17,6 @@ class ObjectiveForm(forms.ModelForm):
         widgets = {
             "start_date": DatePickerInput(),
             "end_date": DatePickerInput(),
-            "description": MarkdownxWidget(attrs={"rows": 10}),
         }
 
 

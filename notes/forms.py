@@ -2,7 +2,6 @@
 from django.utils.translation import gettext_lazy as _
 from django import forms
 from notes.models import *
-from markdownx.widgets import MarkdownxWidget
 
 class CourseForm(forms.ModelForm):
     class Meta:
@@ -26,4 +25,3 @@ class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
         fields = ["name", "content", "revised"]
-        widgets = {"content": MarkdownxWidget(attrs={"rows": 10})}

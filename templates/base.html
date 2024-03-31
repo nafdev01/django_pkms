@@ -15,13 +15,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Streamline your academic study materials and stay on top of your studies with PKMS. Easily take and organize notes, store important terms, and set revision goals.">
-    <meta name="keywords" content="PKMS, knowledge management system,personal knowledge management system, note-taking, organization, glossary, revision planning, customizable profile, note sharing, privacy, django knowledge management system">
+    <meta name="description"
+        content="Streamline your academic study materials and stay on top of your studies with PKMS. Easily take and organize notes, store important terms, and set revision goals.">
+    <meta name="keywords"
+        content="PKMS, knowledge management system,personal knowledge management system, note-taking, organization, glossary, revision planning, customizable profile, note sharing, privacy, django knowledge management system">
     <meta name="robots" content="index, follow">
     <meta name="author" content="PKMS Team">
     <link rel="canonical" href="https://pkms.live/">
     <meta property="og:title" content="PKMS - A Personal Knowledge Management System for Students">
-    <meta property="og:description" content="Streamline your academic study materials and stay on top of your studies with PKMS. Easily take and organize notes, store important terms, set revision goals, and more.">
+    <meta property="og:description"
+        content="Streamline your academic study materials and stay on top of your studies with PKMS. Easily take and organize notes, store important terms, set revision goals, and more.">
     <meta property="og:image" content="{% static 'favicon.ico' %}">
 
     <!-- Font Awesome -->
@@ -37,6 +40,11 @@
     {% else %}
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     {% endif %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+
+    {% block custom_css %}
+    {% endblock custom_css %}
 </head>
 
 <body>
@@ -46,7 +54,9 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -77,8 +87,10 @@
                 <!-- Left links -->
             </div>
             <!-- Collapsible wrapper -->
-            <form class="input-group w-auto my-auto d-none d-sm-flex me-2" role="search" action="{% url 'notes:search' %}" method="get">
-                <input name="q" autocomplete="off" type="search" class="form-control" placeholder="Search" style="min-width: 125px;" />
+            <form class="input-group w-auto my-auto d-none d-sm-flex me-2" role="search"
+                action="{% url 'notes:search' %}" method="get">
+                <input name="q" autocomplete="off" type="search" class="form-control" placeholder="Search"
+                    style="min-width: 125px;" />
                 <button class="btn btn-success">
                     <i class="fas fa-search"></i>
                 </button>
@@ -88,9 +100,11 @@
                 <!-- Icon -->
                 <!-- Avatar -->
                 <div class="dropdown">
-                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                        id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                         {% if request.user.profile.photo %}
-                        <img src="{{ request.user.profile.photo.url }}" class="rounded-5" alt="..." width="35" height="35">
+                        <img src="{{ request.user.profile.photo.url }}" class="rounded-5" alt="..." width="35"
+                            height="35">
                         {% else %}
                         <img src="{% static 'no-photo-icon.jpg' %}" class="rounded-5" alt="..." width="35" height="35">
                         {% endif %}

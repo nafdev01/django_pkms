@@ -11,14 +11,26 @@
 
 {% block content %}
 <div>
-	<form method="post">
-		{% bootstrap_form form %}
+	<form method="post" onsubmit="createEntry()">
 		{% csrf_token %}
-		<input class="btn btn-outline-success" type="submit" value="Save Entry">
+		<div class="mb-3">
+			<label for="id_name" class="form-label">Name</label>
+			<input type="text" class="form-control" id="id_name" name="name" required>
+		</div>
+		<textarea id="id_content" name="content"></textarea>
+		<button class="btn btn-outline-success" type="submit">Save Entry</button>
 	</form>
 </div>
-<div>
-	{{ form.media }}
-</div>
-
+<script>
+	const easyMDE = new EasyMDE({ element: document.getElementById('id_content') });
+</script>
+<script>
+	function createEntry(event) {
+		event.preventDefault();
+		const form = event.target;
+		const textarea = form.querySelector('#id_content');
+		textarea.value = easyMDE.value();
+		form.submit();
+	};
+</script>
 {% endblock %}
