@@ -129,11 +129,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-
-if not LOCAL_SERVER:
-    from .cdn.conf import *  # noqa
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # media files
 MEDIA_URL = "/media/"
@@ -172,6 +168,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.in.ngrok.io",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "http://0.0.0.0:8000",
 ]
 
 
