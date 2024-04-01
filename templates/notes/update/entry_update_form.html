@@ -11,13 +11,30 @@
 
 {% block content %}
 <div>
-	<form method="post">
-		{% bootstrap_form form %}
+	<form method="post" onsubmit="updateEntry()" id="entry-form">
 		{% csrf_token %}
-		<input class="btn btn-outline-success" type="submit" value="Save Changes">
+		<div class="mb-3">
+			<label for="id_name" class="form-label">Name</label>
+			<input type="text" class="form-control" id="id_name" name="name" required value="{{entry.name}}">
+		</div>
+		<div class="form-group mb-3">
+			<label for="id_content" class="form-label">Content</label>
+			<textarea id="id_content" name="content">{{entry.content|safe}}</textarea>
+		</div>
+		<button class="btn btn-outline-success" type="submit">Save Changes</button>
 	</form>
 </div>
-<div>
-	{{ form.media }}
-</div>
+<script>
+	const easyMDE = new EasyMDE({ element: document.getElementById('id_content') });
+	easyMDE.value();
+</script>
+<script>
+	function updateEntry(event) {
+		event.preventDefault();
+		const form = document.querySelector('#entry-form');
+		const textarea = form.querySelector('#id_content');
+		textarea.value = easyMDE.value();
+		form.submit();
+	};
+</script>
 {% endblock %}
