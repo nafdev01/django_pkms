@@ -1,5 +1,6 @@
-{% load notes_tags %}
+{% extends base.html %}
 {% load glossary_tags %}
+{% load notes_tags %}
 
 <div class="my-2" id="otherEntries">
     {% for other_entry in entry.subtopic.entry_set.all %}
