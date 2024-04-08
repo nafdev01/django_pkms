@@ -2,6 +2,10 @@
 {% load glossary_tags %}
 {% load notes_tags %}
 
+{% block title %}{{entry.name}}{% endblock title %}
+
+
+{% block content %}
 <div class="my-2" id="otherEntries">
     {% for other_entry in entry.subtopic.entry_set.all %}
     {% if other_entry.id is not entry.id %}
@@ -50,3 +54,5 @@
 <p>
     {{ entry.content | markdown }}
 </p>
+{% endblock content %}
+
